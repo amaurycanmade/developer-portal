@@ -22,13 +22,19 @@
             --border-color: #334155;
             --font-head: 'Montserrat', sans-serif;
             --font-body: 'Open Sans', sans-serif;
-            --font-code: 'Roboto Mono', monospace;
+            --font-code: 'Roboto Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { background-color: var(--bg-dark); color: var(--text-primary); font-family: var(--font-body); line-height: 1.6; }
 
-        /* ROD Governance Top Bar */
+        /* Force Monospace Typography Enforcer */
+        code, pre, .badge-tag, .rank-badge, .tax-receipt-box, .status-pill, .tile-tag, .card-tag {
+            font-family: var(--font-code) !important;
+            letter-spacing: -0.3px;
+        }
+
+        /* ROD Governance Top Seal Banner */
         .top-seal-bar { background: #020617; border-bottom: 1px solid var(--border-color); padding: 8px 24px; font-size: 11px; font-family: var(--font-code); color: var(--text-secondary); display: flex; justify-content: space-between; align-items: center; }
         .top-seal-bar .seal-title { color: var(--accent-sky-light); font-weight: 700; }
         .top-seal-bar .status-pill { background: #10b98122; color: var(--accent-emerald); border: 1px solid var(--accent-emerald); padding: 2px 8px; border-radius: 12px; }
