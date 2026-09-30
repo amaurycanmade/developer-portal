@@ -20,29 +20,38 @@
             --text-primary: #f8fafc;
             --text-secondary: #94a3b8;
             --border-color: #334155;
-            --font-head: 'Montserrat', sans-serif;
-            --font-body: 'Open Sans', sans-serif;
-            --font-code: 'Roboto Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            --font-head: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            --font-body: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            --font-code: 'Roboto Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
         }
 
+        /* Global Reset & Typography Binding */
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { background-color: var(--bg-dark); color: var(--text-primary); font-family: var(--font-body); line-height: 1.6; }
 
-        /* Force Monospace Typography Enforcer */
-        code, pre, .badge-tag, .rank-badge, .tax-receipt-box, .status-pill, .tile-tag, .card-tag {
+        /* Explicit Form Control Inheritance (Fixes Browser User-Agent Font Overrides) */
+        input, select, textarea, button {
+            font-family: var(--font-body);
+        }
+
+        /* Universal Monospace Typography Enforcer */
+        code, pre, kbd, samp,
+        .font-mono, .badge-tag, .rank-badge, .tax-receipt-box,
+        .status-pill, .tile-tag, .card-tag, .seal-title,
+        .receipt-row, #modalRecordId, .mono-text {
             font-family: var(--font-code) !important;
             letter-spacing: -0.3px;
         }
 
         /* ROD Governance Top Seal Banner */
-        .top-seal-bar { background: #020617; border-bottom: 1px solid var(--border-color); padding: 8px 24px; font-size: 11px; font-family: var(--font-code); color: var(--text-secondary); display: flex; justify-content: space-between; align-items: center; }
-        .top-seal-bar .seal-title { color: var(--accent-sky-light); font-weight: 700; }
-        .top-seal-bar .status-pill { background: #10b98122; color: var(--accent-emerald); border: 1px solid var(--accent-emerald); padding: 2px 8px; border-radius: 12px; }
+        .top-seal-bar { background: #020617; border-bottom: 1px solid var(--border-color); padding: 8px 24px; font-size: 11px; font-family: var(--font-code) !important; color: var(--text-secondary); display: flex; justify-content: space-between; align-items: center; }
+        .top-seal-bar .seal-title { color: var(--accent-sky-light); font-weight: 700; font-family: var(--font-code) !important; }
+        .top-seal-bar .status-pill { background: #10b98122; color: var(--accent-emerald); border: 1px solid var(--accent-emerald); padding: 2px 8px; border-radius: 12px; font-family: var(--font-code) !important; }
 
         /* Header Navigation */
         header { position: sticky; top: 0; z-index: 100; background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-color); padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; }
         .logo { font-family: var(--font-head); font-weight: 800; font-size: 18px; color: var(--text-primary); text-decoration: none; letter-spacing: -0.5px; display: flex; align-items: center; gap: 8px; }
-        .badge-tag { font-family: var(--font-code); font-size: 11px; background: #0284c722; color: var(--accent-sky-light); border: 1px solid var(--accent-sky); padding: 2px 8px; border-radius: 4px; }
+        .badge-tag { font-family: var(--font-code) !important; font-size: 11px; background: #0284c722; color: var(--accent-sky-light); border: 1px solid var(--accent-sky); padding: 2px 8px; border-radius: 4px; }
         nav { display: flex; gap: 16px; align-items: center; }
         nav a { color: var(--text-secondary); text-decoration: none; font-size: 13px; font-weight: 600; transition: color 0.2s; }
         nav a:hover, nav a.active { color: var(--accent-sky-light); }
@@ -63,7 +72,7 @@
         .search-input { width: 100%; background: #0b1329; border: 2px solid var(--accent-sky); color: #fff; padding: 16px 20px 16px 48px; border-radius: 50px; font-size: 15px; font-family: var(--font-body); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.4); transition: border-color 0.2s; }
         .search-input:focus { outline: none; border-color: var(--accent-emerald); }
         .search-icon { position: absolute; left: 18px; top: 50%; transform: translateY(-50%); color: var(--accent-sky-light); font-size: 18px; }
-        .quick-verify-btn { position: absolute; right: 8px; top: 50%; transform: translateY(-50%); background: var(--accent-emerald); color: #000; font-weight: 700; padding: 10px 20px; border-radius: 40px; border: none; cursor: pointer; font-size: 13px; }
+        .quick-verify-btn { position: absolute; right: 8px; top: 50%; transform: translateY(-50%); background: var(--accent-emerald); color: #000; font-weight: 700; padding: 10px 20px; border-radius: 40px; border: none; cursor: pointer; font-size: 13px; font-family: var(--font-body); }
         .quick-verify-btn:hover { background: #34d399; }
 
         /* Action Quick Tiles (ROD Grid Style) */
@@ -72,7 +81,7 @@
         .tile:hover { transform: translateY(-4px); border-color: var(--accent-sky); background: var(--bg-card-hover); }
         .tile-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
         .tile-icon { font-size: 24px; }
-        .tile-tag { font-family: var(--font-code); font-size: 10px; background: #334155; color: var(--accent-sky-light); padding: 2px 6px; border-radius: 4px; }
+        .tile-tag { font-family: var(--font-code) !important; font-size: 10px; background: #334155; color: var(--accent-sky-light); padding: 2px 6px; border-radius: 4px; }
         .tile h3 { font-family: var(--font-head); font-size: 18px; font-weight: 700; margin-bottom: 8px; }
         .tile p { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
 
@@ -80,7 +89,7 @@
         .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
         .card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 28px; transition: transform 0.2s, border-color 0.2s; }
         .card:hover { transform: translateY(-4px); border-color: var(--accent-sky); }
-        .card-tag { font-family: var(--font-code); font-size: 12px; color: var(--accent-emerald); margin-bottom: 12px; display: block; }
+        .card-tag { font-family: var(--font-code) !important; font-size: 12px; color: var(--accent-emerald); margin-bottom: 12px; display: block; }
         .card h3 { font-family: var(--font-head); font-size: 20px; margin-bottom: 12px; }
         .card p { color: var(--text-secondary); font-size: 14px; margin-bottom: 20px; }
         .card-link { color: var(--accent-sky-light); text-decoration: none; font-weight: 600; font-size: 14px; display: inline-flex; align-items: center; gap: 6px; }
@@ -88,10 +97,10 @@
         /* Leaderboard & Verification Modal */
         .table-wrapper { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; overflow: hidden; }
         table { width: 100%; border-collapse: collapse; text-align: left; font-size: 14px; }
-        th { background: #0f172a; padding: 16px 20px; font-family: var(--font-code); font-size: 12px; color: var(--text-secondary); border-bottom: 1px solid var(--border-color); }
+        th { background: #0f172a; padding: 16px 20px; font-family: var(--font-code) !important; font-size: 12px; color: var(--text-secondary); border-bottom: 1px solid var(--border-color); }
         td { padding: 16px 20px; border-bottom: 1px solid var(--border-color); }
         tr:last-child td { border-bottom: none; }
-        .rank-badge { font-family: var(--font-code); font-weight: 700; color: var(--accent-amber); }
+        .rank-badge { font-family: var(--font-code) !important; font-weight: 700; color: var(--accent-amber); }
         .progress-bar-bg { background: #334155; height: 12px; border-radius: 6px; overflow: hidden; margin-top: 8px; }
         .progress-bar-fill { background: linear-gradient(90deg, var(--accent-sky), var(--accent-emerald)); height: 100%; width: 85%; }
 
@@ -101,9 +110,9 @@
         .form-group label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 8px; color: var(--text-secondary); }
         .form-control { width: 100%; background: #0f172a; border: 1px solid var(--border-color); color: #fff; padding: 12px 16px; border-radius: 6px; font-family: var(--font-body); font-size: 14px; }
         .form-control:focus { outline: none; border-color: var(--accent-sky); }
-        .tax-receipt-box { background: #090e1a; border: 1px dashed var(--accent-sky); border-radius: 8px; padding: 16px; margin-top: 20px; font-family: var(--font-code); font-size: 13px; }
-        .receipt-row { display: flex; justify-content: space-between; margin-bottom: 6px; }
-        .receipt-total { border-top: 1px solid var(--border-color); padding-top: 8px; font-weight: 700; color: var(--accent-emerald); font-size: 15px; }
+        .tax-receipt-box { background: #090e1a; border: 1px dashed var(--accent-sky); border-radius: 8px; padding: 16px; margin-top: 20px; font-family: var(--font-code) !important; font-size: 13px; }
+        .receipt-row { display: flex; justify-content: space-between; margin-bottom: 6px; font-family: var(--font-code) !important; }
+        .receipt-total { border-top: 1px solid var(--border-color); padding-top: 8px; font-weight: 700; color: var(--accent-emerald); font-size: 15px; font-family: var(--font-code) !important; }
 
         /* Modal Popup System */
         .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); z-index: 200; display: none; justify-content: center; align-items: center; padding: 20px; }
@@ -113,7 +122,7 @@
 
         /* Footer */
         footer { background: #0b1329; border-top: 1px solid var(--border-color); padding: 40px 24px; text-align: center; font-size: 13px; color: var(--text-secondary); }
-        footer code { font-family: var(--font-code); color: var(--accent-emerald); }
+        footer code { font-family: var(--font-code) !important; color: var(--accent-emerald); }
     </style>
 </head>
 <body>
@@ -299,7 +308,7 @@
             <div class="card">
                 <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
                     <span style="font-weight:700; font-family:var(--font-head);">2026 Server Capitalization Goal</span>
-                    <span style="font-family:var(--font-code); color:var(--accent-emerald); font-weight:700;">$8,500 / $10,000</span>
+                    <span style="font-family:var(--font-code) !important; color:var(--accent-emerald); font-weight:700;">$8,500 / $10,000</span>
                 </div>
                 <div class="progress-bar-bg">
                     <div class="progress-bar-fill"></div>
@@ -365,7 +374,7 @@
             <h3 style="font-family:var(--font-head); color:var(--accent-sky-light); margin-bottom:12px;">Record Verification Certificate</h3>
             <p style="font-size:13px; color:var(--text-secondary); margin-bottom:20px;">Verification query for: <code id="modalRecordId" style="color:var(--accent-emerald);">INV-B2B-2026-TECP15</code></p>
 
-            <div style="background:#090e1a; border:1px solid var(--border-color); padding:16px; border-radius:8px; font-family:var(--font-code); font-size:12px; margin-bottom:20px;">
+            <div style="background:#090e1a; border:1px solid var(--border-color); padding:16px; border-radius:8px; font-family:var(--font-code) !important; font-size:12px; margin-bottom:20px;">
                 <div style="color:var(--accent-emerald); margin-bottom:8px;">&#10004; RECORD VERIFIED IN B2B.db LEDGER</div>
                 <div>Status: <span style="color:#fff;">STATE MADE (Certified)</span></div>
                 <div>Subnet Coordinate: <span>00.10.20.30.40.00</span></div>
