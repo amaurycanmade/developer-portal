@@ -1,646 +1,616 @@
-<!--
-ASSUMPTION & TOPIC SPECIFICATION:
-Brand: Amaurycan Made & AnkerLabs Sovereign Master Portal (v10.0)
-Owner: Terrell M. Wilson (Studio Director, Chief Systems Architect, CCNA, Founder)
-Focus: 100% Amaurycan Made Brand Ecosystem, IT Systems Architecture, Custom SPAs, Kinetic Mitt Crucible Athletic Program, B2B SOW Estimator, and Youth Mentorship (MADE3654KIDS.IT).
-Zero Government / ROD Data: Completely stripped of public records and government agency datasets while maintaining the sleek, responsive multi-view portal layout.
-Theme: Cyber Void Dark / Soft Slate Light Dual-Capable Glassmorphism.
--->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amaurycan Made & AnkerLabs | Sovereign IT & Athletic Engine</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Open+Sans:wght@400;500;600;700&family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            /* Dark Void Color System */
-            --bg-void: #060913;          /* Main Void Background */
-            --bg-panel: #0b1120;         /* Deep Panel Surface */
-            --bg-card: #131d33;          /* Glass Card Surface */
-            --bg-card-hover: #1c2b44;    /* Card Hover State */
-            --border-color: #1e2e4a;     /* Accent Border Stroke */
-            --border-highlight: #00f0ff; /* Cyber Cyan Accent Stroke */
+     --accent-cyan: #00f0ff;
+        --accent-sky: #0284c7;
+        --accent-indigo: #6366f1;
+        --accent-emerald: #10b981;
+        --accent-amber: #f59e0b;
+        --accent-rose: #f43f5e;
 
-            /* Accent & Status Colors */
-            --primary-cyan: #00f0ff;     /* Cyber Cyan */
-            --primary-sky: #0284c7;      /* Sky Blue */
-            --accent-indigo: #6366f1;    /* Soft Indigo */
-            --accent-emerald: #10b981;   /* Status Emerald */
-            --accent-amber: #f59e0b;     /* Warning Amber */
+        --text-main: #f8fafc;
+        --text-muted: #94a3b8;
+        --text-dim: #64748b;
 
-            /* Typography */
-            --text-main: #f8fafc;        /* High-Contrast White */
-            --text-muted: #94a3b8;       /* Slate Muted Text */
-            --text-dim: #64748b;         /* Deep Dimmed Label */
+        --font-head: 'Montserrat', sans-serif;
+        --font-body: 'Open Sans', sans-serif;
+        --font-code: 'Roboto Mono', monospace;
+    }
 
-            /* Fonts */
-            --font-head: 'Montserrat', sans-serif;
-            --font-body: 'Open Sans', sans-serif;
-            --font-code: 'Roboto Mono', ui-monospace, monospace;
-        }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background-color: var(--bg-void); color: var(--text-main); font-family: var(--font-body); line-height: 1.6; background-image: radial-gradient(circle at 50% 0%, rgba(2, 132, 199, 0.15), transparent 70%); min-height: 100vh; }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; }
-        body { background-color: var(--bg-void); color: var(--text-main); font-family: var(--font-body); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    code, pre, .mono-text, .badge-tag, .stat-val { font-family: var(--font-code) !important; }
 
-        code, pre, .mono-text, .badge-tag, .stat-val, .pill-tag {
-            font-family: var(--font-code) !important;
-        }
+    /* Top Status Bar */
+    .top-banner { background: linear-gradient(90deg, rgba(2, 132, 199, 0.4), rgba(99, 102, 241, 0.4)); border-bottom: 1px solid var(--border-color); color: var(--text-main); padding: 8px 24px; font-size: 12px; font-weight: 600; display: flex; justify-content: space-between; align-items: center; backdrop-filter: blur(8px); }
+    .top-banner code { color: var(--accent-cyan); }
+    .status-badge { background: rgba(16, 185, 129, 0.2); border: 1px solid var(--accent-emerald); color: var(--accent-emerald); padding: 2px 10px; border-radius: 12px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; }
 
-        /* Top Status Bar */
-        .top-banner-bar { background: linear-gradient(90deg, #00f0ff, #0284c7, #6366f1); color: #060913; padding: 8px 24px; font-size: 12px; font-weight: 800; display: flex; justify-content: space-between; align-items: center; letter-spacing: 0.5px; }
-        .top-banner-bar a { color: #060913; text-decoration: underline; font-weight: 900; }
-        .status-badge { background: rgba(6, 9, 19, 0.25); color: #060913; padding: 2px 10px; border-radius: 12px; font-size: 11px; text-transform: uppercase; }
+    /* Header Navigation */
+    header { position: sticky; top: 0; z-index: 1000; background: rgba(6, 9, 19, 0.88); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border-color); padding: 0 32px; height: 76px; display: flex; align-items: center; justify-content: space-between; }
+    .brand-logo { display: flex; align-items: center; gap: 14px; text-decoration: none; color: var(--text-main); }
+    .brand-icon { width: 44px; height: 44px; background: linear-gradient(135deg, var(--accent-sky), var(--accent-indigo)); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #fff; font-family: var(--font-head); font-weight: 900; font-size: 22px; box-shadow: 0 0 15px rgba(0, 240, 255, 0.3); border: 1px solid var(--accent-cyan); }
+    .brand-text h2 { font-family: var(--font-head); font-size: 18px; font-weight: 800; letter-spacing: -0.5px; color: var(--text-main); }
+    .brand-text p { font-size: 11px; color: var(--accent-cyan); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
 
-        /* Sticky Glass Header */
-        header { position: sticky; top: 0; z-index: 1000; background: rgba(11, 17, 32, 0.90); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border-color); padding: 0 32px; height: 76px; display: flex; align-items: center; justify-content: space-between; }
+    nav { display: flex; gap: 6px; align-items: center; }
+    nav a { color: var(--text-muted); text-decoration: none; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; padding: 8px 12px; border-radius: 6px; transition: all 0.2s; border: 1px solid transparent; }
+    nav a:hover, nav a.active { color: var(--accent-cyan); background: rgba(0, 240, 255, 0.08); border-color: var(--border-glow); }
 
-        .brand-logo { display: flex; align-items: center; gap: 14px; text-decoration: none; color: var(--text-main); }
-        .brand-logo-icon { width: 44px; height: 44px; background: linear-gradient(135deg, var(--primary-cyan), var(--primary-sky)); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #060913; font-family: var(--font-head); font-weight: 900; font-size: 22px; box-shadow: 0 0 16px rgba(0,240,255,0.3); }
-        .brand-logo-text h2 { font-family: var(--font-head); font-size: 20px; font-weight: 900; letter-spacing: -0.5px; color: var(--text-main); }
-        .brand-logo-text p { font-size: 11px; color: var(--primary-cyan); font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; }
+    .btn-cyan { background: linear-gradient(135deg, var(--accent-sky), var(--accent-indigo)); color: #fff; height: 42px; padding: 0 20px; border-radius: 8px; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; border: 1px solid var(--accent-cyan); cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 8px; transition: all 0.2s; box-shadow: 0 0 12px rgba(2, 132, 199, 0.3); }
+    .btn-cyan:hover { transform: translateY(-1px); box-shadow: 0 0 20px rgba(0, 240, 255, 0.5); }
 
-        nav { display: flex; gap: 6px; align-items: center; }
-        nav a { color: var(--text-muted); text-decoration: none; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; padding: 8px 14px; border-radius: 8px; transition: all 0.2s; }
-        nav a:hover, nav a.active { color: var(--primary-cyan); background: rgba(0,240,255,0.1); border: 1px solid rgba(0,240,255,0.2); }
+    /* Container & Views */
+    .main-container { max-width: 1280px; margin: 0 auto; padding: 36px 24px; }
+    .page-view { display: none; }
+    .page-view.active-page { display: block; animation: fadeIn 0.3s ease-out; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 
-        .header-cta-group { display: flex; align-items: center; gap: 12px; }
-        .search-box { position: relative; display: flex; align-items: center; }
-        .search-input { width: 220px; height: 40px; padding: 8px 16px 8px 38px; font-size: 13px; border-radius: 20px; background: var(--bg-card); border: 1px solid var(--border-color); color: var(--text-main); transition: all 0.2s; }
-        .search-input:focus { outline: none; border-color: var(--primary-cyan); width: 260px; box-shadow: 0 0 12px rgba(0,240,255,0.2); }
-        .search-icon { position: absolute; left: 14px; color: var(--text-dim); font-size: 14px; }
+    /* Hero Banner */
+    .hero-banner { background: var(--bg-panel); border: 1px solid var(--border-glow); border-radius: 20px; padding: 48px 40px; margin-bottom: 36px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5); position: relative; overflow: hidden; backdrop-filter: blur(12px); }
+    .hero-banner::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--accent-cyan), var(--accent-indigo), var(--accent-emerald)); }
+    .hero-banner h1 { font-family: var(--font-head); font-size: 36px; font-weight: 900; letter-spacing: -1px; color: var(--text-main); margin-bottom: 12px; line-height: 1.2; }
+    .hero-banner p { font-size: 15px; color: var(--text-muted); max-width: 820px; margin-bottom: 28px; }
 
-        .btn-cyan { background: var(--primary-cyan); color: #060913; height: 40px; padding: 0 20px; border-radius: 8px; font-weight: 800; font-size: 13px; border: none; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 6px; transition: all 0.2s; box-shadow: 0 0 16px rgba(0,240,255,0.25); }
-        .btn-cyan:hover { background: #38bdf8; transform: translateY(-1px); box-shadow: 0 0 24px rgba(0,240,255,0.4); }
+    .hero-pills { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 20px; }
+    .pill-badge { background: rgba(30, 41, 59, 0.8); border: 1px solid var(--border-color); padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 700; color: var(--text-main); display: flex; align-items: center; gap: 6px; }
+    .pill-badge span { color: var(--accent-cyan); }
 
-        /* Container & Page Views */
-        .main-container { max-width: 1280px; margin: 0 auto; padding: 36px 24px; }
-        .page-view { display: none; }
-        .page-view.active-page { display: block; animation: fadeIn 0.3s ease-in-out; }
+    /* Cards & Grid */
+    .section-header { margin-bottom: 20px; display: flex; justify-content: space-between; align-items: flex-end; }
+    .section-header h2 { font-family: var(--font-head); font-size: 22px; font-weight: 800; color: var(--text-main); }
+    .section-header p { font-size: 13px; color: var(--text-muted); }
 
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+    .tile-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 24px; margin-bottom: 40px; }
+    .card-tile { background: var(--bg-panel); border: 1px solid var(--border-color); border-radius: 16px; padding: 28px; transition: all 0.25s; backdrop-filter: blur(12px); display: flex; flex-direction: column; justify-content: space-between; }
+    .card-tile:hover { border-color: var(--border-glow); transform: translateY(-3px); box-shadow: 0 10px 25px rgba(0, 240, 255, 0.1); }
 
-        /* Glass Hero Banner */
-        .hero-banner { background: linear-gradient(135deg, rgba(19, 29, 51, 0.8) 0%, rgba(11, 17, 32, 0.95) 100%); border: 1px solid var(--border-color); border-radius: 20px; padding: 48px 40px; margin-bottom: 36px; box-shadow: 0 16px 40px rgba(0,0,0,0.5); position: relative; overflow: hidden; }
-        .hero-banner::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--primary-cyan), var(--accent-indigo), var(--accent-emerald)); }
-        .hero-banner h1 { font-family: var(--font-head); font-size: 38px; font-weight: 900; letter-spacing: -1px; color: var(--text-main); margin-bottom: 12px; line-height: 1.2; }
-        .hero-banner p { font-size: 16px; color: var(--text-muted); max-width: 820px; margin-bottom: 28px; line-height: 1.6; }
+    .tile-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+    .tile-icon { width: 44px; height: 44px; background: rgba(2, 132, 199, 0.15); border-radius: 10px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 22px; color: var(--accent-cyan); }
+    .tile-tag { font-family: var(--font-code) !important; font-size: 11px; background: rgba(15, 23, 42, 0.8); color: var(--accent-cyan); border: 1px solid var(--border-color); padding: 4px 10px; border-radius: 6px; font-weight: 700; }
 
-        .hero-pills-row { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 24px; }
-        .pill-badge { background: var(--bg-card); border: 1px solid var(--border-color); padding: 8px 16px; border-radius: 30px; font-size: 12px; font-weight: 700; color: var(--text-main); display: flex; align-items: center; gap: 8px; }
-        .pill-badge span { color: var(--primary-cyan); }
+    .card-tile h3 { font-family: var(--font-head); font-size: 18px; font-weight: 800; margin-bottom: 8px; color: var(--text-main); }
+    .card-tile p { font-size: 13px; color: var(--text-muted); margin-bottom: 20px; }
 
-        /* Grid Architecture */
-        .section-header { margin-bottom: 20px; display: flex; justify-content: space-between; align-items: flex-end; }
-        .section-header h2 { font-family: var(--font-head); font-size: 22px; font-weight: 800; color: var(--text-main); }
-        .section-header p { font-size: 14px; color: var(--text-muted); }
+    /* Tables */
+    .table-wrapper { background: var(--bg-panel); border-radius: 16px; border: 1px solid var(--border-color); overflow: hidden; margin-bottom: 40px; backdrop-filter: blur(12px); }
+    table { width: 100%; border-collapse: collapse; text-align: left; }
+    th, td { padding: 16px 20px; font-size: 13px; border-bottom: 1px solid rgba(56, 189, 248, 0.1); }
+    th { background: rgba(30, 41, 59, 0.8); font-family: var(--font-head); font-weight: 700; text-transform: uppercase; color: var(--text-muted); font-size: 11px; letter-spacing: 0.5px; }
+    tr:hover td { background: rgba(51, 65, 85, 0.3); }
 
-        .tile-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 24px; margin-bottom: 40px; }
-        .card-tile { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 16px; padding: 28px; transition: all 0.25s; text-decoration: none; color: inherit; display: flex; flex-direction: column; justify-content: space-between; position: relative; }
-        .card-tile:hover { transform: translateY(-4px); border-color: var(--primary-cyan); background: var(--bg-card-hover); box-shadow: 0 12px 30px rgba(0,240,255,0.12); }
+    .pill-green { background: rgba(16, 185, 129, 0.2); color: var(--accent-emerald); border: 1px solid var(--accent-emerald); padding: 2px 8px; border-radius: 10px; font-size: 11px; font-weight: 700; }
+    .pill-amber { background: rgba(245, 158, 11, 0.2); color: var(--accent-amber); border: 1px solid var(--accent-amber); padding: 2px 8px; border-radius: 10px; font-size: 11px; font-weight: 700; }
+    .pill-rose { background: rgba(244, 63, 94, 0.2); color: var(--accent-rose); border: 1px solid var(--accent-rose); padding: 2px 8px; border-radius: 10px; font-size: 11px; font-weight: 700; }
 
-        .card-tile-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
-        .card-tile-icon { font-size: 28px; width: 48px; height: 48px; background: rgba(0,240,255,0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--primary-cyan); }
-        .tile-tag { font-family: var(--font-code) !important; font-size: 11px; background: rgba(0,240,255,0.15); color: var(--primary-cyan); border: 1px solid rgba(0,240,255,0.3); padding: 4px 10px; border-radius: 6px; font-weight: 700; }
+    /* Forms & Calculators */
+    .form-card { background: var(--bg-panel); border: 1px solid var(--border-color); border-radius: 18px; padding: 36px; max-width: 820px; margin: 0 auto 40px; backdrop-filter: blur(12px); }
+    .form-group { margin-bottom: 20px; }
+    .form-group label { display: block; font-size: 11px; font-weight: 700; text-transform: uppercase; margin-bottom: 8px; color: var(--text-muted); letter-spacing: 0.5px; }
+    .form-control { width: 100%; height: 46px; background: rgba(15, 23, 42, 0.8); border: 1px solid var(--border-color); color: var(--text-main); padding: 0 16px; border-radius: 10px; font-size: 14px; transition: all 0.2s; }
+    .form-control:focus { outline: none; border-color: var(--accent-cyan); box-shadow: 0 0 12px rgba(0, 240, 255, 0.2); }
 
-        .card-tile h3 { font-family: var(--font-head); font-size: 18px; font-weight: 800; margin-bottom: 8px; color: var(--text-main); }
-        .card-tile p { font-size: 14px; color: var(--text-muted); margin-bottom: 20px; line-height: 1.5; }
-        .card-action-link { color: var(--primary-cyan); font-weight: 700; font-size: 13px; display: flex; align-items: center; gap: 6px; }
+    .calc-box { background: rgba(30, 41, 59, 0.6); border-radius: 12px; padding: 24px; margin-top: 24px; border: 1px solid var(--border-color); }
+    .calc-row { display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 14px; }
+    .calc-total { border-top: 2px solid var(--border-glow); padding-top: 12px; margin-top: 12px; font-size: 18px; font-weight: 800; color: var(--accent-cyan); }
 
-        /* Tables & Form Controls */
-        .table-wrapper { background: var(--bg-card); border-radius: 16px; border: 1px solid var(--border-color); overflow: hidden; margin-bottom: 40px; }
-        table { width: 100%; border-collapse: collapse; text-align: left; }
-        th, td { padding: 16px 20px; font-size: 13px; border-bottom: 1px solid var(--border-color); }
-        th { background: var(--bg-panel); font-family: var(--font-head); font-weight: 700; text-transform: uppercase; color: var(--text-muted); font-size: 11px; letter-spacing: 0.5px; }
-        tr:last-child td { border-bottom: none; }
-        tr:hover td { background: var(--bg-card-hover); }
+    /* Ticket Console Box */
+    .ticket-box { background: rgba(15, 23, 42, 0.9); border: 1px solid var(--border-glow); border-radius: 14px; padding: 20px; margin-top: 20px; }
 
-        .status-pill-green { background: rgba(16,185,129,0.15); color: #34d399; border: 1px solid rgba(16,185,129,0.3); padding: 3px 10px; border-radius: 12px; font-weight: 700; font-size: 11px; }
-        .status-pill-blue { background: rgba(0,240,255,0.15); color: var(--primary-cyan); border: 1px solid rgba(0,240,255,0.3); padding: 3px 10px; border-radius: 12px; font-weight: 700; font-size: 11px; }
+    /* Footer */
+    footer { background: rgba(6, 9, 19, 0.95); border-top: 1px solid var(--border-color); padding: 48px 32px 32px; color: var(--text-muted); font-size: 13px; }
+    .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 36px; max-width: 1280px; margin: 0 auto 36px; }
+    .footer-col h4 { font-family: var(--font-head); color: var(--text-main); font-size: 14px; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.5px; }
+    .footer-col p, .footer-col a { color: var(--text-muted); text-decoration: none; margin-bottom: 10px; display: block; font-size: 13px; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--accent-cyan); }
+    .footer-bottom { text-align: center; border-top: 1px solid var(--border-color); padding-top: 24px; max-width: 1280px; margin: 0 auto; font-size: 12px; color: var(--text-dim); }
 
-        /* Form & Calculator Cards */
-        .form-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 18px; padding: 36px; max-width: 820px; margin: 0 auto 40px; box-shadow: 0 16px 40px rgba(0,0,0,0.4); }
-        .form-group { margin-bottom: 20px; }
-        .form-group label { display: block; font-size: 12px; font-weight: 700; text-transform: uppercase; margin-bottom: 8px; color: var(--text-main); letter-spacing: 0.5px; }
-        .form-control { width: 100%; height: 46px; background: var(--bg-panel); border: 1px solid var(--border-color); color: var(--text-main); padding: 0 16px; border-radius: 10px; font-size: 14px; transition: all 0.2s; }
-        .form-control:focus { outline: none; border-color: var(--primary-cyan); box-shadow: 0 0 12px rgba(0,240,255,0.2); }
+    @media (max-width: 900px) {
+        header { padding: 0 16px; height: auto; flex-direction: column; gap: 12px; padding-bottom: 12px; }
+        nav { width: 100%; overflow-x: auto; padding-bottom: 4px; }
+        .hero-banner { padding: 32px 20px; }
+        .hero-banner h1 { font-size: 26px; }
+    }
+</style>
+<!-- Top Status Banner -->
+<div class="top-banner">
+    <div>
+        <span>⚡ AMAURYCAN B2B SOFTWARE LICENSING & MSP HELPDESK PLATFORM v12.0</span> |
+        <span>STATUS: <code>STATE_MADE_ACTIVE</code></span>
+    </div>
+    <div>
+        <span class="status-badge">100/100 RASTQS AUDITED</span>
+    </div>
+</div>
 
-        .calc-result-box { background: rgba(11, 17, 32, 0.9); border-radius: 12px; padding: 24px; margin-top: 24px; border: 1px solid var(--border-color); }
-        .calc-row { display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 14px; color: var(--text-muted); }
-        .calc-row-total { border-top: 2px solid var(--border-color); padding-top: 12px; margin-top: 12px; font-size: 18px; font-weight: 800; color: var(--primary-cyan); }
-
-        /* Sponsors & Partners */
-        .sponsor-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-bottom: 40px; }
-        .sponsor-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 14px; padding: 24px; text-align: center; transition: all 0.2s; }
-        .sponsor-card:hover { border-color: var(--primary-cyan); transform: translateY(-2px); }
-        .sponsor-logo-placeholder { font-family: var(--font-head); font-weight: 900; font-size: 18px; color: var(--text-main); margin-bottom: 6px; letter-spacing: -0.5px; }
-        .sponsor-tier { font-size: 11px; font-weight: 700; color: var(--primary-cyan); text-transform: uppercase; letter-spacing: 0.5px; }
-
-        /* Footer */
-        footer { background: var(--bg-panel); border-top: 1px solid var(--border-color); padding: 48px 32px 32px; color: var(--text-muted); font-size: 13px; }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 36px; max-width: 1280px; margin: 0 auto 36px; }
-        .footer-col h4 { font-family: var(--font-head); color: var(--text-main); font-size: 15px; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.5px; }
-        .footer-col p, .footer-col a { color: var(--text-muted); text-decoration: none; margin-bottom: 10px; display: block; font-size: 13px; transition: color 0.2s; }
-        .footer-col a:hover { color: var(--primary-cyan); }
-        .footer-bottom { text-align: center; border-top: 1px solid var(--border-color); padding-top: 24px; max-width: 1280px; margin: 0 auto; font-size: 12px; color: var(--text-dim); }
-
-        /* Mobile Breakpoints */
-        @media (max-width: 900px) {
-            header { padding: 0 16px; height: auto; flex-direction: column; gap: 12px; padding-bottom: 12px; }
-            nav { width: 100%; overflow-x: auto; padding-bottom: 4px; }
-            .header-cta-group { width: 100%; justify-content: space-between; }
-            .search-input { width: 100%; }
-            .hero-banner { padding: 32px 20px; }
-            .hero-banner h1 { font-size: 28px; }
-        }
-    </style>
-</head>
-<body>
-
-    <!-- Top Status Banner -->
-    <div class="top-banner-bar">
-        <div>
-            <span>⚡ AMAURYCAN MADE & ANKERLABS SOVEREIGN PORTAL v10.0</span> |
-            <span>STATUS: <code class="mono-text">100% AMAURYCAN BRANDED</code></span>
+<!-- Header Navigation -->
+<header>
+    <a href="#about" class="brand-logo">
+        <div class="brand-icon">A</div>
+        <div class="brand-text">
+            <h2>Amaurycan B2B MSP</h2>
+            <p>Software Licensing & Field Helpdesk Console</p>
         </div>
-        <div>
-            <span class="status-badge">100/100 RASTQS CERTIFIED</span>
+    </a>
+
+    <nav id="topNav">
+        <a href="#about" class="active">Overview</a>
+        <a href="#licensing">Software Licensing</a>
+        <a href="#helpdesk">MSP Helpdesk & Tickets</a>
+        <a href="#breakfix">Break-Fix Estimator</a>
+        <a href="#slas">SLA Contracts</a>
+        <a href="#partners">B2B Partners</a>
+        <a href="#dispatch">Intake & Dispatch</a>
+    </nav>
+
+    <a href="#helpdesk" class="btn-cyan">Launch SLA Ticket</a>
+</header>
+
+<div class="main-container">
+
+    <!-- VIEW 1: OVERVIEW (#about) -->
+    <div id="about" class="page-view active-page">
+        <div class="hero-banner">
+            <h1>B2B Software Licensing & MSP Helpdesk Platform</h1>
+            <p>Engineered for MSP field installation partners, IT helpdesk directors, and enterprise software licensees. Streamlining per-node software licensing, break-fix dispatch billing, and SLA maintenance under Terrell M. Wilson (Chief Systems Architect).</p>
+            <div class="hero-pills">
+                <div class="pill-badge"><span>✓</span> 15+ Yrs Enterprise IT Helpdesk Seniority</div>
+                <div class="pill-badge"><span>✓</span> CCNA Routing & Switching Certified</div>
+                <div class="pill-badge"><span>✓</span> HIPAA Security & PHI Data Shield</div>
+                <div class="pill-badge"><span>✓</span> Automated 3x Sovereign Labor Engine</div>
+            </div>
+        </div>
+
+        <div class="section-header">
+            <div>
+                <h2>B2B Operational Pillars</h2>
+                <p>Core platform components supporting MSP field installers and helpdesk teams.</p>
+            </div>
+        </div>
+
+        <div class="tile-grid">
+            <div class="card-tile">
+                <div>
+                    <div class="tile-header">
+                        <div class="tile-icon">🔑</div>
+                        <span class="tile-tag">MODULE 01</span>
+                    </div>
+                    <h3>Software Licensing Engine</h3>
+                    <p>Issue per-use node licenses, ADTFITS cryptographic token seals, and software installation credentials for enterprise clients.</p>
+                </div>
+                <a href="#licensing" class="btn-cyan">Manage Licenses →</a>
+            </div>
+
+            <div class="card-tile">
+                <div>
+                    <div class="tile-header">
+                        <div class="tile-icon">🎫</div>
+                        <span class="tile-tag">MODULE 02</span>
+                    </div>
+                    <h3>MSP Helpdesk & SLA Tickets</h3>
+                    <p>Interactive ticket launcher replacing traditional blogs with real-time Priority 1–4 incident dispatch, remote logs, and status badges.</p>
+                </div>
+                <a href="#helpdesk" class="btn-cyan">Open Ticket Board →</a>
+            </div>
+
+            <div class="card-tile">
+                <div>
+                    <div class="tile-header">
+                        <div class="tile-icon">🔧</div>
+                        <span class="tile-tag">MODULE 03</span>
+                    </div>
+                    <h3>Break-Fix & Billing Matrix</h3>
+                    <p>Calculate on-site and remote break-fix invoices with automated 9.75% TN tax and 1.00% PUDL trust fee compliance.</p>
+                </div>
+                <a href="#breakfix" class="btn-cyan">Calculate Invoice →</a>
+            </div>
+
+            <div class="card-tile">
+                <div>
+                    <div class="tile-header">
+                        <div class="tile-icon">📜</div>
+                        <span class="tile-tag">MODULE 04</span>
+                    </div>
+                    <h3>Recurring SLA Contracts</h3>
+                    <p>Enforce 24/7 monitoring, patch management, and 3-tranche milestone payment structures (40% / 30% / 30%).</p>
+                </div>
+                <a href="#slas" class="btn-cyan">View SLA Specs →</a>
+            </div>
         </div>
     </div>
 
-    <!-- Sticky Glass Header Navigation -->
-    <header>
-        <a href="#about" class="brand-logo">
-            <div class="brand-logo-icon">A</div>
-            <div class="brand-logo-text">
-                <h2>Amaurycan Made</h2>
-                <p>Terrell M. Wilson, Studio Director</p>
-            </div>
-        </a>
-
-        <nav id="topNav">
-            <a href="#about" class="active">Executive Bio</a>
-            <a href="#solutions">Digital Solutions</a>
-            <a href="#gladiators">Gladiators Boxing</a>
-            <a href="#calculator">SOW Estimator</a>
-            <a href="#telemetry">Telemetry</a>
-            <a href="#sponsors">Partners</a>
-            <a href="#contact">Consultation</a>
-        </nav>
-
-        <div class="header-cta-group">
-            <div class="search-box">
-                <span class="search-icon">🔍</span>
-                <input type="text" class="search-input" placeholder="Search systems, SOWs, or drills..." onkeyup="filterStudioSearch(this.value)">
-            </div>
-            <a href="#calculator" class="btn-cyan">SOW Estimator</a>
-        </div>
-    </header>
-
-    <!-- Main Content Container -->
-    <div class="main-container">
-
-        <!-- VIEW 1: EXECUTIVE BIO & LEADERSHIP (#about) -->
-        <div id="about" class="page-view active-page">
-            <div class="hero-banner">
-                <h1>Amaurycan Made & AnkerLabs Systems Engine</h1>
-                <p>Synthesizing 15+ years of enterprise IT systems administration, custom Single Page Application (SPA) architecture, kinetic athletic training, and youth trade mentorship under founder Terrell M. Wilson.</p>
-                <div class="hero-pills-row">
-                    <div class="pill-badge"><span>✓</span> 15+ Yrs Enterprise IT Systems</div>
-                    <div class="pill-badge"><span>✓</span> CCNA Routing & Switching</div>
-                    <div class="pill-badge"><span>✓</span> HIPAA Compliance Shield</div>
-                    <div class="pill-badge"><span>✓</span> Founder & Systems Architect</div>
-                </div>
-            </div>
-
-            <div class="section-header">
-                <div>
-                    <h2>Core Brand Pillars</h2>
-                    <p>The four foundational pillars governing the Amaurycan Made ecosystem.</p>
-                </div>
-            </div>
-
-            <div class="tile-grid">
-                <div class="card-tile">
-                    <div>
-                        <div class="card-tile-header">
-                            <div class="card-tile-icon">💻</div>
-                            <span class="tile-tag">PILLAR 01</span>
-                        </div>
-                        <h3>Enterprise IT Architecture</h3>
-                        <p>15+ years of systems administration, Cisco routing & switching, active directory domain engineering, and HIPAA compliance shields.</p>
-                    </div>
-                    <a href="#solutions" class="card-action-link">Explore Systems →</a>
-                </div>
-
-                <div class="card-tile">
-                    <div>
-                        <div class="card-tile-header">
-                            <div class="card-tile-icon">⚡</div>
-                            <span class="tile-tag">PILLAR 02</span>
-                        </div>
-                        <h3>Custom SPA Development</h3>
-                        <p>High-velocity Single Page Applications built with vanilla HTML5/CSS3/JS, zero-dependency pushState routers, and dynamic Open Graph SEO engines.</p>
-                    </div>
-                    <a href="#calculator" class="card-action-link">Estimate SOW →</a>
-                </div>
-
-                <div class="card-tile">
-                    <div>
-                        <div class="card-tile-header">
-                            <div class="card-tile-icon">🥊</div>
-                            <span class="tile-tag">PILLAR 03</span>
-                        </div>
-                        <h3>Kinetic Mitt Crucible</h3>
-                        <p>12-round boxing combination drill trainer incorporating Willie Pep V-steps, James Toney inside-pocket defense, and Philly Shell counter-striking.</p>
-                    </div>
-                    <a href="#gladiators" class="card-action-link">View Program →</a>
-                </div>
-
-                <div class="card-tile">
-                    <div>
-                        <div class="card-tile-header">
-                            <div class="card-tile-icon">🎓</div>
-                            <span class="tile-tag">PILLAR 04</span>
-                        </div>
-                        <h3>Youth Trade Mentorship</h3>
-                        <p>MADE3654KIDS.IT initiative empowering local youth with hands-on trade skills, software literacy, and disciplined athletic conditioning.</p>
-                    </div>
-                    <a href="#contact" class="card-action-link">Get Involved →</a>
-                </div>
-            </div>
-
-            <div class="section-header">
-                <div>
-                    <h2>Executive Leadership Roster</h2>
-                    <p>Key decision-makers, technology fellows, and administrative leads.</p>
-                </div>
-            </div>
-
-            <div class="table-wrapper">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Executive Name</th>
-                            <th>Title & Role</th>
-                            <th>Credentials / Subnet</th>
-                            <th>Status / Focus</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><b>Terrell M. Wilson</b></td>
-                            <td>Founder & Chief Systems Architect</td>
-                            <td><code class="mono-text">CCNA | HIPAA | 00..10.01</code></td>
-                            <td><span class="status-pill-green">Verified Founder</span></td>
-                        </tr>
-                        <tr>
-                            <td><b>Dr. Victoria Love Franklin</b></td>
-                            <td>Technology Fellow (Data Science & Cyber)</td>
-                            <td><code class="mono-text">Ph.D. | 00..10.02</code></td>
-                            <td><span class="status-pill-blue">Research Scholar</span></td>
-                        </tr>
-                        <tr>
-                            <td><b>Jack Brown</b></td>
-                            <td>Chief Administrative Officer</td>
-                            <td><code class="mono-text">Operations | 00..10.03</code></td>
-                            <td><span class="status-pill-blue">Operations Lead</span></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+    <!-- VIEW 2: SOFTWARE LICENSING (#licensing) -->
+    <div id="licensing" class="page-view">
+        <div class="hero-banner">
+            <h1>Software Licensing Catalog & Key Manager</h1>
+            <p>Manage node software allocations, per-use digital licenses, and cryptographic installation seals for licensed IT partners.</p>
         </div>
 
-        <!-- VIEW 2: DIGITAL SOLUTIONS & PORTFOLIO (#solutions) -->
-        <div id="solutions" class="page-view">
-            <div class="hero-banner">
-                <h1>Software Architecture & Digital Solutions</h1>
-                <p>Explore production-grade Single Page Applications, developer tools, and automated deployment pipelines engineered for instant browser execution.</p>
-            </div>
-
-            <div class="tile-grid">
-                <div class="card-tile">
-                    <div>
-                        <div class="card-tile-header">
-                            <div class="card-tile-icon">🌐</div>
-                            <span class="tile-tag">SPA ENGINE</span>
-                        </div>
-                        <h3>Sovereign PushState SPA Router</h3>
-                        <p>Client-side hash fragment router featuring dynamic Open Graph meta injection, Schema.org structured data, and zero full-page flashes.</p>
-                    </div>
-                    <button class="btn-cyan" onclick="location.href='#calculator'">View Integration Code</button>
-                </div>
-
-                <div class="card-tile">
-                    <div>
-                        <div class="card-tile-header">
-                            <div class="card-tile-icon">🎮</div>
-                            <span class="tile-tag">CANVAS ENGINE</span>
-                        </div>
-                        <h3>AnkerGames Arcade Velocity Board</h3>
-                        <p>Zero-dependency HTML5 canvas game engines, leaderboard tracking, and web socket multiplayer state synchronization.</p>
-                    </div>
-                    <button class="btn-cyan" onclick="location.href='#gladiators'">Explore Arcade</button>
-                </div>
-
-                <div class="card-tile">
-                    <div>
-                        <div class="card-tile-header">
-                            <div class="card-tile-icon">📊</div>
-                            <span class="tile-tag">AUTOMATION</span>
-                        </div>
-                        <h3>GitHub Pages CI/CD Pipeline</h3>
-                        <p>Automated static asset compilation, AST code verification gates, and continuous deployment triggers for custom web portals.</p>
-                    </div>
-                    <button class="btn-cyan" onclick="location.href='#telemetry'">View Telemetry</button>
-                </div>
-            </div>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Software Product Title</th>
+                        <th>License Model</th>
+                        <th>Partner Base Fee</th>
+                        <th>Node Capacity</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>UCMS Core Command Engine</b></td>
+                        <td>Per-Node Monthly</td>
+                        <td><code class="mono-text">$150.00 / mo</code></td>
+                        <td>Up to 100 Nodes</td>
+                        <td><button class="btn-cyan" onclick="generateLicenseKey('UCMS-CORE')">Provision Key</button></td>
+                    </tr>
+                    <tr>
+                        <td><b>ADTFITS Cryptographic Token Seal Suite</b></td>
+                        <td>Per-Use License</td>
+                        <td><code class="mono-text">$75.00 / seal</code></td>
+                        <td>Unlimited Audits</td>
+                        <td><button class="btn-cyan" onclick="generateLicenseKey('ADTFITS-SEAL')">Provision Key</button></td>
+                    </tr>
+                    <tr>
+                        <td><b>Sovereign B2B SOW & Invoicing Engine</b></td>
+                        <td>Annual Enterprise</td>
+                        <td><code class="mono-text">$1,500.00 / yr</code></td>
+                        <td>Unlimited Clients</td>
+                        <td><button class="btn-cyan" onclick="generateLicenseKey('SOW-ENGINE')">Provision Key</button></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
 
-        <!-- VIEW 3: GLADIATORS BOXING PROGRAM (#gladiators) -->
-        <div id="gladiators" class="page-view">
-            <div class="hero-banner">
-                <h1>Amaurycan Made Gladiators Athletic Hub</h1>
-                <p>Authentic boxing combination drill trainer, 12-round kinetic mitt crucible, and USA Boxing female-oriented athletic pathways.</p>
-            </div>
-
-            <div class="tile-grid">
-                <div class="card-tile">
-                    <div>
-                        <div class="card-tile-header">
-                            <div class="card-tile-icon">🥊</div>
-                            <span class="tile-tag">DRILL 01</span>
-                        </div>
-                        <h3>12-Round Kinetic Mitt Crucible</h3>
-                        <p>High-intensity combination mitt routine integrating James Toney inside-pocket defense, shoulder rolls, and rhythm counters.</p>
-                    </div>
-                    <button class="btn-cyan" onclick="alert('Launching Kinetic Mitt Combination Drill...')">Start Mitt Crucible</button>
-                </div>
-
-                <div class="card-tile">
-                    <div>
-                        <div class="card-tile-header">
-                            <div class="card-tile-icon">🛡</div>
-                            <span class="tile-tag">DRILL 02</span>
-                        </div>
-                        <h3>Philly Shell Defense Matrix</h3>
-                        <p>Mastering lead shoulder deflection, rear hand parry, and explosive right-hand counter mechanics under pressure.</p>
-                    </div>
-                    <button class="btn-cyan" onclick="alert('Loading Defense Drill Video...')">Watch Defense Matrix</button>
-                </div>
-
-                <div class="card-tile">
-                    <div>
-                        <div class="card-tile-header">
-                            <div class="card-tile-icon">🏃</div>
-                            <span class="tile-tag">DRILL 03</span>
-                        </div>
-                        <h3>Willie Pep V-Step Footwork</h3>
-                        <p>Lateral pivoting, angle creation, and off-axis ring movement drills designed for fast exit angles.</p>
-                    </div>
-                    <button class="btn-cyan" onclick="alert('Loading Footwork Simulation...')">Start Footwork Drill</button>
-                </div>
-            </div>
+        <div id="keyDisplayBox" class="ticket-box" style="display:none;">
+            <h4 style="color: var(--accent-cyan); font-family: var(--font-head); margin-bottom: 8px;">Generated Software License Key</h4>
+            <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 12px;">Copy this license key into your installer script configuration file:</p>
+            <code id="licenseKeyCode" style="display:block; background: #000; padding: 12px; border-radius: 8px; color: var(--accent-emerald); font-size: 14px; border: 1px solid var(--accent-emerald);">AMDS-LIC-KEY-PENDING</code>
         </div>
-
-        <!-- VIEW 4: SOW CALCULATOR (#calculator) -->
-        <div id="calculator" class="page-view">
-            <div class="hero-banner">
-                <h1>Interactive B2B SOW & Service Estimator</h1>
-                <p>Calculate custom software development, system architecture audits, and tax fees in real-time under Tennessee statutory guidelines.</p>
-            </div>
-
-            <div class="form-card">
-                <h3 style="font-family: var(--font-head); color: var(--primary-cyan); margin-bottom: 24px;">Commercial IT SOW Package Calculator</h3>
-
-                <div class="form-group">
-                    <label>Select Base Strategy Package</label>
-                    <select id="sowPackageSelect" class="form-control" onchange="calculateSOW()">
-                        <option value="1500">Marvin Executive Strategy Package ($1,500.00)</option>
-                        <option value="2500">PMHNP Clinic Facility Compliance Package ($2,500.00)</option>
-                        <option value="3500">TAJC Minimalist Web Engine ($3,500.00)</option>
-                        <option value="5000">Custom Single Page Application (SPA) Engine ($5,000.00)</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label>Additional Custom SPA Views ($500 / view)</label>
-                    <input type="number" id="sowExtraViews" class="form-control" value="2" min="0" oninput="calculateSOW()">
-                </div>
-
-                <div class="form-group">
-                    <label>Include 1-Year Automated CI/CD GitHub Deployment ($350)</label>
-                    <select id="sowCicdSelect" class="form-control" onchange="calculateSOW()">
-                        <option value="350">Yes — Include CI/CD Pipeline (+$350.00)</option>
-                        <option value="0">No — Manual Code Handoff Only</option>
-                    </select>
-                </div>
-
-                <div class="calc-result-box">
-                    <div class="calc-row"><span>Base SOW Package Subtotal:</span><b id="sowBase" class="mono-text">$1,500.00</b></div>
-                    <div class="calc-row"><span>Extra SPA Views & Modules:</span><b id="sowExtra" class="mono-text">$1,000.00</b></div>
-                    <div class="calc-row"><span>TN State Sales Tax (9.75%):</span><b id="sowTax" class="mono-text">$243.75</b></div>
-                    <div class="calc-row"><span>PUDL Trust & Maintenance Fee (1.00%):</span><b id="sowTrust" class="mono-text">$25.00</b></div>
-                    <div class="calc-row calc-row-total"><span>Total Certified SOW Estimate:</span><b id="sowTotal" class="mono-text">$2,768.75</b></div>
-                </div>
-
-                <button class="btn-cyan" style="width: 100%; margin-top: 24px; height: 48px; font-size: 14px;" onclick="alert('SOW Estimate Locked! Transaction ID: AMDS-SOW-' + Math.floor(Math.random()*90000 + 10000))">Lock SOW Estimate & Generate Invoice</button>
-            </div>
-        </div>
-
-        <!-- VIEW 5: TELEMETRY & ANALYTICS (#telemetry) -->
-        <div id="telemetry" class="page-view">
-            <div class="hero-banner">
-                <h1>Live System Telemetry & RASTQS Performance</h1>
-                <p>Real-time analytics tracking system prompt cache hits, AST verification gates, and document throughput metrics.</p>
-            </div>
-
-            <div class="tile-grid">
-                <div class="card-tile">
-                    <div>
-                        <div class="card-tile-header">
-                            <span class="stat-val" style="font-size: 32px; color: var(--primary-cyan);">100/100</span>
-                            <span class="status-pill-green">PASSED</span>
-                        </div>
-                        <h3>RASTQS Audit Score</h3>
-                        <p>100% compliance across 96 AST code verification gates and typography rules.</p>
-                    </div>
-                </div>
-
-                <div class="card-tile">
-                    <div>
-                        <div class="card-tile-header">
-                            <span class="stat-val" style="font-size: 32px; color: var(--accent-indigo);">95.2%</span>
-                            <span class="status-pill-blue">OPTIMIZED</span>
-                        </div>
-                        <h3>Prompt Cache Hit Rate</h3>
-                        <p>Static system headers and L0 persona tags driving max token efficiency.</p>
-                    </div>
-                </div>
-
-                <div class="card-tile">
-                    <div>
-                        <div class="card-tile-header">
-                            <span class="stat-val" style="font-size: 32px; color: var(--accent-emerald);">8,450</span>
-                            <span class="status-pill-green">+3.2% MO</span>
-                        </div>
-                        <h3>Monthly Telemetry Logs</h3>
-                        <p>Active transactions written back to SQLite central memory (<code class="mono-text">business.db</code>).</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- VIEW 6: PARTNERS & SPONSORS (#sponsors) -->
-        <div id="sponsors" class="page-view">
-            <div class="hero-banner">
-                <h1>Strategic Partners & Sponsors</h1>
-                <p>Recognizing the public, private, and non-profit organizations supporting Amaurycan Made initiatives.</p>
-            </div>
-
-            <div class="sponsor-grid">
-                <div class="sponsor-card">
-                    <div class="sponsor-logo-placeholder">TENNESSEE JUNETEENTH</div>
-                    <div class="sponsor-tier">Presenting Sponsor</div>
-                </div>
-                <div class="sponsor-card">
-                    <div class="sponsor-logo-placeholder">MARVIN PAINTING</div>
-                    <div class="sponsor-tier">Gold B2B Partner</div>
-                </div>
-                <div class="sponsor-card">
-                    <div class="sponsor-logo-placeholder">USA BOXING</div>
-                    <div class="sponsor-tier">Athletic Affiliate</div>
-                </div>
-                <div class="sponsor-card">
-                    <div class="sponsor-logo-placeholder">PMHNP CLINICS</div>
-                    <div class="sponsor-tier">Compliance Partner</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- VIEW 7: CONTACT & INTAKE (#contact) -->
-        <div id="contact" class="page-view">
-            <div class="hero-banner">
-                <h1>Contact & Consultation Console</h1>
-                <p>Submit software development inquiries, system architecture audits, or athletic coaching requests directly to Terrell M. Wilson.</p>
-            </div>
-
-            <div class="form-card">
-                <form onsubmit="event.preventDefault(); alert('Consultation Submitted! Tracking ID: TMW-INTAKE-' + Math.floor(Math.random()*90000 + 10000));">
-                    <div class="form-group">
-                        <label>Full Name</label>
-                        <input type="text" class="form-control" required placeholder="John Doe">
-                    </div>
-                    <div class="form-group">
-                        <label>Email Address</label>
-                        <input type="email" class="form-control" required placeholder="john@example.com">
-                    </div>
-                    <div class="form-group">
-                        <label>Inquiry Category</label>
-                        <select class="form-control">
-                            <option>Custom SPA / Web Development SOW</option>
-                            <option>Enterprise IT Systems Audit (CCNA / Active Directory)</option>
-                            <option>Boxing & Kinetic Mitt Crucible Program</option>
-                            <option>Youth Mentorship (MADE3654KIDS.IT)</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Project Details</label>
-                        <textarea class="form-control" rows="4" style="height: 110px; padding: 12px 16px;" placeholder="Describe your project scope or objectives..."></textarea>
-                    </div>
-                    <button type="submit" class="btn-cyan" style="width: 100%; height: 48px; font-size: 14px;">Submit Consultation Request</button>
-                </form>
-            </div>
-        </div>
-
     </div>
 
-    <!-- Footer Container -->
-    <footer>
-        <div class="footer-grid">
-            <div class="footer-col">
-                <h4>Amaurycan Made Studio</h4>
-                <p>300 Deaderick Street</p>
-                <p>Nashville, TN 37201</p>
-                <p>Direct: Terrell M. Wilson</p>
-            </div>
-            <div class="footer-col">
-                <h4>Quick Navigation</h4>
-                <p><a href="#about">Executive Bio</a></p>
-                <p><a href="#solutions">Digital Solutions</a></p>
-                <p><a href="#gladiators">Gladiators Boxing</a></p>
-                <p><a href="#calculator">SOW Estimator</a></p>
-            </div>
-            <div class="footer-col">
-                <h4>Standards & Trust</h4>
-                <p>100/100 RASTQS Certified</p>
-                <p>9.75% TN Sales Tax Compliance</p>
-                <p>PUDL Trust Fee Protection</p>
+    <!-- VIEW 3: HELPDESK TICKETING (#helpdesk) -->
+    <div id="helpdesk" class="page-view">
+        <div class="hero-banner">
+            <h1>Interactive Helpdesk & SLA Ticket Console</h1>
+            <p>Replacing traditional blog posts with an active B2B ticket launcher, knowledge base solutions, and real-time MSP incident dispatch.</p>
+        </div>
+
+        <div class="form-card" style="margin-bottom: 30px;">
+            <h3 style="font-family: var(--font-head); color: var(--accent-cyan); margin-bottom: 20px;">Submit New Helpdesk Ticket</h3>
+            <form onsubmit="event.preventDefault(); submitHelpdeskTicket();">
+                <div class="form-group">
+                    <label>MSP Partner Company / Client Name</label>
+                    <input type="text" id="ticketClient" class="form-control" required placeholder="e.g. Marvin Painting & IT Services">
+                </div>
+                <div class="form-group">
+                    <label>Priority Level / SLA Urgency</label>
+                    <select id="ticketPriority" class="form-control">
+                        <option value="P1 - Critical (15-Min Response)">P1 - Critical (Server Outage / System Down)</option>
+                        <option value="P2 - High (1-Hour Response)">P2 - High (Software License Verification Failed)</option>
+                        <option value="P3 - Normal (4-Hour Response)">P3 - Normal (Helpdesk Password / User Onboarding)</option>
+                        <option value="P4 - Low (24-Hour Response)">P4 - Low (General Software Query)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Issue Description & Error Code</label>
+                    <textarea id="ticketDesc" class="form-control" rows="3" style="height: 90px; padding: 12px;" required placeholder="Describe the break-fix or licensing issue..."></textarea>
+                </div>
+                <button type="submit" class="btn-cyan" style="width: 100%;">Dispatch Ticket to Helpdesk Queue</button>
+            </form>
+        </div>
+
+        <div class="section-header">
+            <div>
+                <h2>Live Helpdesk Incident Queue</h2>
+                <p>Active tickets managed under SLA response time guarantees.</p>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>Copyright © 2026 Amaurycan Made & AnkerLabs. Terrell M. Wilson, Founder & Chief Systems Architect. All Rights Reserved.</p>
+
+        <div class="table-wrapper">
+            <table id="ticketQueueTable">
+                <thead>
+                    <tr>
+                        <th>Ticket ID</th>
+                        <th>MSP Partner / Client</th>
+                        <th>Priority / SLA</th>
+                        <th>Status Badge</th>
+                        <th>Logged Time</th>
+                    </tr>
+                </thead>
+                <tbody id="ticketQueueBody">
+                    <tr>
+                        <td><code class="mono-text">TKT-94821</code></td>
+                        <td>Marvin Painting & IT</td>
+                        <td>P2 - High (1-Hour)</td>
+                        <td><span class="pill-amber">IN PROGRESS</span></td>
+                        <td>2026-10-01 03:12</td>
+                    </tr>
+                    <tr>
+                        <td><code class="mono-text">TKT-94819</code></td>
+                        <td>TAJC Logistics Portal</td>
+                        <td>P3 - Normal (4-Hour)</td>
+                        <td><span class="pill-green">RESOLVED</span></td>
+                        <td>2026-10-01 02:45</td>
+                    </tr>
+                    <tr>
+                        <td><code class="mono-text">TKT-94815</code></td>
+                        <td>PMHNP Compliance Clinic</td>
+                        <td>P1 - Critical (15-Min)</td>
+                        <td><span class="pill-green">RESOLVED</span></td>
+                        <td>2026-10-01 01:20</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-    </footer>
+    </div>
 
-    <script>
-        // Router Engine
-        function handleNavHash() {
-            const hash = window.location.hash || '#about';
-            const pages = document.querySelectorAll('.page-view');
-            const links = document.querySelectorAll('#topNav a');
+    <!-- VIEW 4: BREAK-FIX ESTIMATOR (#breakfix) -->
+    <div id="breakfix" class="page-view">
+        <div class="hero-banner">
+            <h1>Break-Fix & Labor Invoice Estimator</h1>
+            <p>Calculate on-site and remote IT break-fix charges applying the 3.0x Sovereign Labor Multiplier and Tennessee tax regulations.</p>
+        </div>
 
-            pages.forEach(p => {
-                if ('#' + p.id === hash) {
-                    p.classList.add('active-page');
-                } else {
-                    p.classList.remove('active-page');
-                }
-            });
+        <div class="form-card">
+            <h3 style="font-family: var(--font-head); color: var(--accent-cyan); margin-bottom: 20px;">MSP Break-Fix Billing Calculator</h3>
 
-            links.forEach(l => {
-                if (l.getAttribute('href') === hash) {
-                    l.classList.add('active');
-                } else {
-                    l.classList.remove('active');
-                }
-            });
+            <div class="form-group">
+                <label>Select Hourly Rate Tier</label>
+                <select id="bfRateSelect" class="form-control" onchange="calculateBreakFix()">
+                    <option value="75">B2B Licensed Partner ($75.00 / hr base)</option>
+                    <option value="150" selected>Senior Internal / Subscriber ($150.00 / hr base)</option>
+                    <option value="300">Individual Direct Client ($300.00 / hr base)</option>
+                </select>
+            </div>
 
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
+            <div class="form-group">
+                <label>Estimated Technical Hours</label>
+                <input type="number" id="bfHours" class="form-control" value="4" min="1" oninput="calculateBreakFix()">
+            </div>
 
-        window.addEventListener('hashchange', handleNavHash);
-        window.addEventListener('DOMContentLoaded', () => {
-            handleNavHash();
-            calculateSOW();
+            <div class="form-group">
+                <label>Include On-Site Emergency Dispatch Fee ($225.00)</label>
+                <select id="bfDispatchSelect" class="form-control" onchange="calculateBreakFix()">
+                    <option value="225">Yes — On-Site Field Technician Dispatch (+$225.00)</option>
+                    <option value="0">No — Remote Helpdesk Session Only</option>
+                </select>
+            </div>
+
+            <div class="calc-box">
+                <div class="calc-row"><span>Base Labor Rate (3x Expert Multiplier):</span><b id="bfEffectiveRate" class="mono-text">$450.00 / hr</b></div>
+                <div class="calc-row"><span>Labor Subtotal:</span><b id="bfLaborSubtotal" class="mono-text">$1,800.00</b></div>
+                <div class="calc-row"><span>Dispatch & Incident Fee:</span><b id="bfDispatchFee" class="mono-text">$225.00</b></div>
+                <div class="calc-row"><span>TN State Sales Tax (9.75%):</span><b id="bfTax" class="mono-text">$197.44</b></div>
+                <div class="calc-row"><span>PUDL Trust Maintenance Fee (1.00%):</span><b id="bfTrust" class="mono-text">$20.25</b></div>
+                <div class="calc-row calc-total"><span>Total Certified Break-Fix Invoice:</span><b id="bfTotal" class="mono-text">$2,242.69</b></div>
+            </div>
+
+            <button class="btn-cyan" style="width: 100%; margin-top: 20px;" onclick="alert('Break-Fix Invoice Certified! Reference ID: B2B-BF-' + Math.floor(Math.random()*90000 + 10000))">Generate Break-Fix PDF Invoice</button>
+        </div>
+    </div>
+
+    <!-- VIEW 5: SLA CONTRACTS (#slas) -->
+    <div id="slas" class="page-view">
+        <div class="hero-banner">
+            <h1>Recurring SLA Contracts & Service Standards</h1>
+            <p>Standardized Service Level Agreements (SLAs) guaranteeing response times, server maintenance, and structured 3-tranche payments.</p>
+        </div>
+
+        <div class="tile-grid">
+            <div class="card-tile">
+                <div>
+                    <div class="tile-header">
+                        <div class="tile-icon">⚡</div>
+                        <span class="tile-tag">SLA TIER 01</span>
+                    </div>
+                    <h3>Critical P1 Guarantee</h3>
+                    <p>15-minute response time for critical server outages, network cablings, or active security breaches.</p>
+                </div>
+            </div>
+
+            <div class="card-tile">
+                <div>
+                    <div class="tile-header">
+                        <div class="tile-icon">🔄</div>
+                        <span class="tile-tag">SLA TIER 02</span>
+                    </div>
+                    <h3>3-Tranche Settlement</h3>
+                    <p>40% upfront deposit at signing, 30% at 50% milestone walkthrough, 30% upon final sign-off and server launch.</p>
+                </div>
+            </div>
+
+            <div class="card-tile">
+                <div>
+                    <div class="tile-header">
+                        <div class="tile-icon">🤝</div>
+                        <span class="tile-tag">SLA TIER 03</span>
+                    </div>
+                    <h3>7% Fiduciary Trust Pledge</h3>
+                    <p>7.00% of net SLA revenue is automatically routed to MADE3654KIDS.IT youth trade education programs.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- VIEW 6: B2B PARTNERS (#partners) -->
+    <div id="partners" class="page-view">
+        <div class="hero-banner">
+            <h1>B2B Strategic Partners & Enterprise Clients</h1>
+            <p>Recognizing the licensed IT contractors, medical facilities, and community organizations powered by Amaurycan B2B software.</p>
+        </div>
+
+        <div class="tile-grid">
+            <div class="card-tile">
+                <div>
+                    <div class="tile-header">
+                        <span class="pill-green">ACTIVE PARTNER</span>
+                    </div>
+                    <h3>Marvin Painting & IT Services</h3>
+                    <p>Commercial surface prep, satin painting, and IT channel routing contractor.</p>
+                </div>
+            </div>
+
+            <div class="card-tile">
+                <div>
+                    <div class="tile-header">
+                        <span class="pill-green">ACTIVE PARTNER</span>
+                    </div>
+                    <h3>TAJC Juneteenth Celebration</h3>
+                    <p>Full site registration portal, vendor management, and sponsor directory software licensee.</p>
+                </div>
+            </div>
+
+            <div class="card-tile">
+                <div>
+                    <div class="tile-header">
+                        <span class="pill-green">ACTIVE PARTNER</span>
+                    </div>
+                    <h3>PMHNP Compliance Clinics</h3>
+                    <p>HIPAA-compliant healthcare IT infrastructure and patient records security licensee.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- VIEW 7: INTAKE & DISPATCH (#dispatch) -->
+    <div id="dispatch" class="page-view">
+        <div class="hero-banner">
+            <h1>Onboarding & MSP License Intake Console</h1>
+            <p>Submit software licensing inquiries, MSP partnership applications, or custom helpdesk onboarding requests.</p>
+        </div>
+
+        <div class="form-card">
+            <form onsubmit="event.preventDefault(); alert('Onboarding Request Logged! Tracking ID: B2B-INTK-' + Math.floor(Math.random()*90000 + 10000));">
+                <div class="form-group">
+                    <label>Contact Full Name</label>
+                    <input type="text" class="form-control" required placeholder="John Doe">
+                </div>
+                <div class="form-group">
+                    <label>Business / MSP Company Name</label>
+                    <input type="text" class="form-control" required placeholder="Acme IT Solutions, LLC">
+                </div>
+                <div class="form-group">
+                    <label>Inquiry Type</label>
+                    <select class="form-control">
+                        <option>Software Licensing Key Reservation</option>
+                        <option>MSP Helpdesk Onboarding & SLA Contract</option>
+                        <option>Break-Fix Field Dispatch Consultation</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-cyan" style="width: 100%;">Submit Onboarding Request</button>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+<!-- Footer -->
+<footer>
+    <div class="footer-grid">
+        <div class="footer-col">
+            <h4>Amaurycan B2B MSP Platform</h4>
+            <p>300 Deaderick Street</p>
+            <p>Nashville, TN 37201</p>
+            <p>Direct: 615-862-6790</p>
+        </div>
+        <div class="footer-col">
+            <h4>Platform Navigation</h4>
+            <p><a href="#about">Overview</a></p>
+            <p><a href="#licensing">Software Licensing</a></p>
+            <p><a href="#helpdesk">MSP Helpdesk</a></p>
+            <p><a href="#breakfix">Break-Fix Estimator</a></p>
+        </div>
+        <div class="footer-col">
+            <h4>Compliance & SLAs</h4>
+            <p>T.C.A. §8-21-1001 Statutory Schedule</p>
+            <p>9.75% TN Sales Tax Compliance</p>
+            <p>1.00% PUDL Trust Maintenance</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>Copyright © 2026 Amaurycan Made. Terrell M. Wilson, Chief Systems Architect. All Rights Reserved.</p>
+    </div>
+</footer>
+
+<script>
+    function handleHashRouter() {
+        const hash = window.location.hash || '#about';
+        const views = document.querySelectorAll('.page-view');
+        const links = document.querySelectorAll('#topNav a');
+
+        views.forEach(v => {
+            if ('#' + v.id === hash) {
+                v.classList.add('active-page');
+            } else {
+                v.classList.remove('active-page');
+            }
         });
 
-        // B2B SOW Calculator
-        function calculateSOW() {
-            const baseVal = parseFloat(document.getElementById('sowPackageSelect').value) || 1500;
-            const extraViews = parseInt(document.getElementById('sowExtraViews').value) || 0;
-            const cicdVal = parseFloat(document.getElementById('sowCicdSelect').value) || 0;
+        links.forEach(l => {
+            if (l.getAttribute('href') === hash) {
+                l.classList.add('active');
+            } else {
+                l.classList.remove('active');
+            }
+        });
 
-            const extraCost = extraViews * 500 + cicdVal;
-            const subtotal = baseVal + extraCost;
-            const tax = subtotal * 0.0975;
-            const trustFee = subtotal * 0.0100;
-            const total = subtotal + tax + trustFee;
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
 
-            document.getElementById('sowBase').innerText = '$' + baseVal.toFixed(2);
-            document.getElementById('sowExtra').innerText = '$' + extraCost.toFixed(2);
-            document.getElementById('sowTax').innerText = '$' + tax.toFixed(2);
-            document.getElementById('sowTrust').innerText = '$' + trustFee.toFixed(2);
-            document.getElementById('sowTotal').innerText = '$' + total.toFixed(2);
-        }
+    window.addEventListener('hashchange', handleHashRouter);
+    window.addEventListener('DOMContentLoaded', () => {
+        handleHashRouter();
+        calculateBreakFix();
+    });
 
-        function filterStudioSearch(query) {
-            console.log("Filtering Studio Search:", query);
-        }
-    </script>
-</body>
-</html>
+    function generateLicenseKey(product) {
+        const key = 'AMDS-' + product + '-' + Math.random().toString(36).substring(2, 10).toUpperCase() + '-2026';
+        document.getElementById('licenseKeyCode').innerText = key;
+        document.getElementById('keyDisplayBox').style.display = 'block';
+        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    }
+
+    function calculateBreakFix() {
+        const baseRate = parseFloat(document.getElementById('bfRateSelect').value) || 150;
+        const hours = parseFloat(document.getElementById('bfHours').value) || 1;
+        const dispatchFee = parseFloat(document.getElementById('bfDispatchSelect').value) || 0;
+
+        const effectiveRate = baseRate * 3.0; // 3x Sovereign Labor Multiplier
+        const laborSubtotal = hours * effectiveRate;
+        const grossSubtotal = laborSubtotal + dispatchFee;
+        const tax = grossSubtotal * 0.0975; // 9.75% TN Sales Tax
+        const trustFee = grossSubtotal * 0.0100; // 1.00% PUDL Trust Fee
+        const total = grossSubtotal + tax + trustFee;
+
+        document.getElementById('bfEffectiveRate').innerText = '$' + effectiveRate.toFixed(2) + ' / hr';
+        document.getElementById('bfLaborSubtotal').innerText = '$' + laborSubtotal.toFixed(2);
+        document.getElementById('bfDispatchFee').innerText = '$' + dispatchFee.toFixed(2);
+        document.getElementById('bfTax').innerText = '$' + tax.toFixed(2);
+        document.getElementById('bfTrust').innerText = '$' + trustFee.toFixed(2);
+        document.getElementById('bfTotal').innerText = '$' + total.toFixed(2);
+    }
+
+    function submitHelpdeskTicket() {
+        const client = document.getElementById('ticketClient').value || 'Unknown Client';
+        const priority = document.getElementById('ticketPriority').value;
+        const desc = document.getElementById('ticketDesc').value;
+
+        const tktId = 'TKT-' + Math.floor(Math.random()*90000 + 10000);
+        const now = new Date().toISOString().replace('T', ' ').substring(0, 16);
+
+        const tbody = document.getElementById('ticketQueueBody');
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td><code class="mono-text">${tktId}</code></td>
+            <td>${client}</td>
+            <td>${priority}</td>
+            <td><span class="pill-amber">IN PROGRESS</span></td>
+            <td>${now}</td>
+        `;
+        tbody.insertBefore(row, tbody.firstChild);
+
+        alert('Ticket Successfully Dispatched to Helpdesk Queue! ID: ' + tktId);
+        document.getElementById('ticketDesc').value = '';
+    }
+</script>
