@@ -1,41 +1,44 @@
 <!--
-  Assumption: Since I cannot directly browse the specified franklin-research-hub URL, I am designing a production-ready, standalone academic data portal based on the URL's nomenclature ("Research Hub," "ROD Portal," "#about"). 
-  "ROD" is interpreted here as the "Repository of Observational Data." 
-  This design employs a clean, light, and airy institutional aesthetic—emphasizing data accessibility, clear typography, and an academic structure (datasets, documentation, about) typical of modern scientific portals.
+  Assumption: Based on the URL "ankergames.net", I am inferring the topic is an Independent Game Development Studio & Publisher. 
+  Because of the strict "light color palette only" constraint, this design avoids the typical dark/neon aesthetic of most gaming sites. Instead, it adopts a bright, playful, clean, and vibrant "Nintendo/Indie" style. 
+  It serves gamers (game catalog), decision-makers/investors (studio metrics, press info), and highlights publishing/technology partners (sponsors section).
 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ROD Portal | Franklin Research Hub</title>
+    <title>Anker Games | Crafting Joyful Interactive Experiences</title>
     <style>
         :root {
-            /* Light, institutional academic palette */
-            --bg-body: #f8fafc;
+            /* Light, vibrant, and airy color palette */
+            --bg-page: #f8fafc;
             --bg-surface: #ffffff;
-            --bg-surface-alt: #f1f5f9;
-            --text-primary: #0f172a;
-            --text-secondary: #475569;
-            --text-tertiary: #64748b;
-            --accent-blue: #0284c7;
-            --accent-blue-hover: #0369a1;
-            --accent-blue-soft: #e0f2fe;
-            --accent-teal: #0d9488;
-            --accent-teal-soft: #ccfbf1;
-            --border-color: #e2e8f0;
-            --border-hover: #cbd5e1;
+            --bg-soft: #f1f5f9;
+            --text-dark: #0f172a;
+            --text-medium: #475569;
+            --text-light: #64748b;
             
-            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
-            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.05), 0 4px 6px -4px rgb(0 0 0 / 0.02);
+            /* Vibrant Brand Colors */
+            --brand-primary: #3b82f6; /* Bright Blue */
+            --brand-primary-hover: #2563eb;
+            --brand-secondary: #f43f5e; /* Rose / Pink for gaming pop */
+            --brand-accent: #10b981; /* Emerald Green */
             
-            --radius-sm: 0.375rem;
-            --radius-md: 0.5rem;
-            --radius-lg: 0.75rem;
+            /* Game specific placeholder gradients */
+            --game-1: linear-gradient(135deg, #bae6fd 0%, #3b82f6 100%); /* Sky theme */
+            --game-2: linear-gradient(135deg, #fbcfe8 0%, #f43f5e 100%); /* Action theme */
+            --game-3: linear-gradient(135deg, #bbf7d0 0%, #10b981 100%); /* Adventure theme */
+
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+            --shadow-md: 0 10px 15px -3px rgba(0,0,0,0.05), 0 4px 6px -2px rgba(0,0,0,0.025);
+            --shadow-lg: 0 20px 25px -5px rgba(0,0,0,0.05), 0 10px 10px -5px rgba(0,0,0,0.02);
             
-            --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            --font-mono: "Fira Code", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            --radius-md: 12px;
+            --radius-lg: 24px;
+            --radius-pill: 9999px;
+            
+            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         * {
@@ -46,819 +49,764 @@
 
         html {
             scroll-behavior: smooth;
+            font-family: "Quicksand", system-ui, -apple-system, sans-serif;
         }
 
         body {
-            font-family: var(--font-sans);
-            background-color: var(--bg-body);
-            color: var(--text-primary);
+            background-color: var(--bg-page);
+            color: var(--text-dark);
             line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
         }
 
         a {
             text-decoration: none;
-            color: var(--accent-blue);
-            transition: color 0.2s ease;
+            color: inherit;
         }
 
-        a:hover {
-            color: var(--accent-blue-hover);
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
         }
 
         /* Typography */
-        h1, h2, h3, h4, h5 {
-            font-weight: 600;
-            line-height: 1.2;
-            color: var(--text-primary);
+        h1, h2, h3, h4 {
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
         }
 
-        h1 { font-size: 2.25rem; letter-spacing: -0.025em; }
-        h2 { font-size: 1.875rem; letter-spacing: -0.025em; margin-bottom: 1rem; }
-        h3 { font-size: 1.25rem; margin-bottom: 0.5rem; }
-        p { color: var(--text-secondary); margin-bottom: 1rem; }
+        h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); margin-bottom: 1rem; }
+        h2 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 1.5rem; }
+        h3 { font-size: 1.5rem; }
+        p { color: var(--text-medium); font-size: 1.125rem; margin-bottom: 1.5rem; }
 
         .container {
             width: 100%;
-            max-width: 1100px;
+            max-width: 1280px;
             margin: 0 auto;
-            padding: 0 1.5rem;
+            padding: 0 2rem;
         }
 
-        /* Header & Navigation */
-        header {
-            background-color: var(--bg-surface);
-            border-bottom: 1px solid var(--border-color);
-            position: sticky;
-            top: 0;
-            z-index: 50;
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.875rem 2rem;
+            border-radius: var(--radius-pill);
+            font-weight: 700;
+            font-size: 1.125rem;
+            transition: var(--transition);
+            cursor: pointer;
+            border: 2px solid transparent;
         }
 
-        .header-top {
-            background-color: var(--text-primary);
+        .btn-primary {
+            background-color: var(--brand-primary);
             color: white;
-            padding: 0.25rem 0;
-            font-size: 0.75rem;
-            text-align: center;
-            letter-spacing: 0.05em;
+            box-shadow: 0 4px 14px rgba(59, 130, 246, 0.3);
         }
 
-        .header-top a {
-            color: #bae6fd;
-            text-decoration: underline;
+        .btn-primary:hover {
+            background-color: var(--brand-primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border-color: var(--text-dark);
+            color: var(--text-dark);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--text-dark);
+            color: var(--bg-surface);
+        }
+
+        .btn-small {
+            padding: 0.5rem 1.25rem;
+            font-size: 0.95rem;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            transition: var(--transition);
         }
 
         .nav-container {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            height: 4rem;
+            height: 5rem;
         }
 
         .brand {
             display: flex;
             align-items: center;
             gap: 0.75rem;
-            font-weight: 600;
-            font-size: 1.125rem;
-            color: var(--text-primary);
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--text-dark);
+            letter-spacing: -0.03em;
         }
 
-        .brand svg {
-            width: 24px;
-            height: 24px;
-            color: var(--accent-blue);
+        .brand-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--brand-primary);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transform: rotate(-10deg);
+            transition: var(--transition);
         }
 
-        .brand-divider {
-            color: var(--border-color);
-            margin: 0 0.25rem;
-            font-weight: 400;
+        .brand:hover .brand-icon {
+            transform: rotate(0deg) scale(1.1);
         }
 
         .nav-links {
             display: flex;
-            gap: 2rem;
+            gap: 2.5rem;
             align-items: center;
         }
 
         .nav-links a {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            font-weight: 500;
-        }
-
-        .nav-links a:hover, .nav-links a.active {
-            color: var(--accent-blue);
-        }
-
-        .nav-search {
-            position: relative;
-            margin-left: 1rem;
-        }
-
-        .nav-search input {
-            background-color: var(--bg-surface-alt);
-            border: 1px solid var(--border-color);
-            padding: 0.5rem 1rem 0.5rem 2.25rem;
-            border-radius: 9999px;
-            font-size: 0.875rem;
-            width: 240px;
-            transition: all 0.2s ease;
-            color: var(--text-primary);
-        }
-
-        .nav-search input:focus {
-            outline: none;
-            border-color: var(--accent-blue);
-            box-shadow: 0 0 0 3px var(--accent-blue-soft);
-            width: 280px;
-            background-color: var(--bg-surface);
-        }
-
-        .nav-search svg {
-            position: absolute;
-            left: 0.75rem;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 16px;
-            height: 16px;
-            color: var(--text-tertiary);
-        }
-
-        /* Hero / Header Section */
-        .page-header {
-            background-color: var(--bg-surface);
-            padding: 4rem 0 3rem;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .header-content {
-            max-width: 800px;
-        }
-
-        .tagline {
-            display: inline-block;
-            background-color: var(--accent-blue-soft);
-            color: var(--accent-blue-hover);
-            padding: 0.25rem 0.75rem;
-            border-radius: 9999px;
-            font-size: 0.875rem;
             font-weight: 600;
+            color: var(--text-medium);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--brand-primary);
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text-dark);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 10rem 0 6rem;
+            position: relative;
+            overflow: hidden;
+            background: radial-gradient(circle at top right, #e0f2fe 0%, var(--bg-page) 60%);
+        }
+
+        .hero-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-visual {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 4/3;
+            border-radius: var(--radius-lg);
+            background: var(--game-1);
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 2rem;
+            color: white;
+            overflow: hidden;
+            transform: perspective(1000px) rotateY(-5deg);
+            transition: transform 0.5s ease;
+        }
+
+        .hero-visual:hover {
+            transform: perspective(1000px) rotateY(0deg);
+        }
+
+        .hero-visual::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 60%);
+            z-index: 1;
+        }
+
+        .hero-visual-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-visual h3 { color: white; margin-bottom: 0.5rem; font-size: 2.5rem; }
+        .hero-visual p { color: rgba(255,255,255,0.9); margin-bottom: 0; }
+        
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(4px);
+            border-radius: var(--radius-pill);
+            font-size: 0.875rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
             margin-bottom: 1rem;
         }
 
-        .page-header p {
-            font-size: 1.125rem;
-            max-width: 650px;
+        /* Games Grid Section */
+        .section-padding {
+            padding: 6rem 0;
         }
 
-        .stats-row {
-            display: flex;
-            gap: 2.5rem;
-            margin-top: 2.5rem;
-            padding-top: 2rem;
-            border-top: 1px solid var(--border-color);
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 4rem;
         }
 
-        .stat {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .stat-value {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--text-primary);
-        }
-
-        .stat-label {
-            font-size: 0.875rem;
-            color: var(--text-tertiary);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        /* Main Content Layout */
-        .main-layout {
+        .games-grid {
             display: grid;
-            grid-template-columns: 240px 1fr;
-            gap: 3rem;
-            padding: 3rem 0 6rem;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 2.5rem;
         }
 
-        /* Sidebar */
-        .sidebar {
-            position: sticky;
-            top: 6rem;
-            height: max-content;
-        }
-
-        .sidebar-nav {
+        .game-card {
+            background: var(--bg-surface);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            border: 1px solid rgba(0,0,0,0.05);
             display: flex;
             flex-direction: column;
+        }
+
+        .game-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .game-art {
+            width: 100%;
+            height: 220px;
+            position: relative;
+        }
+
+        .art-1 { background: var(--game-1); }
+        .art-2 { background: var(--game-2); }
+        .art-3 { background: var(--game-3); }
+
+        .game-platform-tags {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            display: flex;
             gap: 0.5rem;
         }
 
-        .sidebar-link {
-            padding: 0.5rem 0.75rem;
-            border-radius: var(--radius-md);
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            font-weight: 500;
+        .platform-tag {
+            width: 28px;
+            height: 28px;
+            background: white;
+            border-radius: 50%;
             display: flex;
             align-items: center;
-            justify-content: space-between;
-        }
-
-        .sidebar-link:hover {
-            background-color: var(--bg-surface-alt);
-            color: var(--text-primary);
-        }
-
-        .sidebar-link.active {
-            background-color: var(--accent-blue-soft);
-            color: var(--accent-blue-hover);
-        }
-
-        .sidebar-section {
-            margin-bottom: 2rem;
-        }
-
-        .sidebar-heading {
+            justify-content: center;
             font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--text-tertiary);
-            margin-bottom: 0.75rem;
-            padding-left: 0.75rem;
-            font-weight: 600;
-        }
-
-        /* Content Sections */
-        .content-section {
-            display: none;
-            animation: fadeIn 0.4s ease;
-        }
-
-        .content-section.active {
-            display: block;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* About Section (#about) */
-        .prose {
-            max-width: 800px;
-            background-color: var(--bg-surface);
-            padding: 2.5rem;
-            border-radius: var(--radius-lg);
-            border: 1px solid var(--border-color);
+            font-weight: 800;
+            color: var(--text-dark);
             box-shadow: var(--shadow-sm);
         }
 
-        .prose h3 {
-            margin-top: 2rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 1px solid var(--border-color);
+        .game-info {
+            padding: 2rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
         }
 
-        .prose h3:first-child {
-            margin-top: 0;
-        }
-
-        .prose ul {
-            margin-left: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--text-secondary);
-        }
-
-        .prose li {
+        .game-genre {
+            color: var(--brand-primary);
+            font-weight: 700;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
             margin-bottom: 0.5rem;
         }
 
-        .institution-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
-
-        .institution-card {
-            border: 1px solid var(--border-color);
-            padding: 1.5rem;
-            border-radius: var(--radius-md);
-            background-color: var(--bg-body);
-        }
-
-        .institution-card h4 {
-            font-size: 1rem;
-            margin-bottom: 0.25rem;
-        }
-
-        /* Datasets List */
-        .dataset-controls {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1.5rem;
-        }
-
-        .filter-group {
-            display: flex;
-            gap: 0.5rem;
-        }
-
-        .filter-btn {
-            background-color: var(--bg-surface);
-            border: 1px solid var(--border-color);
-            padding: 0.375rem 0.75rem;
-            border-radius: var(--radius-sm);
-            font-size: 0.875rem;
-            color: var(--text-secondary);
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .filter-btn:hover, .filter-btn.active {
-            background-color: var(--bg-surface-alt);
-            color: var(--text-primary);
-            border-color: var(--border-hover);
-        }
-
-        .dataset-list {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .dataset-card {
-            background-color: var(--bg-surface);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-lg);
-            padding: 1.5rem;
-            box-shadow: var(--shadow-sm);
-            transition: all 0.2s ease;
-        }
-
-        .dataset-card:hover {
-            border-color: var(--border-hover);
-            box-shadow: var(--shadow-md);
-        }
-
-        .dataset-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
+        .game-title {
             margin-bottom: 0.75rem;
         }
 
-        .dataset-title {
-            font-size: 1.125rem;
-            color: var(--accent-blue);
-            font-weight: 600;
+        .game-desc {
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
         }
 
-        .dataset-title:hover {
-            text-decoration: underline;
-        }
-
-        .dataset-badges {
+        .game-actions {
             display: flex;
+            gap: 1rem;
+            align-items: center;
+            border-top: 1px solid rgba(0,0,0,0.05);
+            padding-top: 1.5rem;
+        }
+
+        /* Studio / Decision Maker Section */
+        .studio-section {
+            background-color: var(--bg-surface);
+            border-top: 1px solid rgba(0,0,0,0.05);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .studio-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .stat-box {
+            background: var(--bg-soft);
+            padding: 2rem;
+            border-radius: var(--radius-md);
+            text-align: center;
+            border: 1px solid rgba(0,0,0,0.02);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--brand-primary);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-weight: 600;
+            color: var(--text-medium);
+            font-size: 1rem;
+        }
+
+        /* Sponsors & Partners (Publishers/Tech) */
+        .partners-section {
+            background-color: var(--bg-page);
+            text-align: center;
+        }
+
+        .partners-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        .partner-logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+            opacity: 0.6;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
             gap: 0.5rem;
         }
 
-        .badge {
-            font-size: 0.7rem;
-            font-weight: 600;
-            padding: 0.125rem 0.375rem;
-            border-radius: var(--radius-sm);
-            text-transform: uppercase;
+        .partner-logo:hover {
+            opacity: 1;
+            color: var(--text-dark);
+            transform: scale(1.05);
         }
-
-        .badge-format {
-            background-color: var(--bg-surface-alt);
-            color: var(--text-tertiary);
-            border: 1px solid var(--border-color);
-        }
-
-        .badge-license {
-            background-color: var(--accent-teal-soft);
-            color: var(--accent-teal);
-        }
-
-        .dataset-meta {
-            font-size: 0.875rem;
-            color: var(--text-tertiary);
-            display: flex;
-            gap: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .meta-item {
-            display: flex;
-            align-items: center;
-            gap: 0.375rem;
-        }
-
-        .meta-item svg {
-            width: 14px;
-            height: 14px;
-        }
-
-        .dataset-desc {
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-            margin-bottom: 0;
-        }
-
-        /* API Snippet */
-        .code-block {
-            background-color: #1e293b; /* Keeping code block dark for readability, but page remains light */
-            color: #f8fafc;
-            border-radius: var(--radius-md);
-            padding: 1.5rem;
-            font-family: var(--font-mono);
-            font-size: 0.875rem;
-            overflow-x: auto;
-            margin-bottom: 1.5rem;
-        }
-
-        .code-comment { color: #64748b; }
-        .code-keyword { color: #c084fc; }
-        .code-string { color: #86efac; }
-        .code-func { color: #60a5fa; }
 
         /* Footer */
         footer {
             background-color: var(--bg-surface);
-            border-top: 1px solid var(--border-color);
-            padding: 3rem 0;
-            margin-top: auto;
+            padding: 5rem 0 2rem;
+            border-top: 1px solid rgba(0,0,0,0.05);
         }
 
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-        }
-
-        .footer-brand p {
-            font-size: 0.875rem;
-            color: var(--text-tertiary);
-            max-width: 300px;
-            margin-top: 0.5rem;
-        }
-
-        .footer-links {
-            display: flex;
-            gap: 4rem;
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
         }
 
         .footer-col h4 {
-            font-size: 0.875rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--text-primary);
-            margin-bottom: 1rem;
+            font-size: 1.125rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
         }
 
-        .footer-col ul {
+        .footer-links {
             list-style: none;
             display: flex;
             flex-direction: column;
-            gap: 0.5rem;
+            gap: 0.75rem;
         }
 
-        .footer-col a {
-            color: var(--text-secondary);
+        .footer-links a {
+            color: var(--text-medium);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--brand-primary);
+            padding-left: 5px;
+        }
+
+        .newsletter-input {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            border: 2px solid var(--bg-soft);
+            border-radius: var(--radius-md);
+            background: var(--bg-soft);
+            font-family: inherit;
+            margin-bottom: 1rem;
+            outline: none;
+            transition: var(--transition);
+        }
+
+        .newsletter-input:focus {
+            border-color: var(--brand-primary);
+            background: white;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(0,0,0,0.05);
+            color: var(--text-light);
             font-size: 0.875rem;
+            font-weight: 500;
         }
 
-        .footer-col a:hover {
-            color: var(--accent-blue);
+        /* Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         /* Mobile Adjustments */
-        @media (max-width: 768px) {
-            .main-layout {
+        @media (max-width: 992px) {
+            .hero-layout, .studio-layout {
                 grid-template-columns: 1fr;
-            }
-            
-            .sidebar {
-                position: relative;
-                top: 0;
+                gap: 3rem;
             }
 
-            .nav-search {
+            .hero {
+                padding-top: 8rem;
+                text-align: center;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .nav-links {
                 display: none;
-            }
-            
-            .stats-row {
-                flex-wrap: wrap;
+                position: absolute;
+                top: 5rem;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 2rem;
+                border-bottom: 1px solid rgba(0,0,0,0.05);
+                box-shadow: var(--shadow-lg);
             }
 
-            .institution-grid {
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-toggle {
+                display: block;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .footer-grid {
                 grid-template-columns: 1fr;
+            }
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- Top Alert Bar -->
-    <div class="header-top">
-        <div class="container">
-            ROD Portal v2.4 is now live. <a href="#">Read the changelog</a> for details on the new spatial query API.
-        </div>
-    </div>
-
-    <!-- Main Navigation -->
+    <!-- Header -->
     <header>
         <div class="container nav-container">
             <a href="#" class="brand">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                    <line x1="3" y1="9" x2="21" y2="9"></line>
-                    <line x1="9" y1="21" x2="9" y2="9"></line>
-                </svg>
-                Franklin Research Hub <span class="brand-divider">/</span> ROD Portal
-            </a>
-            
-            <div class="nav-links">
-                <a href="#datasets" onclick="switchTab('datasets')">Data Catalog</a>
-                <a href="#api" onclick="switchTab('api')">Documentation</a>
-                <a href="#about" class="active" onclick="switchTab('about')">About</a>
-                <div class="nav-search">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="11" cy="11" r="8"></circle>
-                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                <div class="brand-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2l-9 4v6c0 5.5 4 10 9 10s9-4.5 9-10V6l-9-4z"></path>
                     </svg>
-                    <input type="text" placeholder="Search datasets, DOI, or authors...">
                 </div>
-            </div>
+                Anker Games
+            </a>
+
+            <nav class="nav-links" id="navLinks">
+                <a href="#games">Our Games</a>
+                <a href="#studio">The Studio</a>
+                <a href="#partners">Partners</a>
+                <a href="#careers">Careers</a>
+                <a href="#" class="btn btn-primary btn-small" style="color: white;">Press Kit</a>
+            </nav>
+
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle Menu">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
         </div>
     </header>
 
-    <!-- Page Header -->
-    <section class="page-header">
-        <div class="container">
-            <div class="header-content">
-                <span class="tagline">Repository of Observational Data</span>
-                <h1>Accelerating reproducible science through accessible data.</h1>
-                <p>An open-access archive for observational datasets, simulation logs, and behavioral metrics curated by the Franklin Research Hub. All data is peer-reviewed and version-controlled.</p>
-                
-                <div class="stats-row">
-                    <div class="stat">
-                        <span class="stat-value">245</span>
-                        <span class="stat-label">Published Datasets</span>
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-layout">
+                <div class="hero-text reveal">
+                    <h1>Games that bring people together.</h1>
+                    <p>We are an independent game development studio creating vibrant, accessible, and mechanically deep experiences for players across all platforms. Dive into our worlds.</p>
+                    <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2rem;">
+                        <a href="#games" class="btn btn-primary">Play Our Games</a>
+                        <a href="#studio" class="btn btn-outline">Meet the Studio</a>
                     </div>
-                    <div class="stat">
-                        <span class="stat-value">1.8TB</span>
-                        <span class="stat-label">Indexed Storage</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-value">12.4k</span>
-                        <span class="stat-label">Citations</span>
+                </div>
+                <div class="hero-visual reveal">
+                    <span class="badge">New Release</span>
+                    <div class="hero-visual-content">
+                        <h3>Skyward Horizon</h3>
+                        <p>Available now on PC and Consoles.</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Main Content -->
-    <main class="container main-layout">
-        
-        <!-- Sidebar Navigation -->
-        <aside class="sidebar">
-            <div class="sidebar-section">
-                <h3 class="sidebar-heading">Portal Directory</h3>
-                <nav class="sidebar-nav">
-                    <a href="#about" class="sidebar-link active" onclick="switchTab('about')">
-                        About the Portal
-                    </a>
-                    <a href="#datasets" class="sidebar-link" onclick="switchTab('datasets')">
-                        Data Catalog
-                        <span style="background: var(--bg-surface-alt); padding: 0.125rem 0.375rem; border-radius: 9999px; font-size: 0.75rem; border: 1px solid var(--border-color);">245</span>
-                    </a>
-                    <a href="#api" class="sidebar-link" onclick="switchTab('api')">
-                        API & Integration
-                    </a>
-                </nav>
+        <!-- Games Catalog -->
+        <section id="games" class="section-padding">
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2>Featured Titles</h2>
+                    <p>Explore our critically acclaimed catalog of indie hits. Built with passion, designed for fun.</p>
+                </div>
+
+                <div class="games-grid">
+                    <!-- Game 1 -->
+                    <div class="game-card reveal">
+                        <div class="game-art art-1">
+                            <div class="game-platform-tags">
+                                <div class="platform-tag">PC</div>
+                                <div class="platform-tag">NX</div>
+                            </div>
+                        </div>
+                        <div class="game-info">
+                            <span class="game-genre">Co-op Adventure</span>
+                            <h3 class="game-title">Skyward Horizon</h3>
+                            <p class="game-desc">Take to the clouds in this cooperative puzzle platformer. Navigate floating ruins, manipulate wind currents, and restore color to the sky.</p>
+                            <div class="game-actions">
+                                <a href="#" class="btn btn-primary btn-small">Get the Game</a>
+                                <a href="#" class="btn btn-outline btn-small">Watch Trailer</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Game 2 -->
+                    <div class="game-card reveal">
+                        <div class="game-art art-2">
+                            <div class="game-platform-tags">
+                                <div class="platform-tag">PC</div>
+                                <div class="platform-tag">PS</div>
+                                <div class="platform-tag">XB</div>
+                            </div>
+                        </div>
+                        <div class="game-info">
+                            <span class="game-genre">Rhythm Action</span>
+                            <h3 class="game-title">Neon Pulse Rush</h3>
+                            <p class="game-desc">A high-octane rhythm fighter where every punch, dodge, and parry is synced to an original electronic soundtrack.</p>
+                            <div class="game-actions">
+                                <a href="#" class="btn btn-primary btn-small">Get the Game</a>
+                                <a href="#" class="btn btn-outline btn-small">Soundtrack</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Game 3 -->
+                    <div class="game-card reveal">
+                        <div class="game-art art-3">
+                            <div class="game-platform-tags">
+                                <div class="platform-tag">PC</div>
+                                <div class="platform-tag">NX</div>
+                            </div>
+                        </div>
+                        <div class="game-info">
+                            <span class="game-genre">Cozy RPG</span>
+                            <h3 class="game-title">Evergreen Valley</h3>
+                            <p class="game-desc">Rebuild a forgotten magical forest. Befriend sprites, cultivate rare flora, and uncover the secrets of the ancient roots.</p>
+                            <div class="game-actions">
+                                <a href="#" class="btn btn-primary btn-small">Get the Game</a>
+                                <a href="#" class="btn btn-outline btn-small">Wiki</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </section>
 
-            <div class="sidebar-section">
-                <h3 class="sidebar-heading">Resources</h3>
-                <nav class="sidebar-nav">
-                    <a href="#" class="sidebar-link">Submission Guidelines</a>
-                    <a href="#" class="sidebar-link">Data Governance Policy</a>
-                    <a href="#" class="sidebar-link">Citing ROD Data</a>
-                </nav>
+        <!-- Studio Info for Decision Makers -->
+        <section id="studio" class="section-padding studio-section">
+            <div class="container studio-layout">
+                <div class="studio-content reveal">
+                    <h2>Built on creativity.<br>Backed by results.</h2>
+                    <p>Since 2020, Anker Games has operated as a fully independent, remote-first studio. We prioritize healthy development cycles, sustainable growth, and pushing the boundaries of what small, focused teams can achieve.</p>
+                    <p>We are always looking to connect with publishing partners and investors for our upcoming unannounced titles.</p>
+                    <div style="margin-top: 2rem;">
+                        <a href="#" class="btn btn-outline">Download Corporate Deck</a>
+                    </div>
+                </div>
+                <div class="stats-grid reveal">
+                    <div class="stat-box">
+                        <div class="stat-number">4.2M</div>
+                        <div class="stat-label">Players Worldwide</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">12</div>
+                        <div class="stat-label">Industry Awards</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">3</div>
+                        <div class="stat-label">Original IPs Released</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">92%</div>
+                        <div class="stat-label">Positive User Reviews</div>
+                    </div>
+                </div>
             </div>
-        </aside>
+        </section>
 
-        <!-- Content Area -->
-        <div class="content-area">
-
-            <!-- ABOUT SECTION -->
-            <section id="content-about" class="content-section active">
-                <div class="prose">
-                    <h2>About the ROD Portal</h2>
-                    <p>The Repository of Observational Data (ROD) is a foundational infrastructure project established by the Franklin Research Hub in 2023. Our mission is to solve the "reproducibility crisis" in computational and behavioral sciences by providing a standardized, highly-available platform for sharing raw and processed observational data.</p>
-                    
-                    <h3>Our Methodology</h3>
-                    <p>We believe data should be as rigorously reviewed as the publications it supports. Every dataset hosted on the ROD Portal undergoes a validation process ensuring:</p>
-                    <ul>
-                        <li><strong>Anonymization:</strong> Strict adherence to GDPR and HIPAA protocols for human-subject data.</li>
-                        <li><strong>Completeness:</strong> Inclusion of all necessary metadata dictionaries and schema definitions.</li>
-                        <li><strong>Format Agnosticism:</strong> Provision of data in open, non-proprietary formats (e.g., CSV, JSON, Parquet).</li>
-                    </ul>
-
-                    <h3>Institutional Sponsors</h3>
-                    <p>The ROD Portal remains free for academic use thanks to the generous support of our institutional consortium.</p>
-                    <div class="institution-grid">
-                        <div class="institution-card">
-                            <h4>Franklin Institute of Technology</h4>
-                            <p style="font-size: 0.875rem; margin: 0;">Primary host and infrastructural sponsor. Oversees the data governance board.</p>
-                        </div>
-                        <div class="institution-card">
-                            <h4>Global Science Foundation</h4>
-                            <p style="font-size: 0.875rem; margin: 0;">Grant provider for the 2024-2027 Open Access Data Initiative (OADI).</p>
-                        </div>
+        <!-- Technology & Platform Partners -->
+        <section id="partners" class="section-padding partners-section">
+            <div class="container">
+                <div class="section-header reveal" style="margin-bottom: 2rem;">
+                    <h2>Publishing & Tech Partners</h2>
+                    <p>We build our games using industry-leading technology and publish on the platforms players love.</p>
+                </div>
+                <div class="partners-grid reveal">
+                    <div class="partner-logo">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                        Nexus Engine
+                    </div>
+                    <div class="partner-logo">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01"/></svg>
+                        PlayHub
+                    </div>
+                    <div class="partner-logo">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                        PC / Steam
+                    </div>
+                    <div class="partner-logo">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+                        Indie Fund
                     </div>
                 </div>
-            </section>
-
-            <!-- DATASETS SECTION -->
-            <section id="content-datasets" class="content-section">
-                <div class="dataset-controls">
-                    <h2 style="margin: 0;">Data Catalog</h2>
-                    <div class="filter-group">
-                        <button class="filter-btn active">All</button>
-                        <button class="filter-btn">Behavioral</button>
-                        <button class="filter-btn">Spatial</button>
-                        <button class="filter-btn">Neuroimaging</button>
-                    </div>
-                </div>
-
-                <div class="dataset-list">
-                    <!-- Card 1 -->
-                    <div class="dataset-card">
-                        <div class="dataset-header">
-                            <a href="#" class="dataset-title">Human-Computer Interaction Kinematics during High Cognitive Load</a>
-                            <div class="dataset-badges">
-                                <span class="badge badge-format">CSV</span>
-                                <span class="badge badge-format">JSON</span>
-                                <span class="badge badge-license">CC-BY 4.0</span>
-                            </div>
-                        </div>
-                        <div class="dataset-meta">
-                            <div class="meta-item">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                                Dr. E. Wallace, et al.
-                            </div>
-                            <div class="meta-item">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                                Updated: Oct 12, 2026
-                            </div>
-                            <div class="meta-item">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-                                1.2 GB
-                            </div>
-                        </div>
-                        <p class="dataset-desc">Contains raw cursor telemetry, keystroke dynamics, and eye-tracking heatmaps from 450 subjects performing complex spatial reasoning tasks under simulated stress conditions.</p>
-                    </div>
-
-                    <!-- Card 2 -->
-                    <div class="dataset-card">
-                        <div class="dataset-header">
-                            <a href="#" class="dataset-title">Longitudinal Speech Pattern Degradation in Sleep-Deprived Subjects</a>
-                            <div class="dataset-badges">
-                                <span class="badge badge-format">WAV</span>
-                                <span class="badge badge-format">Parquet</span>
-                                <span class="badge badge-license">Open Access</span>
-                            </div>
-                        </div>
-                        <div class="dataset-meta">
-                            <div class="meta-item">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                                Franklin Sleep Lab
-                            </div>
-                            <div class="meta-item">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                                Updated: Sep 05, 2026
-                            </div>
-                            <div class="meta-item">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-                                4.5 GB
-                            </div>
-                        </div>
-                        <p class="dataset-desc">Audio recordings and transcribed text arrays mapping phoneme distortion and vocabulary reduction across 72-hour sustained wakefulness periods.</p>
-                    </div>
-
-                    <!-- Card 3 -->
-                    <div class="dataset-card">
-                        <div class="dataset-header">
-                            <a href="#" class="dataset-title">Urban Commuter Navigation Choices (Dataset ROD-882)</a>
-                            <div class="dataset-badges">
-                                <span class="badge badge-format">GeoJSON</span>
-                                <span class="badge badge-license">CC-BY 4.0</span>
-                            </div>
-                        </div>
-                        <div class="dataset-meta">
-                            <div class="meta-item">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                                M. Chen, Urban Studies
-                            </div>
-                            <div class="meta-item">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                                Updated: Aug 21, 2026
-                            </div>
-                            <div class="meta-item">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-                                850 MB
-                            </div>
-                        </div>
-                        <p class="dataset-desc">Anonymized GPS traces of 12,000 commuters comparing predicted algorithmic routing versus actual human navigation choices in varied weather conditions.</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- API SECTION -->
-            <section id="content-api" class="content-section">
-                <div class="prose">
-                    <h2>API & Integration</h2>
-                    <p>Programmatic access to the ROD Portal is available via our REST API. No authentication is required for public datasets, though rate limits apply (1000 requests / hour per IP).</p>
-                    
-                    <h3>Python Quickstart</h3>
-                    <p>You can use the official <code>rod-client</code> library or standard HTTP requests to fetch dataset arrays directly into pandas DataFrames.</p>
-                    
-                    <div class="code-block">
-<span class="code-comment"># Install the client via pip:</span>
-<span class="code-comment"># pip install franklin-rod-client</span>
-
-<span class="code-keyword">import</span> rod_client <span class="code-keyword">as</span> rod
-<span class="code-keyword">import</span> pandas <span class="code-keyword">as</span> pd
-
-<span class="code-comment"># Initialize client (defaults to public endpoint)</span>
-client = rod.<span class="code-func">Client</span>()
-
-<span class="code-comment"># Fetch dataset by DOI or ID</span>
-dataset_id = <span class="code-string">"rod.10.1234/hci-kinematics-26"</span>
-data = client.<span class="code-func">get_dataset</span>(dataset_id)
-
-<span class="code-comment"># Load specific table into DataFrame</span>
-df = pd.<span class="code-func">DataFrame</span>(data.<span class="code-func">load_table</span>(<span class="code-string">"telemetry_raw.csv"</span>))
-<span class="code-func">print</span>(df.<span class="code-func">head</span>())
-                    </div>
-
-                    <h3>Endpoints</h3>
-                    <ul>
-                        <li><code>GET /api/v2/datasets</code> - List all available datasets</li>
-                        <li><code>GET /api/v2/datasets/{id}</code> - Get metadata for a specific dataset</li>
-                        <li><code>GET /api/v2/datasets/{id}/files/{filename}</code> - Download raw data file</li>
-                    </ul>
-                </div>
-            </section>
-
-        </div>
+            </div>
+        </section>
     </main>
 
     <!-- Footer -->
     <footer>
-        <div class="container footer-content">
-            <div class="footer-brand">
-                <div style="font-weight: 600; font-size: 1.125rem; color: var(--text-primary); display: flex; align-items: center; gap: 0.5rem;">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 20px; height: 20px; color: var(--accent-blue);">
-                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                    </svg>
-                    Franklin Research Hub
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="#" class="brand" style="margin-bottom: 1rem; display: inline-flex;">
+                        <div class="brand-icon" style="width: 28px; height: 28px;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2l-9 4v6c0 5.5 4 10 9 10s9-4.5 9-10V6l-9-4z"></path>
+                            </svg>
+                        </div>
+                        Anker Games
+                    </a>
+                    <p style="font-size: 0.95rem;">An independent studio dedicated to creating vibrant, joyful, and memorable interactive experiences for players around the world.</p>
                 </div>
-                <p>Committed to open science. Providing foundational infrastructure for global researchers.</p>
-                <p style="margin-top: 2rem; font-size: 0.75rem;">&copy; 2026 Franklin Institute. All data licensed under CC-BY 4.0 unless otherwise stated.</p>
+                
+                <div class="footer-col">
+                    <h4>Games</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Skyward Horizon</a></li>
+                        <li><a href="#">Neon Pulse Rush</a></li>
+                        <li><a href="#">Evergreen Valley</a></li>
+                        <li><a href="#">Merchandise</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Studio</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Careers (We're Hiring!)</a></li>
+                        <li><a href="#">Press & Media</a></li>
+                        <li><a href="#">Support</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Stay Updated</h4>
+                    <p style="font-size: 0.95rem; margin-bottom: 1rem;">Join our newsletter for development updates and beta access.</p>
+                    <form onsubmit="event.preventDefault();">
+                        <input type="email" placeholder="Enter your email" class="newsletter-input" required>
+                        <button type="submit" class="btn btn-primary" style="width: 100%; padding: 0.75rem;">Subscribe</button>
+                    </form>
+                </div>
             </div>
-            
-            <div class="footer-links">
-                <div class="footer-col">
-                    <h4>ROD Portal</h4>
-                    <ul>
-                        <li><a href="#">Data Catalog</a></li>
-                        <li><a href="#">Documentation</a></li>
-                        <li><a href="#">Submit Data</a></li>
-                        <li><a href="#">Status Page</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Legal & Policy</h4>
-                    <ul>
-                        <li><a href="#">Terms of Use</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Data Governance</a></li>
-                        <li><a href="#">Accessibility</a></li>
-                    </ul>
+
+            <div class="footer-bottom">
+                <div>&copy; 2026 Anker Games Studio. All rights reserved.</div>
+                <div style="display: flex; gap: 1.5rem;">
+                    <a href="#" style="color: inherit;">Privacy Policy</a>
+                    <a href="#" style="color: inherit;">Terms of Service</a>
                 </div>
             </div>
         </div>
@@ -866,29 +814,34 @@ df = pd.<span class="code-func">DataFrame</span>(data.<span class="code-func">lo
 
     <!-- Interactive Logic -->
     <script>
-        // Simple Tab Switching Logic
-        function switchTab(tabId) {
-            // Update Navigation active states
-            document.querySelectorAll('.nav-links a, .sidebar-link').forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === '#' + tabId) {
-                    link.classList.add('active');
-                }
+        document.addEventListener('DOMContentLoaded', () => {
+            // Mobile Menu Toggle
+            const mobileToggle = document.getElementById('mobileToggle');
+            const navLinks = document.getElementById('navLinks');
+
+            mobileToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
             });
 
-            // Update Content active states
-            document.querySelectorAll('.content-section').forEach(section => {
-                section.classList.remove('active');
-            });
-            document.getElementById('content-' + tabId).classList.add('active');
-        }
+            // Scroll Reveal Animation
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
 
-        // Handle initial load hash
-        window.addEventListener('DOMContentLoaded', () => {
-            const hash = window.location.hash.replace('#', '');
-            if (hash && document.getElementById('content-' + hash)) {
-                switchTab(hash);
-            }
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.reveal').forEach((el) => {
+                observer.observe(el);
+            });
         });
     </script>
 </body>
