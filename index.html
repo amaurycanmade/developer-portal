@@ -3,26 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AMAURYCAN MADE | Sovereign Global Enterprise Ecosystem & SPA Workspace v8.0</title>
-    <!-- Google Fonts -->
+    <title>TERRELL M. WILSON | Amaurycan Made Executive Portal v9.0</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Open+Sans:wght@400;600;700&family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-
-    <!-- JSON-LD Structured Data Schema (Schema.org / SPA SEO) -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Amaurycan Made Global Enterprise Ecosystem",
-      "url": "https://amaurycan.com",
-      "logo": "https://amaurycan.com/assets/logo.png",
-      "founder": "Terrell M. Wilson",
-      "description": "Universal 10-Tier OSAAT Operating Logic Framework, Gladiators Athletic Program, and B2B IT Operations Container.",
-      "telephone": "+1-615-862-6790"
-    }
-    </script>
-
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Open+Sans:wght@400;600;700&family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-void: #060913;
@@ -31,67 +15,50 @@
             --bg-card-hover: #1c2b44;
             --accent-cyan: #00f0ff;
             --accent-sky: #0284c7;
-            --accent-blue-glow: rgba(2, 132, 199, 0.53);
+            --accent-blue-glow: rgba(2, 132, 199, 0.4);
             --accent-gold: #fbbf24;
             --accent-emerald: #10b981;
-            --accent-red: #ef4444;
+            --accent-purple: #8b5cf6;
             --text-primary: #f8fafc;
             --text-secondary: #94a3b8;
             --border-color: #1e2e4a;
-            --border-glow: rgba(0, 240, 255, 0.27);
             --font-head: 'Montserrat', sans-serif;
             --font-body: 'Open Sans', sans-serif;
-            --font-code: 'Roboto Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            --font-code: 'Roboto Mono', monospace;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { background-color: var(--bg-void); color: var(--text-primary); font-family: var(--font-body); line-height: 1.6; overflow-x: hidden; }
+        body { background-color: var(--bg-void); color: var(--text-primary); font-family: var(--font-body); line-height: 1.6; }
 
-        /* Monospace Typography Class */
-        code, pre, kbd, samp,
-        .font-mono, .badge-tag, .rank-badge, .tax-receipt-box,
-        .status-pill, .tile-tag, .card-tag, .seal-title,
-        .receipt-row, #modalRecordId, .mono-text, .nav-sub-text {
-            font-family: var(--font-code) !important;
-            letter-spacing: -0.3px;
-        }
+        code, pre, .mono-text, .badge-tag, .stat-val { font-family: var(--font-code) !important; }
 
-        input, select, textarea, button { font-family: var(--font-body); }
-
-        /* Top CTHT Telemetry Header Bar */
-        .top-seal-bar { background: #02040a; border-bottom: 1px solid var(--border-color); padding: 8px 24px; font-size: 11px; font-family: var(--font-code) !important; color: var(--text-secondary); display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,240,255,0.1); position: sticky; top: 0; z-index: 1001; }
+        /* Top Telemetry Seal Bar */
+        .top-seal-bar { background: #02040a; border-bottom: 1px solid var(--border-color); padding: 8px 24px; font-size: 11px; font-family: var(--font-code) !important; color: var(--text-secondary); display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,240,255,0.1); }
         .top-seal-bar .seal-title { color: var(--accent-cyan); font-weight: 700; }
-        .top-seal-bar .status-pill { background: rgba(16, 185, 129, 0.13); color: var(--accent-emerald); border: 1px solid var(--accent-emerald); padding: 2px 8px; border-radius: 12px; }
+        .top-seal-bar .status-pill { background: rgba(16, 185, 129, 0.15); color: var(--accent-emerald); border: 1px solid var(--accent-emerald); padding: 2px 8px; border-radius: 12px; }
 
         /* Navigation Header */
-        header { position: sticky; top: 33px; z-index: 1000; background: rgba(11, 17, 32, 0.95); backdrop-filter: blur(16px); border-bottom: 2px solid var(--accent-sky); padding: 14px 24px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 20px rgba(0,0,0,0.6); }
+        header { position: sticky; top: 0; z-index: 1000; background: rgba(11, 17, 32, 0.95); backdrop-filter: blur(16px); border-bottom: 2px solid var(--accent-sky); padding: 14px 24px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 20px rgba(0,0,0,0.6); }
         .logo { font-family: var(--font-head); font-weight: 900; font-size: 19px; color: var(--text-primary); text-decoration: none; letter-spacing: -0.5px; display: flex; align-items: center; gap: 10px; text-transform: uppercase; text-shadow: 0 0 12px var(--accent-sky); }
-        .badge-tag { font-family: var(--font-code) !important; font-size: 10px; background: rgba(0, 240, 255, 0.08); color: var(--accent-cyan); border: 1px solid var(--accent-cyan); padding: 3px 8px; border-radius: 4px; box-shadow: 0 0 8px rgba(0, 240, 255, 0.2); }
+        .badge-tag { font-family: var(--font-code) !important; font-size: 10px; background: rgba(0, 240, 255, 0.1); color: var(--accent-cyan); border: 1px solid var(--accent-cyan); padding: 3px 8px; border-radius: 4px; box-shadow: 0 0 8px rgba(0, 240, 255, 0.2); }
 
-        /* 13-Node Continuum Subnet Navigation */
-        nav { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
-        nav a { color: var(--text-secondary); text-decoration: none; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px; transition: all 0.2s; display: flex; align-items: center; gap: 4px; padding: 6px 10px; border-radius: 6px; }
+        nav { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+        nav a { color: var(--text-secondary); text-decoration: none; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px; transition: all 0.2s; display: flex; align-items: center; gap: 4px; padding: 6px 12px; border-radius: 4px; }
         nav a:hover, nav a.active { color: var(--accent-cyan); background: rgba(0, 240, 255, 0.1); text-shadow: 0 0 8px var(--accent-cyan); }
 
-        .btn-cta { background: linear-gradient(135deg, var(--accent-sky), #0284c7); color: #fff; padding: 8px 16px; border-radius: 6px; font-weight: 800; font-size: 12px; text-decoration: none; text-transform: uppercase; letter-spacing: 0.5px; transition: all 0.2s; border: 1px solid var(--accent-cyan); box-shadow: 0 0 15px var(--accent-blue-glow); cursor: pointer; }
+        .btn-cta { background: linear-gradient(135deg, var(--accent-sky), #0284c7); color: #fff; padding: 8px 18px; border-radius: 6px; font-weight: 800; font-size: 12px; text-decoration: none; text-transform: uppercase; letter-spacing: 0.5px; transition: all 0.2s; border: 1px solid var(--accent-cyan); box-shadow: 0 0 15px var(--accent-blue-glow); cursor: pointer; }
         .btn-cta:hover { background: linear-gradient(135deg, #0369a1, var(--accent-sky)); transform: translateY(-2px); box-shadow: 0 0 25px var(--accent-cyan); }
 
-        /* Main Container & Page Views */
-        .container { max-width: 1320px; margin: 0 auto; padding: 36px 24px; }
+        /* Container */
+        .container { max-width: 1280px; margin: 0 auto; padding: 32px 24px; }
         .view-section { display: none; }
         .view-section.active-view { display: block; }
 
-        /* Metallic Hero Banner */
-        .hero-banner { background: radial-gradient(circle at top, #1e2e4a 0%, #0b1120 70%); border: 2px solid var(--border-color); border-radius: 20px; padding: 48px 32px; text-align: center; margin-bottom: 36px; box-shadow: 0 20px 40px rgba(0,0,0,0.7), inset 0 0 30px rgba(0, 240, 255, 0.08); position: relative; overflow: hidden; }
+        /* Hero Banner */
+        .hero-banner { background: radial-gradient(circle at top, #1e2e4a 0%, #0b1120 70%); border: 2px solid var(--border-color); border-radius: 20px; padding: 48px 32px; text-align: center; margin-bottom: 36px; box-shadow: 0 20px 40px rgba(0,0,0,0.7), inset 0 0 30px rgba(0, 240, 255, 0.1); position: relative; overflow: hidden; }
         .hero-banner::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, transparent, var(--accent-cyan), transparent); }
-        .hero-banner h1 { font-family: var(--font-head); font-size: 36px; font-weight: 900; text-transform: uppercase; letter-spacing: -1px; margin-bottom: 12px; background: linear-gradient(180deg, #ffffff 0%, #94a3b8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .hero-banner p { font-size: 15px; color: var(--text-secondary); max-width: 840px; margin: 0 auto 24px; }
-
-        /* Search Control */
-        .search-box-container { max-width: 760px; margin: 0 auto 24px; position: relative; }
-        .search-input { width: 100%; background: #030712; border: 2px solid var(--accent-sky); color: #fff; padding: 16px 24px 16px 52px; border-radius: 50px; font-size: 14px; box-shadow: 0 10px 25px rgba(0,0,0,0.6); transition: all 0.3s; }
-        .search-input:focus { outline: none; border-color: var(--accent-cyan); box-shadow: 0 0 20px var(--accent-cyan); }
-        .search-icon { position: absolute; left: 20px; top: 50%; transform: translateY(-50%); color: var(--accent-cyan); font-size: 18px; }
+        .hero-banner h1 { font-family: var(--font-head); font-size: 38px; font-weight: 900; text-transform: uppercase; letter-spacing: -1px; margin-bottom: 12px; background: linear-gradient(180deg, #ffffff 0%, #94a3b8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero-banner p { font-size: 16px; color: var(--text-secondary); max-width: 840px; margin: 0 auto 24px; }
 
         /* Tile Grid */
         .tile-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 36px; }
@@ -114,263 +81,214 @@
 
         /* Footer */
         footer { background: #02040a; border-top: 1px solid var(--border-color); padding: 40px 24px; margin-top: 60px; color: var(--text-secondary); font-size: 13px; }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px; max-width: 1320px; margin: 0 auto 30px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px; max-width: 1280px; margin: 0 auto 30px; }
         .footer-col h4 { font-family: var(--font-head); color: #fff; font-size: 15px; margin-bottom: 14px; text-transform: uppercase; }
         .footer-bottom { text-align: center; border-top: 1px solid var(--border-color); padding-top: 20px; font-family: var(--font-code) !important; font-size: 11px; }
     </style>
 </head>
 <body>
 
-    <!-- Top CTHT Telemetry Header Bar -->
+    <!-- Top Telemetry Seal Bar -->
     <div class="top-seal-bar">
         <div>
-            <span class="seal-title">AMAURYCAN SOVEREIGN PORTAL</span> |
+            <span class="seal-title">TERRELL M. WILSON PORTAL</span> |
             <span>CIP: <code class="mono-text">.00.10.20.30.40.50.60.70.80.90</code></span>
         </div>
         <div>
             <span class="status-pill">STATE MADE</span> |
-            <span>RASTQS: 100/100</span>
+            <span>SYSTEM ARCHITECT & CONTROLLER</span>
         </div>
     </div>
 
     <!-- Navigation Header -->
     <header>
-        <a href="#ecosystem" class="logo">
-            <span>⚡ AMAURYCAN MADE</span>
-            <span class="badge-tag">v8.0 SPA</span>
+        <a href="#about" class="logo">
+            <span>⚡ TERRELL M. WILSON</span>
+            <span class="badge-tag">v9.0</span>
         </a>
         <nav id="topNav">
-            <a href="#ecosystem" class="active" data-dots="00..10">🌐 Ecosystem</a>
-            <a href="#gladiators" data-dots="00..20">🥊 Gladiators</a>
-            <a href="#services" data-dots="00..30">🛠 SOW Calculator</a>
-            <a href="#analytics" data-dots="00..40">📊 Analytics</a>
-            <a href="#opendata" data-dots="00..50">📂 Open Data</a>
-            <a href="#getinvolved" data-dots="00..60">🤝 Public Intake</a>
+            <a href="#about" class="active">👨‍💻 About Me</a>
+            <a href="#portfolio">💻 Systems & Apps</a>
+            <a href="#services">🛠 Technical Services</a>
+            <a href="#gladiators">🥊 Athletic Hub</a>
+            <a href="#analytics">📊 Telemetry</a>
+            <a href="#contact">📩 Contact</a>
         </nav>
-        <a href="#services" class="btn-cta">SOW Checkout</a>
+        <a href="#contact" class="btn-cta">Direct Intake</a>
     </header>
 
     <div class="container">
 
-        <!-- VIEW 1: ECOSYSTEM & EXECUTIVE DIRECTORY (#ecosystem) -->
-        <div id="ecosystem" class="view-section active-view" data-dots="00.10.00.00.00.00.00.00.00.00">
+        <!-- VIEW 1: ABOUT ME (#about) -->
+        <div id="about" class="view-section active-view">
             <div class="hero-banner">
-                <h1>Global Enterprise Ecosystem & Executive Roster</h1>
-                <p>Universal 10-Tier OSAAT Operating Logic Framework governing commercial B2B operations, public records IT architecture, and youth athletic foundations.</p>
-                <div class="search-box-container">
-                    <span class="search-icon">🔍</span>
-                    <input type="text" class="search-input" placeholder="Search 300+ framework codexes, B2B SOW packages, or active roles..." onkeyup="filterPortalSearch(this.value)">
-                </div>
+                <h1>Terrell M. Wilson</h1>
+                <p>Enterprise IT Systems Architect, Cybersecurity Operations Lead, and Founder of Amaurycan Made. Over 15 years of hands-on experience governing mission-critical Active Directory networks, single-page web applications, and automated enterprise infrastructure.</p>
             </div>
 
             <div class="tile-grid">
                 <div class="tile">
-                    <div class="tile-header"><span class="tile-icon">🏛</span><span class="tile-tag">DP0: ARCH</span></div>
-                    <h3>System Architecture</h3>
-                    <p>Core L0 System Architect controller, 10-octet CIP subnet addressing, and CTHT header tag enforcement.</p>
+                    <div class="tile-header"><span class="tile-icon">🌐</span><span class="badge-tag">ENTERPRISE IT</span></div>
+                    <h3>Network & Systems Engineering</h3>
+                    <p>CCNA-certified routing, switching, Active Directory 10-domain OU topology, and zero-trust security architecture.</p>
                 </div>
                 <div class="tile">
-                    <div class="tile-header"><span class="tile-icon">📜</span><span class="tile-tag">DP1: ORGN</span></div>
-                    <h3>B2B Scope Intake</h3>
-                    <p>Generic B2B Invoice, SLA, and Contract template standardization mapped to PUDL valuation rates.</p>
+                    <div class="tile-header"><span class="tile-icon">⚡</span><span class="badge-tag">SOFTWARE & SPA</span></div>
+                    <h3>Full-Stack SPA Development</h3>
+                    <p>Single-Page Application design, client-side dynamic DOM rendering, and PushState History API SEO optimization.</p>
                 </div>
                 <div class="tile">
-                    <div class="tile-header"><span class="tile-icon">🥊</span><span class="tile-tag">DP6: TRAI</span></div>
-                    <h3>Gladiators Program</h3>
-                    <p>12-round kinetic mitt crucible drills, Philly Shell defense, and female-oriented USA Boxing curriculum.</p>
+                    <div class="tile-header"><span class="tile-icon">🛡</span><span class="badge-tag">COMPLIANCE</span></div>
+                    <h3>Cybersecurity & Data Shield</h3>
+                    <p>HIPAA compliance, T.C.A. public records protection, automated property fraud shields, and SQLite WAL write-backs.</p>
                 </div>
                 <div class="tile">
-                    <div class="tile-header"><span class="tile-icon">💾</span><span class="tile-tag">DP8: COGN</span></div>
-                    <h3>Central Memory DB</h3>
-                    <p>SQLite <code class="mono-text">business.db</code> transaction ledger logging telemetry, audit gates, and state locks.</p>
+                    <div class="tile-header"><span class="tile-icon">🥊</span><span class="badge-tag">ATHLETICS</span></div>
+                    <h3>Amaurycan Made Gladiators</h3>
+                    <p>High-performance kinetic mitt crucible, USA Boxing coaching pathways, and youth trade mentorship programs.</p>
                 </div>
             </div>
 
-            <h2 style="margin-bottom: 16px; font-family: var(--font-head); font-size: 22px;">Executive Leadership & Roster</h2>
+            <h2 style="margin-bottom: 16px; font-family: var(--font-head); font-size: 22px;">Core Credentials & Mastery Matrix</h2>
             <table>
                 <thead>
                     <tr>
-                        <th>Official Name</th>
-                        <th>Title & Strategic Role</th>
-                        <th>Subnet Coordinate</th>
-                        <th>Status / Certification</th>
+                        <th>Domain Area</th>
+                        <th>Key Certification / Qualification</th>
+                        <th>Specialized Capability</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td><b>Terrell M. Wilson</b></td>
-                        <td>Register of Deeds / L0 System Architect</td>
-                        <td><code class="mono-text">00..10.01</code></td>
-                        <td>15+ Yrs Enterprise IT, CCNA, HIPAA, PRIA</td>
-                    </tr>
-                    <tr>
-                        <td><b>Dr. Victoria Love Franklin</b></td>
-                        <td>Technology Fellow (Data Science)</td>
-                        <td><code class="mono-text">00..10.02</code></td>
-                        <td>Ph.D. Cybersecurity Scholar</td>
-                    </tr>
-                    <tr>
-                        <td><b>Karen Johnson</b></td>
-                        <td>Register of Deeds (Emeritus)</td>
-                        <td><code class="mono-text">00..10.03</code></td>
-                        <td>Certified Public Manager (CPM)</td>
-                    </tr>
-                    <tr>
-                        <td><b>Jack Brown</b></td>
-                        <td>Chief Deputy Register</td>
-                        <td><code class="mono-text">00..10.04</code></td>
-                        <td>Executive Administration</td>
-                    </tr>
+                    <tr><td><b>Enterprise Systems</b></td><td>15+ Years IT Systems Administration</td><td>Windows Server, BASH/Python Automation, Active Directory</td></tr>
+                    <tr><td><b>Network Engineering</b></td><td>CCNA Routing & Switching</td><td>Subnet Masking, VLAN Topology, Firewall Security</td></tr>
+                    <tr><td><b>Compliance & Privacy</b></td><td>HIPAA & PRIA Member</td><td>Public Records Security, T.C.A. §10-7-515 Redaction</td></tr>
+                    <tr><td><b>Athletic Coaching</b></td><td>USA Boxing Certified Coach</td><td>12-Round Kinetic Mitt Crucible & Youth Training</td></tr>
                 </tbody>
             </table>
         </div>
 
-        <!-- VIEW 2: GLADIATORS ATHLETIC PROGRAM (#gladiators) -->
-        <div id="gladiators" class="view-section" data-dots="00.10.20.00.00.00.00.00.00.00">
+        <!-- VIEW 2: PORTFOLIO (#portfolio) -->
+        <div id="portfolio" class="view-section">
             <div class="hero-banner">
-                <h1>Amaurycan Made Gladiators: USA Boxing Program</h1>
-                <p>12-round kinetic mitt crucible, posterior chain kettlebell overload, and specialized recovery protocols.</p>
+                <h1>Custom Systems & Single-Page Applications</h1>
+                <p>A showcase of bespoke web applications, enterprise management consoles, and interactive data portals built by Terrell M. Wilson.</p>
             </div>
 
             <div class="tile-grid">
                 <div class="tile">
-                    <div class="tile-header"><span class="tile-icon">🥊</span><span class="tile-tag">ROUND 1–3</span></div>
-                    <h3>Rhythm & Jabs</h3>
-                    <p>Establish distance with double-jabs, step-pivots, and high-guard defensive resets.</p>
+                    <div class="tile-header"><span class="tile-icon">🏛</span><span class="badge-tag">SPA PORTAL</span></div>
+                    <h3>Public Records Portal (1:1 Replica)</h3>
+                    <p>Complete 7-view public records application featuring live T.C.A. tax calculators and open data Base64 CSV exports.</p>
                 </div>
                 <div class="tile">
-                    <div class="tile-header"><span class="tile-icon">⚡</span><span class="tile-tag">ROUND 4–6</span></div>
-                    <h3>Inside Pocket Counters</h3>
-                    <p>James Toney inside pocket shoulder rolls, body-head combinations, and counter uppercuts.</p>
+                    <div class="tile-header"><span class="tile-icon">📊</span><span class="badge-tag">ANALYTICS</span></div>
+                    <h3>ZIP Property Analytics Engine</h3>
+                    <p>36-region spatial boundary summary covering parcel breakdowns, 12-month home sales, and out-of-state owner stats.</p>
                 </div>
                 <div class="tile">
-                    <div class="tile-header"><span class="tile-icon">🛡</span><span class="tile-tag">ROUND 7–9</span></div>
-                    <h3>Philly Shell Defense</h3>
-                    <p>Defensive shell alignment, parrying straight rights, and slip-counter hook execution.</p>
+                    <div class="tile-header"><span class="tile-icon">🕹</span><span class="badge-tag">TERMINAL</span></div>
+                    <h3>AnkerGames / Pulse Terminal</h3>
+                    <p>Hi-Tech Troops (#AMHT) leaderboard dashboard, 13-node continuum tree explorer, and B2B SOW checkout calculator.</p>
                 </div>
                 <div class="tile">
-                    <div class="tile-header"><span class="tile-icon">🔥</span><span class="tile-tag">ROUND 10–12</span></div>
-                    <h3>Kinetic Overload</h3>
-                    <p>High-volume power mitt drills, 45-minute post-workout nutrition window, and vibe checks.</p>
+                    <div class="tile-header"><span class="tile-icon">⚡</span><span class="badge-tag">FRAMEWORK</span></div>
+                    <h3>Universal 10-Tier OSAAT Logic</h3>
+                    <p>Deterministic system orchestration framework linking system prompts, AST audit gates, and SQLite central memory.</p>
                 </div>
             </div>
         </div>
 
-        <!-- VIEW 3: B2B SOW CALCULATOR & CHECKOUT (#services) -->
-        <div id="services" class="view-section" data-dots="00.10.20.30.00.00.00.00.00.00">
+        <!-- VIEW 3: SERVICES (#services) -->
+        <div id="services" class="view-section">
             <div class="hero-banner">
-                <h1>Interactive B2B SOW Calculator & Tax Engine</h1>
-                <p>All-50-State B2B Checkout Engine with certified 9.75% TN Sales Tax, PUDL Trust Fees, and instant receipt generation.</p>
+                <h1>Technical Services & SOW Estimator</h1>
+                <p>Calculate commercial IT development, network deployment, and system architecture package costs in real time.</p>
             </div>
 
-            <div style="background: var(--bg-card); padding: 30px; border-radius: 16px; border: 1px solid var(--border-color); max-width: 780px; margin: 0 auto;">
-                <h3 style="font-family: var(--font-head); color: var(--accent-cyan); margin-bottom: 20px;">SOW Commercial Valuation Calculator</h3>
+            <div style="background: var(--bg-card); padding: 30px; border-radius: 16px; border: 1px solid var(--border-color); max-width: 760px; margin: 0 auto;">
+                <h3 style="font-family: var(--font-head); color: var(--accent-cyan); margin-bottom: 20px;">Commercial Package Calculator</h3>
                 <div class="form-group">
-                    <label>Select Strategy Package</label>
-                    <select id="sowPkgSelect" class="form-control" onchange="updateSOWCalc()">
-                        <option value="150000">Marvin Executive Strategy Package ($1,500.00)</option>
-                        <option value="250000">PMHNP Clinic Facility Strategy Package ($2,500.00)</option>
-                        <option value="350000">TAJC Minimalist Website Reboot Package ($3,500.00)</option>
-                        <option value="500000">Universal Sovereign Portal Turnkey Package ($5,000.00)</option>
+                    <label>Select Service Package</label>
+                    <select id="servPkg" class="form-control" onchange="calculatePersonalSOW()">
+                        <option value="1500">Custom SPA Web Application Development ($1,500.00)</option>
+                        <option value="2500">Enterprise Active Directory & Network Audit ($2,500.00)</option>
+                        <option value="3500">Full-Stack System Architecture & Automation ($3,500.00)</option>
                     </select>
                 </div>
 
                 <div style="background: #030712; padding: 20px; border-radius: 10px; margin-top: 24px; border: 1px solid var(--accent-sky);">
-                    <div style="display: flex; justify-content: space-between; margin-bottom: 8px;"><span>Transaction Subtotal:</span><b id="sowSubtotal" class="mono-text">$1,500.00</b></div>
-                    <div style="display: flex; justify-content: space-between; margin-bottom: 8px;"><span>TN Sales Tax (9.75%):</span><b id="sowTax" class="mono-text">$146.25</b></div>
-                    <div style="display: flex; justify-content: space-between; margin-bottom: 8px;"><span>PUDL Trust Fee (1.00%):</span><b id="sowTrust" class="mono-text">$15.00</b></div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 8px;"><span>Base Service Subtotal:</span><b id="pSubtotal" class="mono-text">$1,500.00</b></div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 8px;"><span>TN State Sales Tax (9.75%):</span><b id="pTax" class="mono-text">$146.25</b></div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 8px;"><span>Trust & Operations Fee (1.00%):</span><b id="pTrust" class="mono-text">$15.00</b></div>
                     <hr style="border-color: var(--border-color); margin: 12px 0;">
-                    <div style="display: flex; justify-content: space-between; font-size: 18px; color: var(--accent-cyan);"><span>Total Certified Valuation:</span><b id="sowTotal" class="mono-text">$1,661.25</b></div>
-                    <button class="btn-cta" style="width: 100%; margin-top: 16px;" onclick="confirmSOWOrder()">Authorize B2B Transaction</button>
+                    <div style="display: flex; justify-content: space-between; font-size: 18px; color: var(--accent-cyan);"><span>Total Investment:</span><b id="pTotal" class="mono-text">$1,661.25</b></div>
                 </div>
             </div>
         </div>
 
-        <!-- VIEW 4: ANALYTICS & TELEMETRY (#analytics) -->
-        <div id="analytics" class="view-section" data-dots="00.10.20.30.40.00.00.00.00.00">
+        <!-- VIEW 4: ATHLETICS (#gladiators) -->
+        <div id="gladiators" class="view-section">
             <div class="hero-banner">
-                <h1>Live System Analytics & Telemetry Ledger</h1>
-                <p>Real-time performance metrics, prompt cache protection tracking, and 96-point AST audit gates.</p>
+                <h1>Amaurycan Made Gladiators</h1>
+                <p>High-performance boxing, kinetic mitt training, and youth trade development led by Terrell M. Wilson.</p>
             </div>
 
             <div class="tile-grid">
                 <div class="tile">
-                    <div class="tile-header"><span class="tile-icon">📈</span><span class="tile-tag">100/100</span></div>
-                    <h3>RASTQS Score</h3>
-                    <p>Reasoning & AST Quality Score</p>
+                    <div class="tile-header"><span class="tile-icon">🥊</span><span class="badge-tag">12 ROUNDS</span></div>
+                    <h3>Kinetic Mitt Crucible</h3>
+                    <p>James Toney inside pocket counter-striking, Philly Shell defensive mastery, and combination flows.</p>
                 </div>
                 <div class="tile">
-                    <div class="tile-header"><span class="tile-icon">⚡</span><span class="tile-tag">95.0%</span></div>
-                    <h3>Prompt Cache Hit Rate</h3>
-                    <p>Static Prefix Protection</p>
+                    <div class="tile-header"><span class="tile-icon">🏋️‍♂️</span><span class="badge-tag">STRENGTH</span></div>
+                    <h3>Posterior Chain Overload</h3>
+                    <p>Kettlebell explosiveness, kinetic power transfer, and female-oriented USA Boxing Green Level curriculum.</p>
                 </div>
                 <div class="tile">
-                    <div class="tile-header"><span class="tile-icon">🔒</span><span class="tile-tag">A32 CERTIFIED</span></div>
-                    <h3>Adler-32 Checksum</h3>
-                    <p>Cryptographic Micro-Seal Lock</p>
-                </div>
-                <div class="tile">
-                    <div class="tile-header"><span class="tile-icon">💾</span><span class="tile-tag">WAL MODE</span></div>
-                    <h3>SQLite Storage</h3>
-                    <p><code class="mono-text">business.db</code> Write-Back</p>
+                    <div class="tile-header"><span class="tile-icon">🌱</span><span class="badge-tag">FOUNDATION</span></div>
+                    <h3>MADE3654KIDS.IT</h3>
+                    <p>Youth trade mentorship, athletic equipment grants, and community leadership initiatives.</p>
                 </div>
             </div>
         </div>
 
-        <!-- VIEW 5: OPEN DATA CATALOG (#opendata) -->
-        <div id="opendata" class="view-section" data-dots="00.10.20.30.40.50.00.00.00.00">
+        <!-- VIEW 5: ANALYTICS (#analytics) -->
+        <div id="analytics" class="view-section">
             <div class="hero-banner">
-                <h1>Open Data Catalog & Instant Base64 Export</h1>
-                <p>Download public property record ledgers, B2B SOW valuations, and system telemetry in CSV format.</p>
+                <h1>System Telemetry & Live Quality Metrics</h1>
+                <p>Real-time audit performance and system validation metrics across active projects.</p>
             </div>
 
-            <table>
-                <thead>
-                    <tr>
-                        <th>Dataset Title</th>
-                        <th>Domain Scope</th>
-                        <th>Time Span</th>
-                        <th>Update Freq</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><b>Monthly Document Volume Ledger</b></td>
-                        <td>Davidson County / Public Records</td>
-                        <td>2016 – 2026</td>
-                        <td>Monthly</td>
-                        <td><button class="btn-cta" onclick="downloadSampleCSV('monthly_volume.csv')">Export CSV</button></td>
-                    </tr>
-                    <tr>
-                        <td><b>B2B SOW Valuation Ledger</b></td>
-                        <td>Commercial Operations</td>
-                        <td>2024 – 2026</td>
-                        <td>Real-Time</td>
-                        <td><button class="btn-cta" onclick="downloadSampleCSV('b2b_valuations.csv')">Export CSV</button></td>
-                    </tr>
-                    <tr>
-                        <td><b>Property Fraud Alert Registrations</b></td>
-                        <td>County-Wide Shield</td>
-                        <td>2021 – 2026</td>
-                        <td>Daily</td>
-                        <td><button class="btn-cta" onclick="downloadSampleCSV('fraud_registrations.csv')">Export CSV</button></td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="tile-grid">
+                <div class="tile">
+                    <div class="tile-header"><span class="tile-icon">📈</span><span class="badge-tag">100/100</span></div>
+                    <h3>RASTQS Audit Score</h3>
+                    <p>Zero-truncation AST validation and code quality certification.</p>
+                </div>
+                <div class="tile">
+                    <div class="tile-header"><span class="tile-icon">⚡</span><span class="badge-tag">95.0%</span></div>
+                    <h3>Prompt Cache Efficiency</h3>
+                    <p>Optimized static prefix caching for ultra-low latency execution.</p>
+                </div>
+                <div class="tile">
+                    <div class="tile-header"><span class="tile-icon">🛡</span><span class="badge-tag">0 ERRORS</span></div>
+                    <h3>Self-Healing Status</h3>
+                    <p>Automated syntax repair and execution verification.</p>
+                </div>
+            </div>
         </div>
 
-        <!-- VIEW 6: PUBLIC INTAKE CONSOLE (#getinvolved) -->
-        <div id="getinvolved" class="view-section" data-dots="00.10.20.30.40.50.60.00.00.00">
+        <!-- VIEW 6: CONTACT (#contact) -->
+        <div id="contact" class="view-section">
             <div class="hero-banner">
-                <h1>Public Intake & Stakeholder Consultation</h1>
-                <p>Submit speaker requests, B2B partner consultations, or general inquiries to executive administration.</p>
+                <h1>Direct Consultation & Intake Console</h1>
+                <p>Reach out directly to Terrell M. Wilson for enterprise IT architecture, custom SPA builds, or athletic mentorship inquiries.</p>
             </div>
 
             <div style="background: var(--bg-card); padding: 32px; border-radius: 16px; border: 1px solid var(--border-color); max-width: 720px; margin: 0 auto;">
-                <form onsubmit="event.preventDefault(); alert('Intake Submission Authorized! Confirmation ID: AMDS-' + Math.floor(Math.random()*90000 + 10000));">
+                <form onsubmit="event.preventDefault(); alert('Message Received! Direct Confirmation Code: TMW-' + Math.floor(Math.random()*90000 + 10000));">
                     <div class="form-group">
-                        <label>Full Name</label>
+                        <label>Your Name</label>
                         <input type="text" class="form-control" required placeholder="John Doe">
                     </div>
                     <div class="form-group">
@@ -378,19 +296,19 @@
                         <input type="email" class="form-control" required placeholder="john@example.com">
                     </div>
                     <div class="form-group">
-                        <label>Topic Category</label>
+                        <label>Inquiry Type</label>
                         <select class="form-control">
-                            <option>Commercial B2B Service Consultation</option>
-                            <option>Property Fraud Prevention</option>
-                            <option>Gladiators Athletic Program</option>
-                            <option>General Stakeholder Feedback</option>
+                            <option>Custom SPA / Web Development</option>
+                            <option>Enterprise IT & Network Architecture</option>
+                            <option>Amaurycan Made Gladiators / Boxing</option>
+                            <option>General Consultation</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label>Message Body</label>
-                        <textarea class="form-control" rows="4" placeholder="Detail your inquiry..."></textarea>
+                        <label>Message Details</label>
+                        <textarea class="form-control" rows="4" placeholder="Detail your project or inquiry..."></textarea>
                     </div>
-                    <button type="submit" class="btn-cta" style="width: 100%;">Submit Stakeholder Inquiry</button>
+                    <button type="submit" class="btn-cta" style="width: 100%; height: 44px;">Send Direct Message</button>
                 </form>
             </div>
         </div>
@@ -401,127 +319,67 @@
     <footer>
         <div class="footer-grid">
             <div class="footer-col">
-                <h4>Executive Headquarters</h4>
-                <p>Amaurycan Made Global Ecosystem</p>
-                <p>300 Deaderick Street</p>
-                <p>Nashville, TN 37201</p>
-                <p>Phone: 615-862-6790</p>
+                <h4>Terrell M. Wilson</h4>
+                <p>Enterprise IT Systems Architect</p>
+                <p>Founder, Amaurycan Made</p>
+                <p>Nashville, TN</p>
             </div>
             <div class="footer-col">
-                <h4>Quick Navigation</h4>
-                <p><a href="#ecosystem" style="color: inherit;">Ecosystem Directory</a></p>
-                <p><a href="#gladiators" style="color: inherit;">Gladiators Program</a></p>
-                <p><a href="#services" style="color: inherit;">SOW Calculator</a></p>
+                <h4>Navigation</h4>
+                <p><a href="#about" style="color: inherit;">About Me</a></p>
+                <p><a href="#portfolio" style="color: inherit;">Systems & Apps</a></p>
+                <p><a href="#services" style="color: inherit;">Technical Services</a></p>
             </div>
             <div class="footer-col">
-                <h4>Legal & Compliance</h4>
-                <p>T.C.A. §10-7-515 Redaction Notice</p>
-                <p>T.C.A. §8-21-1001 Fee Schedule</p>
-                <p>PUDL Sovereign Valuation Model</p>
+                <h4>Core Domains</h4>
+                <p>Enterprise Active Directory</p>
+                <p>Single-Page Applications</p>
+                <p>Amaurycan Gladiators</p>
             </div>
         </div>
         <div class="footer-bottom">
-            <div>Copyright © 2026 Amaurycan Made Operations. Terrell M. Wilson, L0 System Architect. All Rights Reserved.</div>
-            <div style="margin-top: 6px; color: var(--accent-cyan);"><!-- TELEMETRY_MICRO_SEAL | [EXEC | CHUS:9,950/10,000 | RASTQS:100/100 | SGA:100% | TECS:L0/95% | CMS:A32_815B063B] --></div>
+            <div>Copyright © 2026 Terrell M. Wilson & Amaurycan Made. All Rights Reserved.</div>
         </div>
     </footer>
 
     <script>
-        // SPA PushState & Hash Router Engine
-        const ROUTE_SEO_MAP = {
-            '#ecosystem': {
-                title: 'Ecosystem & Roster | Amaurycan Made Sovereign Portal',
-                desc: 'Universal 10-Tier OSAAT Operating Logic Framework governing B2B IT operations and public record systems.'
-            },
-            '#gladiators': {
-                title: 'Gladiators Boxing Program | Amaurycan Made',
-                desc: '12-round kinetic mitt crucible, Philly Shell defense, and female-oriented USA Boxing curriculum.'
-            },
-            '#services': {
-                title: 'B2B SOW Calculator & Checkout | Amaurycan Made',
-                desc: 'All-50-State B2B Checkout Engine with certified 9.75% TN Sales Tax and PUDL Trust Fees.'
-            },
-            '#analytics': {
-                title: 'Live Telemetry & Analytics | Amaurycan Made',
-                desc: 'Real-time performance metrics, prompt cache protection tracking, and 96-point AST audit gates.'
-            },
-            '#opendata': {
-                title: 'Open Data Catalog | Amaurycan Made',
-                desc: 'Download public property record ledgers, B2B SOW valuations, and system telemetry in CSV format.'
-            },
-            '#getinvolved': {
-                title: 'Public Intake & Consultation | Amaurycan Made',
-                desc: 'Submit speaker requests, B2B partner consultations, or general inquiries to executive administration.'
-            }
-        };
-
-        function handleHashChange() {
-            const hash = window.location.hash || '#ecosystem';
+        function handleHashNav() {
+            const hash = window.location.hash || '#about';
             const views = document.querySelectorAll('.view-section');
-            const navLinks = document.querySelectorAll('#topNav a');
+            const navs = document.querySelectorAll('#topNav a');
 
-            views.forEach(view => {
-                if ('#' + view.id === hash) {
-                    view.classList.add('active-view');
+            views.forEach(v => {
+                if ('#' + v.id === hash) {
+                    v.classList.add('active-view');
                 } else {
-                    view.classList.remove('active-view');
+                    v.classList.remove('active-view');
                 }
             });
 
-            navLinks.forEach(link => {
-                if (link.getAttribute('href') === hash) {
-                    link.classList.add('active');
+            navs.forEach(n => {
+                if (n.getAttribute('href') === hash) {
+                    n.classList.add('active');
                 } else {
-                    link.classList.remove('active');
+                    n.classList.remove('active');
                 }
             });
-
-            // Update Dynamic SEO Meta
-            const seo = ROUTE_SEO_MAP[hash] || ROUTE_SEO_MAP['#ecosystem'];
-            document.title = seo.title;
 
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        window.addEventListener('hashchange', handleHashChange);
-        window.addEventListener('DOMContentLoaded', handleHashChange);
+        window.addEventListener('hashchange', handleHashNav);
+        window.addEventListener('DOMContentLoaded', handleHashNav);
 
-        // Interactive SOW Calculator Engine
-        function updateSOWCalc() {
-            const cents = parseInt(document.getElementById('sowPkgSelect').value) || 150000;
-            const subtotal = cents / 100;
-            const tax = subtotal * 0.0975;
-            const trust = subtotal * 0.0100;
-            const total = subtotal + tax + trust;
+        function calculatePersonalSOW() {
+            const base = parseFloat(document.getElementById('servPkg').value) || 1500;
+            const tax = base * 0.0975;
+            const trust = base * 0.0100;
+            const total = base + tax + trust;
 
-            document.getElementById('sowSubtotal').innerText = '$' + subtotal.toFixed(2);
-            document.getElementById('sowTax').innerText = '$' + tax.toFixed(2);
-            document.getElementById('sowTrust').innerText = '$' + trust.toFixed(2);
-            document.getElementById('sowTotal').innerText = '$' + total.toFixed(2);
-        }
-
-        function confirmSOWOrder() {
-            alert('B2B SOW Transaction Authorized!
-Transaction written back to SQLite central memory (business.db).');
-        }
-
-        // CSV Downloader Simulator
-        function downloadSampleCSV(filename) {
-            const csvData = "data:text/csv;charset=utf-8,Category,Value,Date
-Document Volume,8450,2026-09-01
-eRecording Share,85.3%,2026-09-01
-Transfer Tax,$925.00,2026-09-01";
-            const encodedUri = encodeURI(csvData);
-            const link = document.createElement("a");
-            link.setAttribute("href", encodedUri);
-            link.setAttribute("download", filename);
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        }
-
-        function filterPortalSearch(query) {
-            console.log("Filtering portal search:", query);
+            document.getElementById('pSubtotal').innerText = '$' + base.toFixed(2);
+            document.getElementById('pTax').innerText = '$' + tax.toFixed(2);
+            document.getElementById('pTrust').innerText = '$' + trust.toFixed(2);
+            document.getElementById('pTotal').innerText = '$' + total.toFixed(2);
         }
     </script>
 </body>
