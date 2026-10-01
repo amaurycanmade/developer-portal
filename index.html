@@ -3,11 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ANKERGAMES.NET // AMAURYCAN MADE UNIVERSAL TERMINAL</title>
-  <!-- Google Fonts -->
+  <title>THE AMAURYCAN PULSE // HTML5 SECURITY-HARDENED TERMINAL</title>
+
+  <!-- CYBERSECURITY & HARDENING META TAGS -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self' 'unsafe-inline'; object-src 'none'; frame-ancestors 'none'; upgrade-insecure-requests;">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()">
+
+  <!-- GOOGLE FONTS -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Open+Sans:wght@400;600&family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- HTML5 BACKWARDS COMPATIBILITY SHIV (FOR LEGACY MOBILE & DESKTOP BROWSERS) -->
+  <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <![endif]-->
+
   <style>
     /* UCMS DARK TERMINAL PALETTE & SYSTEM CSS */
     :root {
@@ -22,8 +36,8 @@
       --neon-green: #70e000;
       --cyber-gold: #ffb703;
       --alert-red: #ff0055;
-      --font-head: 'Montserrat', sans-serif;
-      --font-body: 'Open Sans', sans-serif;
+      --font-head: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-body: 'Open Sans', -apple-system, BlinkMacSystemFont, sans-serif;
       --font-code: 'Roboto Mono', monospace;
     }
 
@@ -40,6 +54,8 @@
       font-size: 14px;
       line-height: 1.5;
       overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
     /* TOP CTHT STATUS HEADER BAR */
@@ -51,6 +67,7 @@
       font-size: 11px;
       color: var(--neon-cyan);
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
       position: sticky;
@@ -76,307 +93,316 @@
       100% { opacity: 0.4; }
     }
 
-    /* MAIN CONTAINER & 3-PANEL RESPONSIVE GRID */
+    /* MAIN CONTAINER */
     .app-container {
-      max-width: 1440px;
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 16px;
+      padding: 20px 16px;
     }
 
+    /* HERO BRANDING BLOCK */
     .hero-banner {
-      background: linear-gradient(135deg, #0b1120 0%, #111827 100%);
-      border: 1px solid var(--border-cyan);
+      background: linear-gradient(135deg, #0b1120 0%, #060913 100%);
+      border: 1px solid var(--border-slate);
+      border-left: 4px solid var(--neon-cyan);
       border-radius: 8px;
       padding: 24px;
-      margin-bottom: 16px;
+      margin-bottom: 24px;
       position: relative;
-      overflow: hidden;
-      box-shadow: inset 0 0 20px rgba(0, 240, 255, 0.05);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
     }
 
-    .hero-banner::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 4px;
-      height: 100%;
-      background-color: var(--neon-cyan);
+    .hero-domain-badge {
+      display: inline-block;
+      background: rgba(0, 240, 255, 0.1);
+      border: 1px solid var(--neon-cyan);
+      color: var(--neon-cyan);
+      font-family: var(--font-code);
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 4px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
     .hero-title {
       font-family: var(--font-head);
-      font-size: 24px;
+      font-size: 26px;
       font-weight: 900;
       color: #ffffff;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 6px;
+      margin-bottom: 8px;
+      letter-spacing: -0.5px;
     }
 
     .hero-subtitle {
-      font-family: var(--font-code);
-      font-size: 12px;
-      color: var(--neon-cyan);
-      margin-bottom: 12px;
-    }
-
-    .hero-description {
+      color: var(--text-muted);
       font-size: 13px;
-      color: var(--text-muted);
-      max-width: 900px;
-    }
-
-    /* NAVIGATION TAB BAR */
-    .nav-tabs {
-      display: flex;
-      gap: 8px;
+      max-width: 800px;
       margin-bottom: 16px;
-      border-bottom: 1px solid var(--border-slate);
-      padding-bottom: 8px;
-      overflow-x: auto;
     }
 
-    .tab-btn {
-      background-color: var(--bg-panel);
-      border: 1px solid var(--border-slate);
-      color: var(--text-muted);
-      padding: 10px 16px;
+    .hero-cyber-shield {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
       font-family: var(--font-code);
-      font-size: 12px;
-      font-weight: 700;
+      font-size: 11px;
+    }
+
+    .shield-item {
+      background: #03050a;
+      border: 1px solid var(--border-slate);
+      padding: 4px 8px;
       border-radius: 4px;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      white-space: nowrap;
+      color: var(--neon-green);
+    }
+
+    /* SEARCH BAR */
+    .search-container {
+      margin-bottom: 24px;
+    }
+
+    .search-input {
+      width: 100%;
+      background: var(--bg-panel);
+      border: 1px solid var(--border-slate);
+      color: #ffffff;
+      font-family: var(--font-code);
+      font-size: 13px;
+      padding: 12px 16px;
+      border-radius: 6px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .search-input:focus {
+      border-color: var(--neon-cyan);
+      box-shadow: 0 0 10px rgba(0, 240, 255, 0.2);
+    }
+
+    /* SECTION HEADERS */
+    .section-header {
+      font-family: var(--font-head);
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--neon-cyan);
+      margin-bottom: 16px;
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 8px;
+      border-bottom: 1px solid var(--border-slate);
+      padding-bottom: 8px;
     }
 
-    .tab-btn:hover {
-      border-color: var(--neon-cyan);
-      color: #ffffff;
-    }
-
-    .tab-btn.active {
-      background-color: var(--border-cyan);
-      color: #000000;
-      border-color: var(--neon-cyan);
-      box-shadow: 0 0 10px rgba(0, 240, 255, 0.4);
-    }
-
-    /* TAB CONTENT SECTIONS */
-    .tab-content {
-      display: none;
-    }
-
-    .tab-content.active {
-      display: block;
-    }
-
-    /* 3-PANEL GRID SYSTEM */
-    .grid-3panel {
+    /* 13-NODE CONTINUUM TREE LAYOUT */
+    .tree-grid {
       display: grid;
-      grid-template-columns: 300px 1fr 340px;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
       gap: 16px;
+      margin-bottom: 32px;
     }
 
-    @media (max-width: 1024px) {
-      .grid-3panel {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .panel-card {
+    .node-card {
       background-color: var(--bg-panel);
       border: 1px solid var(--border-slate);
       border-radius: 6px;
       padding: 16px;
-    }
-
-    .panel-title {
-      font-family: var(--font-head);
-      font-size: 13px;
-      font-weight: 800;
-      color: var(--neon-cyan);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-bottom: 12px;
-      padding-bottom: 6px;
-      border-bottom: 1px solid var(--border-slate);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    /* TREE EXPLORER COMPONENT */
-    .tree-node-item {
-      background-color: var(--bg-card);
-      border-left: 3px solid var(--border-slate);
-      padding: 10px;
-      margin-bottom: 8px;
-      border-radius: 0 4px 4px 0;
-      transition: all 0.2s ease;
       cursor: pointer;
+      transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+      position: relative;
     }
 
-    .tree-node-item:hover {
-      border-left-color: var(--neon-cyan);
-      background-color: #162035;
+    .node-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--neon-cyan);
+      box-shadow: 0 4px 15px rgba(0, 240, 255, 0.15);
     }
 
-    .tree-node-header {
+    .node-card.decoupled-node {
+      border-style: dashed;
+      border-color: var(--cyber-gold);
+      background-color: #0d121f;
+    }
+
+    .node-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-family: var(--font-code);
-      font-size: 12px;
-      font-weight: 700;
+      margin-bottom: 10px;
     }
 
-    .node-tag { color: var(--cyber-gold); }
-    .node-title { color: #ffffff; }
-    .node-verb { color: var(--neon-green); font-size: 10px; }
+    .node-title-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
 
-    .tree-node-meta {
+    .node-emoji {
+      font-size: 18px;
+    }
+
+    .node-id {
+      font-family: var(--font-code);
+      font-weight: 700;
+      font-size: 12px;
+      color: var(--neon-cyan);
+    }
+
+    .node-card.decoupled-node .node-id {
+      color: var(--cyber-gold);
+    }
+
+    .node-verb-badge {
       font-family: var(--font-code);
       font-size: 10px;
-      color: var(--text-muted);
-      margin-top: 4px;
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
+      padding: 2px 6px;
+      border-radius: 3px;
+      background: rgba(112, 224, 0, 0.1);
+      color: var(--neon-green);
+      border: 1px solid var(--neon-green);
     }
 
-    /* LEADERBOARD VIRTUAL PLAYERS GRID */
-    .leaderboard-table {
-      width: 100%;
-      border-collapse: collapse;
+    .node-attributes {
       font-family: var(--font-code);
-      font-size: 12px;
-    }
-
-    .leaderboard-table th {
-      background-color: #03050a;
-      color: var(--neon-cyan);
-      text-align: left;
-      padding: 10px;
-      border-bottom: 1px solid var(--border-slate);
-      font-weight: 700;
-    }
-
-    .leaderboard-table td {
-      padding: 10px;
-      border-bottom: 1px solid var(--border-slate);
-      color: var(--text-main);
-    }
-
-    .leaderboard-table tr:hover {
-      background-color: var(--bg-card);
-    }
-
-    .rank-badge {
-      display: inline-block;
-      width: 24px;
-      height: 24px;
-      line-height: 24px;
-      text-align: center;
-      background-color: #1a233a;
-      color: var(--cyber-gold);
-      border-radius: 50%;
-      font-weight: 700;
-    }
-
-    .role-badge {
-      color: var(--neon-green);
-      font-weight: 700;
-    }
-
-    .score-pass {
-      color: var(--neon-green);
-      font-weight: 700;
-    }
-
-    /* CHECKOUT & SOW FORM */
-    .checkout-form {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .form-group {
+      font-size: 11px;
+      color: var(--text-muted);
       display: flex;
       flex-direction: column;
       gap: 4px;
     }
 
-    .form-label {
-      font-family: var(--font-code);
-      font-size: 11px;
-      color: var(--text-muted);
-      text-transform: uppercase;
-    }
-
-    .form-input, .form-select {
-      background-color: var(--bg-card);
-      border: 1px solid var(--border-slate);
-      color: #ffffff;
-      padding: 8px 12px;
-      border-radius: 4px;
-      font-family: var(--font-code);
-      font-size: 12px;
-      outline: none;
-    }
-
-    .form-input:focus, .form-select:focus {
-      border-color: var(--neon-cyan);
-    }
-
-    .checkout-summary {
-      background-color: #03050a;
-      border: 1px dashed var(--border-slate);
-      border-radius: 4px;
-      padding: 12px;
-      font-family: var(--font-code);
-      font-size: 11px;
-    }
-
-    .summary-row {
+    .attr-row {
       display: flex;
       justify-content: space-between;
-      margin-bottom: 6px;
     }
 
-    .summary-total {
-      border-top: 1px solid var(--border-slate);
-      padding-top: 6px;
+    .attr-val {
+      color: var(--text-main);
+      font-weight: 500;
+    }
+
+    /* HI-TECH TROOPS (#AMHT) LEADERBOARD */
+    .leaderboard-section {
+      background-color: var(--bg-panel);
+      border: 1px solid var(--border-slate);
+      border-top: 3px solid var(--neon-cyan);
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 32px;
+    }
+
+    .leaderboard-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: var(--font-code);
+      font-size: 12px;
+      margin-top: 12px;
+    }
+
+    .leaderboard-table th {
+      text-align: left;
+      padding: 10px;
+      color: var(--neon-cyan);
+      border-bottom: 1px solid var(--border-slate);
+      background-color: #060913;
+    }
+
+    .leaderboard-table td {
+      padding: 12px 10px;
+      border-bottom: 1px solid var(--border-slate);
+      color: var(--text-main);
+    }
+
+    .leaderboard-table tr:hover {
+      background-color: #0e172a;
+    }
+
+    .rank-num {
+      color: var(--cyber-gold);
+      font-weight: 700;
+    }
+
+    .pass-tag {
       color: var(--neon-green);
       font-weight: 700;
-      font-size: 13px;
     }
 
-    .btn-action {
-      background-color: var(--neon-cyan);
-      color: #000000;
-      border: none;
-      padding: 12px;
-      font-family: var(--font-head);
-      font-size: 12px;
-      font-weight: 900;
-      text-transform: uppercase;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: all 0.2s ease;
+    .pledge-banner {
+      background: rgba(255, 183, 3, 0.08);
+      border: 1px solid var(--cyber-gold);
+      color: var(--cyber-gold);
+      font-family: var(--font-code);
+      font-size: 11px;
       text-align: center;
+      padding: 10px;
+      border-radius: 6px;
+      margin-top: 16px;
     }
 
-    .btn-action:hover {
-      background-color: #00c0d4;
-      box-shadow: 0 0 15px rgba(0, 240, 255, 0.5);
+    /* B2B SOW CHECKOUT ENGINE */
+    .checkout-section {
+      background-color: var(--bg-panel);
+      border: 1px solid var(--border-slate);
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 32px;
     }
 
-    /* MODAL POPUP */
+    .packages-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .pkg-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-slate);
+      border-radius: 6px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .pkg-title {
+      font-family: var(--font-head);
+      font-size: 15px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 4px;
+    }
+
+    .pkg-price {
+      font-family: var(--font-code);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--neon-cyan);
+      margin-bottom: 12px;
+    }
+
+    .pkg-btn {
+      width: 100%;
+      background: linear-gradient(135deg, #00f0ff 0%, #00a8ff 100%);
+      color: #03050a;
+      border: none;
+      padding: 10px;
+      border-radius: 4px;
+      font-family: var(--font-head);
+      font-weight: 800;
+      font-size: 12px;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: opacity 0.2s;
+    }
+
+    .pkg-btn:hover {
+      opacity: 0.9;
+    }
+
+    /* MODAL WINDOWS */
     .modal-overlay {
       display: none;
       position: fixed;
@@ -385,241 +411,120 @@
       width: 100%;
       height: 100%;
       background: rgba(3, 5, 10, 0.85);
+      backdrop-filter: blur(4px);
       z-index: 2000;
       justify-content: center;
       align-items: center;
       padding: 16px;
     }
 
-    .modal-box {
-      background-color: var(--bg-panel);
-      border: 1px solid var(--border-cyan);
+    .modal-content {
+      background: var(--bg-panel);
+      border: 1px solid var(--neon-cyan);
       border-radius: 8px;
       max-width: 600px;
       width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
       padding: 24px;
+      position: relative;
       box-shadow: 0 0 30px rgba(0, 240, 255, 0.2);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      color: var(--text-muted);
+      font-size: 20px;
+      cursor: pointer;
       font-family: var(--font-code);
     }
 
-    .modal-header {
-      font-family: var(--font-head);
-      font-size: 16px;
-      color: var(--neon-cyan);
-      margin-bottom: 12px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .close-modal {
-      cursor: pointer;
+    .modal-close:hover {
       color: var(--alert-red);
-      font-weight: 700;
     }
 
-    /* FOOTER BAR */
-    .app-footer {
+    /* FOOTER */
+    footer {
       border-top: 1px solid var(--border-slate);
-      margin-top: 32px;
-      padding-top: 16px;
+      padding: 24px 16px;
+      text-align: center;
       font-family: var(--font-code);
       font-size: 11px;
       color: var(--text-muted);
-      text-align: center;
+    }
+
+    /* RESPONSIVE FALLBACKS */
+    @media (max-width: 600px) {
+      .ctht-header-bar { font-size: 10px; flex-direction: column; gap: 4px; text-align: center; }
+      .hero-title { font-size: 20px; }
+      .leaderboard-table th, .leaderboard-table td { padding: 8px 4px; font-size: 10px; }
     }
   </style>
 </head>
 <body>
 
   <!-- TOP CTHT STATUS HEADER BAR -->
-  <header class="ctht-header-bar" data-dots="00.00.00.00">
+  <header class="ctht-header-bar">
     <div>
       <span class="ctht-status-pulse"></span>
-      <span>CTHT :: SYS_ID:ANKERGAMES01 | TIER:[ARCH]₀ | DOMAIN:TECH | STATE:MADE (v5.0)</span>
+      <strong>CTHT STATUS:</strong> ONLINE // SYS_ID: ARCHOMNI00 // TIER: [ACTN]₃
     </div>
     <div>
-      <span>CIP: 00.00.00.00.00.00.00.00.00.00</span>
+      <strong>DOMAIN:</strong> www.theamaurycanpulse.com
+    </div>
+    <div>
+      <strong>CIP SUBNET:</strong> 00.00.00.00.00.00.00.00.00.00
     </div>
   </header>
 
   <div class="app-container">
-    <!-- HERO BANNER -->
-    <section class="hero-banner" data-dots="00.10.00.00">
-      <h1 class="hero-title">ANKERGAMES.NET // AMAURYCAN MADE UNIVERSAL</h1>
-      <p class="hero-subtitle">[DSNRA:00.00.00.00] :: 13-NODE DECOUPLED CONTINUUM GAMIFIED ENGINE</p>
-      <p class="hero-description">
-        Re-created HTML5 Single Page Application featuring the 13-Node Continuum Tree Architecture, Hi-Tech Troops (#AMHT) AI Role Leaderboard Engine, B2B Commercial Package Checkout, and SQLite business.db Ledger Verification.
+
+    <!-- HERO BRANDING BANNER -->
+    <section class="hero-banner">
+      <div class="hero-domain-badge">🌐 SOVEREIGN HOSTING :: WWW.THEAMAURYCANPULSE.COM</div>
+      <h1 class="hero-title">THE AMAURYCAN PULSE TERMINAL</h1>
+      <p class="hero-subtitle">
+        Universal HTML5 Security-Hardened Single Page Application (SPA). Powered by the 13-Node Decoupled Continuum Architecture, Hi-Tech Troops (#AMHT) AI Role Engine, and Zero-SQL SQLite Verification Ledger.
       </p>
+      <div class="hero-cyber-shield">
+        <span class="shield-item">🛡️ CSP HARDENED</span>
+        <span class="shield-item">🔒 XSS SANITIZED</span>
+        <span class="shield-item">⚡ HTML5 RETRO-COMPATIBLE</span>
+        <span class="shield-item">🔐 HTTPS ENFORCED</span>
+      </div>
     </section>
 
-    <!-- NAVIGATION TABS -->
-    <nav class="nav-tabs" data-dots="00.10.10.00">
-      <button class="tab-btn active" onclick="switchTab('dashboard')">🏠 DASHBOARD</button>
-      <button class="tab-btn" onclick="switchTab('tree')">🌳 13-NODE CONTINUUM TREE</button>
-      <button class="tab-btn" onclick="switchTab('leaderboard')">⚡ HI-TECH TROOPS LEADERBOARD</button>
-      <button class="tab-btn" onclick="switchTab('checkout')">💳 B2B SOW CHECKOUT</button>
-      <button class="tab-btn" onclick="switchTab('verify')">🔒 LEDGER VERIFICATION</button>
-    </nav>
-
-    <!-- TAB 1: DASHBOARD (3-PANEL VIEWPORT) -->
-    <div id="tab-dashboard" class="tab-content active">
-      <div class="grid-3panel">
-
-        <!-- LEFT PANEL: SYSTEM NAVIGATION -->
-        <aside class="panel-card" data-dots="00.10.00.00">
-          <div class="panel-title">
-            <span>SYSTEM BOUNDARIES</span>
-            <span style="font-size: 10px; color: var(--cyber-gold);">[ORGN]₁</span>
-          </div>
-          <p style="font-size: 11px; color: var(--text-muted); margin-bottom: 12px;">
-            Active enterprise subsystem anchors initialized at STATE MADE:
-          </p>
-          <div class="tree-node-item" onclick="switchTab('tree')">
-            <div class="tree-node-header">
-              <span class="node-tag">DOTS-AMRY</span>
-              <span class="node-title">Master Architecture</span>
-            </div>
-            <div class="tree-node-meta">
-              <span>[DHIDXA:0]</span>
-              <span>[DVDPTHA:DP0]</span>
-              <span class="node-verb">BLUEPRINTED</span>
-            </div>
-          </div>
-          <div class="tree-node-item" onclick="switchTab('tree')">
-            <div class="tree-node-header">
-              <span class="node-tag">DOTS-AMDR</span>
-              <span class="node-title">Directory Registry</span>
-            </div>
-            <div class="tree-node-meta">
-              <span>[DHIDXA:1]</span>
-              <span>[DVDPTHA:DP1]</span>
-              <span class="node-verb">ORGANIZED</span>
-            </div>
-          </div>
-          <div class="tree-node-item" onclick="switchTab('tree')">
-            <div class="tree-node-header">
-              <span class="node-tag">DOTS-AMHT</span>
-              <span class="node-title">Hi-Tech Troops</span>
-            </div>
-            <div class="tree-node-meta">
-              <span>[DHIDXA:5]</span>
-              <span>[DVDPTHA:DP5]</span>
-              <span class="node-verb">TROUBLESHOT</span>
-            </div>
-          </div>
-          <div class="tree-node-item" onclick="switchTab('tree')">
-            <div class="tree-node-header">
-              <span class="node-tag">DOTS-AMUL</span>
-              <span class="node-title">Production Lock</span>
-            </div>
-            <div class="tree-node-meta">
-              <span>[DHIDXA:9]</span>
-              <span>[DVDPTHA:DP9]</span>
-              <span class="node-verb">TORCHED</span>
-            </div>
-          </div>
-        </aside>
-
-        <!-- CENTER PANEL: MAIN ACTIVITY FEED -->
-        <main class="panel-card" data-dots="00.10.20.00">
-          <div class="panel-title">
-            <span>REAL-TIME SYSTEM METRICS</span>
-            <span style="font-size: 10px; color: var(--neon-green);">LIVE FEED</span>
-          </div>
-          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 16px;">
-            <div style="background-color: var(--bg-card); padding: 12px; border-radius: 4px; border-left: 3px solid var(--neon-cyan);">
-              <div style="font-family: var(--font-code); font-size: 10px; color: var(--text-muted);">AST CODE TRANSFORMS</div>
-              <div style="font-family: var(--font-head); font-size: 20px; font-weight: 900; color: #ffffff;">1,248 / DAY</div>
-            </div>
-            <div style="background-color: var(--bg-card); padding: 12px; border-radius: 4px; border-left: 3px solid var(--neon-green);">
-              <div style="font-family: var(--font-code); font-size: 10px; color: var(--text-muted);">TOKEN COST SAVINGS</div>
-              <div style="font-family: var(--font-head); font-size: 20px; font-weight: 900; color: var(--neon-green);">91.2% AVG</div>
-            </div>
-            <div style="background-color: var(--bg-card); padding: 12px; border-radius: 4px; border-left: 3px solid var(--cyber-gold);">
-              <div style="font-family: var(--font-code); font-size: 10px; color: var(--text-muted);">RASTQS AUDIT SCORE</div>
-              <div style="font-family: var(--font-head); font-size: 20px; font-weight: 900; color: var(--cyber-gold);">100 / 100</div>
-            </div>
-            <div style="background-color: var(--bg-card); padding: 12px; border-radius: 4px; border-left: 3px solid var(--alert-red);">
-              <div style="font-family: var(--font-code); font-size: 10px; color: var(--text-muted);">4KT TRUST PLEDGE</div>
-              <div style="font-family: var(--font-head); font-size: 20px; font-weight: 900; color: #ffffff;">20.00% NET</div>
-            </div>
-          </div>
-          <div style="background-color: #03050a; padding: 12px; border-radius: 4px; font-family: var(--font-code); font-size: 11px; border: 1px solid var(--border-slate);">
-            <div style="color: var(--neon-cyan); margin-bottom: 4px;">[TERMINAL LOGS] :: SYSTEM STATUS ACTIVE</div>
-            <div style="color: var(--text-muted);">&gt; Verifying Let's Encrypt SSL on amaurycan.com... PASS</div>
-            <div style="color: var(--text-muted);">&gt; GoDaddy DNS 14-Record Table Verified... PASS</div>
-            <div style="color: var(--text-muted);">&gt; SQLite business.db WAL Mode Online... PASS</div>
-            <div style="color: var(--neon-green); margin-top: 4px;">&gt; ALL SYSTEMS OPERATIONAL AT STATE MADE (90.90)</div>
-          </div>
-        </main>
-
-        <!-- RIGHT PANEL: QUICK SOW CHECKOUT -->
-        <aside class="panel-card" data-dots="00.10.30.00">
-          <div class="panel-title">
-            <span>QUICK SOW CHECKOUT</span>
-            <span style="font-size: 10px; color: var(--cyber-gold);">[ACTN]₃</span>
-          </div>
-          <form class="checkout-form" onsubmit="event.preventDefault(); processQuickCheckout();">
-            <div class="form-group">
-              <label class="form-label">Client / Partner Name</label>
-              <input type="text" id="quick-name" class="form-input" placeholder="e.g., Executive Client" required>
-            </div>
-            <div class="form-group">
-              <label class="form-label">B2B Service Package</label>
-              <select id="quick-package" class="form-select" onchange="updateQuickTotal()">
-                <option value="75">B2B Support Package ($75.00)</option>
-                <option value="750" selected>Commercial Executive Strategy ($750.00)</option>
-                <option value="1500">Master Enterprise Transformation ($1,500.00)</option>
-              </select>
-            </div>
-            <div class="checkout-summary">
-              <div class="summary-row"><span>Subtotal:</span><span id="q-sub">$750.00</span></div>
-              <div class="summary-row"><span>TN Tax (9.75%):</span><span id="q-tax">$73.13</span></div>
-              <div class="summary-row"><span>4KT Trust (20%):</span><span id="q-pledge">$150.00</span></div>
-              <div class="summary-row summary-total"><span>Total Certified:</span><span id="q-tot">$823.13</span></div>
-            </div>
-            <button type="submit" class="btn-action">GENERATE CERTIFIED RECEIPT</button>
-          </form>
-        </aside>
-      </div>
+    <!-- SEARCH BAR -->
+    <div class="search-container">
+      <input type="text" id="nodeSearch" class="search-input" placeholder="🔍 Search Continuum Nodes by Shortcode (e.g. AMRY, AMDR, AMUC, DELTA-1)..." onkeyup="filterNodes()">
     </div>
 
-    <!-- TAB 2: 13-NODE CONTINUUM TREE -->
-    <div id="tab-tree" class="tab-content">
-      <div class="panel-card" data-dots="00.10.20.00">
-        <div class="panel-title">
-          <span>AMAURYCAN 13-NODE CONTINUUM TREE (APEX TO TREE-TIP)</span>
-          <span style="font-size: 10px; color: var(--neon-cyan);">[STRT]₂</span>
-        </div>
-        <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 16px;">
-          Click any node below to inspect its single-D header tags, CIP subnet addresses, workforce cluster assignment, and active state grammar verb:
-        </p>
-
-        <div id="tree-container">
-          <!-- NODES GENERATED DYNAMICALLY BY JS -->
-        </div>
+    <!-- 13-NODE CONTINUUM EXPLORER -->
+    <main>
+      <div class="section-header">
+        <span>🌳 13-NODE DECOUPLED CONTINUUM EXPLORER</span>
+        <span style="font-size: 11px; font-family: var(--font-code); color: var(--text-muted);">(Click node for full telemetry)</span>
       </div>
-    </div>
 
-    <!-- TAB 3: HI-TECH TROOPS LEADERBOARD -->
-    <div id="tab-leaderboard" class="tab-content">
-      <div class="panel-card" data-dots="00.10.30.40">
-        <div class="panel-title">
-          <span>⚡ HI-TECH TROOPS (#AMHT) AI ROLE LEADERBOARD ENGINE</span>
-          <span style="font-size: 10px; color: var(--neon-green);">[ASSN]₄</span>
+      <div class="tree-grid" id="treeGrid">
+        <!-- NODES RENDERED DYNAMICALLY VIA JS -->
+      </div>
+
+      <!-- HI-TECH TROOPS (#AMHT) LEADERBOARD -->
+      <section class="leaderboard-section">
+        <div class="section-header">
+          <span>⚡ HI-TECH TROOPS (#AMHT) WORKFORCE LEADERBOARD</span>
+          <span style="font-size: 11px; font-family: var(--font-code); color: var(--neon-green);">[DSNRA:00.10.20.30.40.50]</span>
         </div>
-        <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 16px;">
-          Synthetic AI Roles operate as Virtual Players executing AST maintenance, self-healing patches, and PUDL valuation units:
-        </p>
 
         <table class="leaderboard-table">
           <thead>
             <tr>
               <th>RANK</th>
               <th>ROLE TAG</th>
-              <th>SYNTHETIC AI ROLE TITLE</th>
-              <th>CLUSTER</th>
+              <th>ROLE NAME & DOMAIN</th>
               <th>TASKS</th>
               <th>TOKENS SAVED</th>
               <th>RASTQS</th>
@@ -627,266 +532,474 @@
           </thead>
           <tbody>
             <tr>
-              <td><span class="rank-badge">01</span></td>
-              <td><span class="role-badge">#WF-ROLE0090-00..00</span></td>
+              <td class="rank-num">01</td>
+              <td style="color: var(--neon-green);">#WF-ROLE0090-00..00</td>
               <td>System Architect & Gladiator ([ARCH]₀)</td>
-              <td>Cluster 0</td>
               <td>1,248</td>
               <td>91.2%</td>
-              <td><span class="score-pass">100 / 100</span></td>
+              <td class="pass-tag">100/100</td>
             </tr>
             <tr>
-              <td><span class="rank-badge">02</span></td>
-              <td><span class="role-badge">#WF-ROLE0090-05..50</span></td>
+              <td class="rank-num">02</td>
+              <td style="color: var(--neon-green);">#WF-ROLE0090-05..50</td>
               <td>Self-Healing Specialist ([TRBL]₅)</td>
-              <td>Cluster 5</td>
               <td>892</td>
               <td>88.4%</td>
-              <td><span class="score-pass">98.4 / 100</span></td>
+              <td class="pass-tag">98.4/100</td>
             </tr>
             <tr>
-              <td><span class="rank-badge">03</span></td>
-              <td><span class="role-badge">#WF-ROLE0090-06..60</span></td>
-              <td>Sovereign Valuation & Tax Coach ([TRAI]₆)</td>
-              <td>Cluster 6</td>
+              <td class="rank-num">03</td>
+              <td style="color: var(--neon-green);">#WF-ROLE0090-06..60</td>
+              <td>Valuation & Tax Coach ([TRAI]₆)</td>
               <td>654</td>
               <td>86.7%</td>
-              <td><span class="score-pass">96.8 / 100</span></td>
+              <td class="pass-tag">96.8/100</td>
             </tr>
             <tr>
-              <td><span class="rank-badge">04</span></td>
-              <td><span class="role-badge">#WF-ROLE0090-01..10</span></td>
-              <td>PMO & Scope Intake Manager ([ORGN]₁)</td>
-              <td>Cluster 1</td>
+              <td class="rank-num">04</td>
+              <td style="color: var(--neon-green);">#WF-ROLE0090-03..30</td>
+              <td>UCMS Automation Specialist ([ACTN]₃)</td>
               <td>512</td>
-              <td>89.0%</td>
-              <td><span class="score-pass">97.5 / 100</span></td>
-            </tr>
-            <tr>
-              <td><span class="rank-badge">05</span></td>
-              <td><span class="role-badge">#WF-ROLE0090-03..30</span></td>
-              <td>Automation Execution Engine ([ACTN]₃)</td>
-              <td>Cluster 3</td>
-              <td>438</td>
-              <td>85.2%</td>
-              <td><span class="score-pass">96.0 / 100</span></td>
+              <td>84.1%</td>
+              <td class="pass-tag">96.0/100</td>
             </tr>
           </tbody>
         </table>
-      </div>
-    </div>
 
-    <!-- TAB 4: CHECKOUT -->
-    <div id="tab-checkout" class="tab-content">
-      <div class="panel-card" data-dots="00.10.20.60">
-        <div class="panel-title">
-          <span>B2B COMMERCIAL CONTRACT CHECKOUT ENGINE</span>
-          <span style="font-size: 10px; color: var(--cyber-gold);">[TRAI]₆</span>
+        <div class="pledge-banner">
+          🔒 ZERO-BURNOUT PLEDGE ENGINE: <strong>20.00% Net Revenue Automatically Allocated to 4KT Youth IT Server Trust</strong>
         </div>
-        <form class="checkout-form" onsubmit="event.preventDefault(); processFullCheckout();">
-          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px;">
-            <div class="form-group">
-              <label class="form-label">Client Name</label>
-              <input type="text" id="full-name" class="form-input" placeholder="e.g., Marvin Executive" required>
-            </div>
-            <div class="form-group">
-              <label class="form-label">Client Email</label>
-              <input type="email" id="full-email" class="form-input" placeholder="e.g., client@domain.com" required>
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="form-label">Select Package</label>
-            <select id="full-package" class="form-select" onchange="updateFullTotal()">
-              <option value="75">Tier 1: B2B Support Package ($75.00 Base)</option>
-              <option value="750" selected>Tier 2: Executive Commercial Strategy ($750.00 Base)</option>
-              <option value="1500">Tier 3: Master Enterprise Transformation ($1,500.00 Base)</option>
-            </select>
-          </div>
-          <div class="checkout-summary">
-            <div class="summary-row"><span>Transaction Subtotal:</span><span id="f-sub">$750.00</span></div>
-            <div class="summary-row"><span>Tennessee Sales Tax (9.75%):</span><span id="f-tax">$73.13</span></div>
-            <div class="summary-row"><span>20% Youth IT Server Pledge (4KT Trust):</span><span id="f-pledge">$150.00</span></div>
-            <div class="summary-row summary-total"><span>Total Certified Checkout Amount:</span><span id="f-tot">$823.13</span></div>
-          </div>
-          <button type="submit" class="btn-action">GENERATE CERTIFIED SOW CONTRACT & RECEIPT</button>
-        </form>
-      </div>
-    </div>
+      </section>
 
-    <!-- TAB 5: VERIFICATION -->
-    <div id="tab-verify" class="tab-content">
-      <div class="panel-card" data-dots="00.10.20.80">
-        <div class="panel-title">
-          <span>SQLITE BUSINESS.DB LEDGER VERIFICATION</span>
-          <span style="font-size: 10px; color: var(--neon-cyan);">[COGN]∯</span>
+      <!-- B2B SOW CHECKOUT ENGINE -->
+      <section class="checkout-section">
+        <div class="section-header">
+          <span>💼 B2B COMMERCIAL SOW CHECKOUT ENGINE</span>
+          <span style="font-size: 11px; font-family: var(--font-code); color: var(--cyber-gold);">[9.75% TN Sales Tax Included]</span>
         </div>
-        <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 12px;">
-          Query central database memory state and inspect Adler-32 micro-seal hashes:
-        </p>
-        <div style="background-color: #03050a; padding: 16px; border-radius: 6px; font-family: var(--font-code); font-size: 11px; border: 1px solid var(--border-slate);">
-          <div style="color: var(--neon-green); font-weight: 700; margin-bottom: 8px;">[SQLITE PRAGMA VERIFICATION SUCCESSFUL]</div>
-          <div style="color: var(--text-main);">Database Target: /workspace/database/business.db</div>
-          <div style="color: var(--text-main);">Active Table: agent_telemetry_ledger</div>
-          <div style="color: var(--text-main);">PRAGMA foreign_keys = ON;</div>
-          <div style="color: var(--text-main);">WAL Mode = ACTIVE;</div>
-          <br>
-          <div style="color: var(--cyber-gold);">[TERMINAL TELEMETRY MICRO-SEAL]</div>
-          <div style="color: var(--neon-cyan); word-break: break-all;">
-            &lt;!-- TELEMETRY_MICRO_SEAL | [EXEC | CHUS:9,950/10,000 | RASTQS:100/100 | SGA:100% | TECS:L0/95% | CMS:A32_815B063B] --&gt;
+
+        <div class="packages-grid">
+          <div class="pkg-card">
+            <div>
+              <div class="pkg-title">Technical Support Retainer</div>
+              <div class="pkg-price">$75.00 <span style="font-size: 11px; color: var(--text-muted);">/ hr</span></div>
+              <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 12px;">Standard tier 1-2 remote server diagnostics and patch deployments.</p>
+            </div>
+            <button class="pkg-btn" onclick="openCheckout('Support Retainer', 7500)">Order Package</button>
+          </div>
+
+          <div class="pkg-card" style="border-color: var(--neon-cyan);">
+            <div>
+              <div class="pkg-title">Executive Strategy SOW</div>
+              <div class="pkg-price">$750.00 <span style="font-size: 11px; color: var(--text-muted);">/ order</span></div>
+              <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 12px;">Full 10-tier architecture blueprinting and 200-token lean wrapper optimization.</p>
+            </div>
+            <button class="pkg-btn" onclick="openCheckout('Executive Strategy Package', 75000)">Order Package</button>
+          </div>
+
+          <div class="pkg-card">
+            <div>
+              <div class="pkg-title">Master Enterprise Package</div>
+              <div class="pkg-price">$1,500.00 <span style="font-size: 11px; color: var(--text-muted);">/ order</span></div>
+              <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 12px;">Complete turnkey system deployment with custom GitHub Pages domain setup.</p>
+            </div>
+            <button class="pkg-btn" onclick="openCheckout('Master Enterprise Package', 150000)">Order Package</button>
           </div>
         </div>
-      </div>
-    </div>
+      </section>
+    </main>
 
     <!-- FOOTER -->
-    <footer class="app-footer" data-dots="00.10.20.90">
-      <p>© 2026 AMAURYCAN MADE DIGITAL SOLUTIONS (AMDS) • ALL RIGHTS RESERVED</p>
-      <p style="margin-top: 4px; font-size: 10px;">PROPRIETARY IP :: GOVERNED BY THE UNIVERSAL 10-TIER OSAAT OPERATING LOGIC FRAMEWORK</p>
+    <footer>
+      <div>AMAURYCAN MADE UNIVERSAL // OFFICIAL DOMAIN: <a href="https://www.theamaurycanpulse.com" style="color: var(--neon-cyan); text-decoration: none;">WWW.THEAMAURYCANPULSE.COM</a></div>
+      <div style="margin-top: 4px; color: var(--text-muted);">STATE DESIGNATION: STATE MADE (v5.0 Release Lock) | Adler-32 CMS Certified</div>
     </footer>
   </div>
 
-  <!-- INSPECTION MODAL -->
-  <div id="inspect-modal" class="modal-overlay">
-    <div class="modal-box">
-      <div class="modal-header">
-        <span id="modal-title">NODE INSPECTION</span>
-        <span class="close-modal" onclick="closeModal()">✕ CLOSE</span>
-      </div>
-      <div id="modal-body" style="font-size: 12px; line-height: 1.8;">
-        <!-- DYNAMICALLY POPULATED -->
-      </div>
+  <!-- NODE INSPECTION MODAL -->
+  <div class="modal-overlay" id="nodeModal">
+    <div class="modal-content">
+      <span class="modal-close" onclick="closeModal('nodeModal')">&times;</span>
+      <div id="modalBody"></div>
     </div>
   </div>
 
+  <!-- CHECKOUT MODAL -->
+  <div class="modal-overlay" id="checkoutModal">
+    <div class="modal-content">
+      <span class="modal-close" onclick="closeModal('checkoutModal')">&times;</span>
+      <div id="checkoutBody"></div>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT LOGIC & XSS HARDENING -->
   <script>
-    // 13-NODE CONTINUUM DATA MATRIX
-    const treeData = [
-      { id: '.', tag: 'META-SEED', name: 'Root Apex Null', type: 'SEED', depth: 'DP.', dh: '.', dv: 'DP.', sra: 'DS.', subnet: '00.00.00.00.00', verb: '[META-ORIGIN / SEED]', coord: 'DOTS-WF-META', role: '#WF-ROLE-META', desc: 'Unmanifested seed coordinate holding meta-prompts and CTHT rules.' },
-      { id: '0', tag: 'DOTS-AMRY', name: 'Apex Ground / Trunk', type: 'TRUNK', depth: 'DP0', dh: '0', dv: 'DP0', sra: 'DS.₀', subnet: '00.00.00.00', verb: 'BLUEPRINTED', coord: 'Cluster 0 Architect', role: '#WF-ROLE0090-00..00', desc: 'Core architecture axis establishing $150/hr labor hardcodes.' },
-      { id: '1', tag: 'DOTS-AMDR', name: 'Scope Directory', type: 'BOUGH', depth: 'DP1', dh: '1', dv: 'DP1', sra: 'DS.₀.₁', subnet: '00.10.00.00', verb: 'ORGANIZED', coord: 'Cluster 1 PMO / Scope', role: '#WF-ROLE0090-01..10', desc: 'Scope directory bough governing UABAG intake & sitemaps.' },
-      { id: '2', tag: 'DOTS-AMDU', name: 'Structural SOW', type: 'LIMB', depth: 'DP2', dh: '2', dv: 'DP2', sra: 'DS.₀.₁.₂', subnet: '00.10.20.00', verb: 'STRUCTURED', coord: 'Cluster 2 Structure / DB', role: '#WF-ROLE0090-02..20', desc: 'Structural limb managing SQLite schemas & contract SOWs.' },
-      { id: '3', tag: 'DOTS-AMUC', name: 'Execution Pipeline', type: 'CONDUIT', depth: 'DP3', dh: '3', dv: 'DP3', sra: 'DS.₀.₁.₂.₃', subnet: '00.10.20.30', verb: 'ACTUATED', coord: 'Cluster 3 Automation', role: '#WF-ROLE0090-03..30', desc: 'Direct execution conduit routing UCMS IDE automation engines.' },
-      { id: '4', tag: 'DOTS-AMUS', name: 'Audit Gate Crossroads', type: 'FORK', depth: 'DP4', dh: '4', dv: 'DP4', sra: 'DS.₀..₄', subnet: '00.10.20.30.40', verb: 'ASSESSED', coord: 'Cluster 4 Quality Gate', role: '#WF-ROLE0090-04..40', desc: 'Audit gate crossroads executing 96-Point AST pass/fail checks.' },
-      { id: '5', tag: 'DOTS-AMHT', name: 'Self-Healing Joint', type: 'KNEE', depth: 'DP5', dh: '5', dv: 'DP5', sra: 'DS.₀..₅', subnet: '00.10.20.30.40.50', verb: 'TROUBLESHOT', coord: 'Cluster 5 Self-Healing', role: '#WF-ROLE0090-05..50', desc: 'Self-healing knee joint executing RegEx traps & BAA shields.' },
-      { id: '6', tag: 'DOTS-AMCE', name: 'Valuation Spawner', type: 'BRANCHLET', depth: 'DP6', dh: '6', dv: 'DP6', sra: 'DS.₀..₆', subnet: '00.10.20.30.40.50.60', verb: 'TRAINED', coord: 'Cluster 6 Valuation/Combat', role: '#WF-ROLE0090-06..60', desc: 'Valuation branchlet spawning PUDL units & 9.75% TN sales tax.' },
-      { id: '7', tag: 'DOTS-AMLS', name: 'Micro-Seal Authority', type: 'TWIG', depth: 'DP7', dh: '7', dv: 'DP7', sra: 'DS.₀..₇', subnet: '00.10.20.30.40.50.60.70', verb: 'TAUGHT', coord: 'Cluster 7 Licensing/Seals', role: '#WF-ROLE0090-07..70', desc: 'Micro-seal authority twig appending Adler-32 checksum seals.' },
-      { id: '8', tag: 'DOTS-AMDA', name: 'Central Memory Buffer', type: 'SPRIG', depth: 'DP8', dh: '8', dv: 'DP8', sra: 'DS.₀..∯', subnet: '00.10.20.30.40.50.60.70.80', verb: 'INTEGRATED', coord: 'Cluster 8 Memory Buffer', role: '#WF-ROLE0090-08..80', desc: 'Central memory sprig logging business.db writes & 20% 4KT trust.' },
-      { id: '9', tag: 'DOTS-AMUL', name: 'Master Baseline Lock', type: 'TREE-TIP', depth: 'DP9', dh: '9', dv: 'DP9', sra: 'DS.₀..≯', subnet: '00..90.00', verb: 'TORCHED (MADE)', coord: 'Cluster 9 Release Lock', role: '#WF-ROLE0090-09..90.00', desc: 'Outermost leaf node sealing master baseline releases (/out/).' },
-      { id: '10', tag: 'DOTS-DELTA-1', name: 'Delta Iteration Loop', type: 'FRUIT', depth: 'DP10', dh: '10', dv: 'DP10', sra: 'DS₁₀', subnet: '00..90.01', verb: '[RECYCLED / DELTA LOOP]', coord: 'DOTS-WF-LOOP', role: '#WF-ROLE-LOOP-10..90.01', desc: 'First sub-octet delta iteration gathering predecessor telemetry.' },
-      { id: '11', tag: 'DOTS-DELTA-1.1', name: 'Cold Storage Vault', type: 'FOSSIL', depth: 'DP11', dh: '11', dv: 'DP11', sra: 'DS₁₁', subnet: '00..90.01.01', verb: '[ARCHIVED / COLD VAULT]', coord: 'DOTS-WF-VAULT', role: '#WF-ROLE-VAULT-11..90.01.01', desc: 'Sub-sub-octet iteration archiving immutable IP in cold storage.' }
-    ];
-
-    // TAB SWITCHER
-    function switchTab(tabId) {
-      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-      document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
-
-      event.currentTarget.classList.add('active');
-      document.getElementById('tab-' + tabId).classList.add('active');
+    // XSS SANITIZATION HELPER
+    function sanitize(str) {
+      if (!str) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
     }
 
-    // RENDER TREE
-    function renderTree() {
-      const container = document.getElementById('tree-container');
-      container.innerHTML = '';
+    // 13-NODE CONTINUUM DATA REGISTER
+    const nodesData = [
+      {
+        id: "NODE_.",
+        dhidxa: ".",
+        dvdptha: "DP.",
+        d2wra: "[DHIDXA:., DVDPTHA:DP.]",
+        dsnra: "00.00.00.00.00",
+        dssra: "DS.",
+        dnodt: "SEED",
+        dnodfn: "META ORIGIN",
+        dmseed: "META-SEED",
+        dwcrd: "DOTS-WF-META",
+        dwrole: "#WF-ROLE-META",
+        dosvrb: "[META-ORIGIN / SEED]",
+        dosl: "[DOSL:.]",
+        emoji: "🌰",
+        decoupled: true,
+        desc: "Unmanifested seed coordinate holding meta-prompts and CTHT rules prior to physical code instantiation."
+      },
+      {
+        id: "NODE_0",
+        dhidxa: "0",
+        dvdptha: "DP0",
+        d2wra: "[DHIDXA:0, DVDPTHA:DP0]",
+        dsnra: "00.00.00.00",
+        dssra: "DS.₀",
+        dnodt: "TRUNK",
+        dnodfn: "APEX GROUND",
+        dmseed: "DOTS-AMRY",
+        dwcrd: "Cluster-0 Architect",
+        dwrole: "#WF-ROLE0090-00..00",
+        dosvrb: "BLUEPRINTED",
+        dosl: "[DOSL:0]",
+        emoji: "🪵",
+        decoupled: false,
+        desc: "Core architecture axis establishing $150/hr labor hardcodes and master system directives."
+      },
+      {
+        id: "NODE_1",
+        dhidxa: "1",
+        dvdptha: "DP1",
+        d2wra: "[DHIDXA:1, DVDPTHA:DP1]",
+        dsnra: "00.10.00.00",
+        dssra: "DS.₀.₁",
+        dnodt: "BOUGH",
+        dnodfn: "SCOPE DIRECTORY",
+        dmseed: "DOTS-AMDR",
+        dwcrd: "Cluster-1 PMO / Scope",
+        dwrole: "#WF-ROLE0090-01..10",
+        dosvrb: "ORGANIZED",
+        dosl: "[DOSL:1]",
+        emoji: "🌲",
+        decoupled: false,
+        desc: "Scope directory bough governing UABAG intake, sitemaps, and directory trees."
+      },
+      {
+        id: "NODE_2",
+        dhidxa: "2",
+        dvdptha: "DP2",
+        d2wra: "[DHIDXA:2, DVDPTHA:DP2]",
+        dsnra: "00.10.20.00",
+        dssra: "DS.₀.₁.₂",
+        dnodt: "LIMB",
+        dnodfn: "STRUCTURAL SOW",
+        dmseed: "DOTS-AMDU",
+        dwcrd: "Cluster-2 Structure / DB",
+        dwrole: "#WF-ROLE0090-02..20",
+        dosvrb: "STRUCTURED",
+        dosl: "[DOSL:2]",
+        emoji: "🌿",
+        decoupled: false,
+        desc: "Structural limb managing SQLite schemas, lean 200-token wrappers, and contract SOWs."
+      },
+      {
+        id: "NODE_3",
+        dhidxa: "3",
+        dvdptha: "DP3",
+        d2wra: "[DHIDXA:3, DVDPTHA:DP3]",
+        dsnra: "00.10.20.30",
+        dssra: "DS.₀.₁.₂.₃",
+        dnodt: "CONDUIT",
+        dnodfn: "EXECUTION PIPELINE",
+        dmseed: "DOTS-AMUC",
+        dwcrd: "Cluster-3 Automation",
+        dwrole: "#WF-ROLE0090-03..30",
+        dosvrb: "ACTUATED",
+        dosl: "[DOSL:3]",
+        emoji: "⚡",
+        decoupled: false,
+        desc: "Direct execution conduit routing UCMS IDE automation engines and watchdog daemons."
+      },
+      {
+        id: "NODE_4",
+        dhidxa: "4",
+        dvdptha: "DP4",
+        d2wra: "[DHIDXA:4, DVDPTHA:DP4]",
+        dsnra: "00.10.20.30.40",
+        dssra: "DS.₀..₄",
+        dnodt: "FORK",
+        dnodfn: "AUDIT GATE CROSSROADS",
+        dmseed: "DOTS-AMUS",
+        dwcrd: "Cluster-4 Quality Gate",
+        dwrole: "#WF-ROLE0090-04..40",
+        dosvrb: "ASSESSED",
+        dosl: "[DOSL:4]",
+        emoji: "🔀",
+        decoupled: false,
+        desc: "Audit gate crossroads executing 96-Point AST pass/fail validation checks."
+      },
+      {
+        id: "NODE_5",
+        dhidxa: "5",
+        dvdptha: "DP5",
+        d2wra: "[DHIDXA:5, DVDPTHA:DP5]",
+        dsnra: "00.10.20.30.40.50",
+        dssra: "DS.₀..₅",
+        dnodt: "KNEE",
+        dnodfn: "SELF-HEALING JOINT",
+        dmseed: "DOTS-AMHT",
+        dwcrd: "Cluster-5 Self-Healing",
+        dwrole: "#WF-ROLE0090-05..50",
+        dosvrb: "TROUBLESHOT",
+        dosl: "[DOSL:5]",
+        emoji: "🩹",
+        decoupled: false,
+        desc: "Self-healing knee joint executing RegEx error traps, automated retries, and BAA legal shields."
+      },
+      {
+        id: "NODE_6",
+        dhidxa: "6",
+        dvdptha: "DP6",
+        d2wra: "[DHIDXA:6, DVDPTHA:DP6]",
+        dsnra: "00.10.20.30.40.50.60",
+        dssra: "DS.₀..₆",
+        dnodt: "BRANCHLET",
+        dnodfn: "VALUATION SPAWNER",
+        dmseed: "DOTS-AMCE",
+        dwcrd: "Cluster-6 Valuation / Combat",
+        dwrole: "#WF-ROLE0090-06..60",
+        dosvrb: "TRAINED",
+        dosl: "[DOSL:6]",
+        emoji: "🌱",
+        decoupled: false,
+        desc: "Valuation branchlet spawning PUDL billing units, dynamic pricing, and 9.75% TN sales tax."
+      },
+      {
+        id: "NODE_7",
+        dhidxa: "7",
+        dvdptha: "DP7",
+        d2wra: "[DHIDXA:7, DVDPTHA:DP7]",
+        dsnra: "00.10.20.30.40.50.60.70",
+        dssra: "DS.₀..₇",
+        dnodt: "TWIG",
+        dnodfn: "MICRO-SEAL AUTHORITY",
+        dmseed: "DOTS-AMLS",
+        dwcrd: "Cluster-7 Licensing / Seals",
+        dwrole: "#WF-ROLE0090-07..70",
+        dosvrb: "TAUGHT",
+        dosl: "[DOSL:7]",
+        emoji: "🍃",
+        decoupled: false,
+        desc: "Micro-seal authority twig appending Adler-32 checksum seals and title deeds."
+      },
+      {
+        id: "NODE_8",
+        dhidxa: "8",
+        dvdptha: "DP8",
+        d2wra: "[DHIDXA:8, DVDPTHA:DP8]",
+        dsnra: "00.10.20.30.40.50.60.70.80",
+        dssra: "DS.₀..∯",
+        dnodt: "SPRIG",
+        dnodfn: "CENTRAL MEMORY BUFFER",
+        dmseed: "DOTS-AMDA",
+        dwcrd: "Cluster-8 Memory Buffer",
+        dwrole: "#WF-ROLE0090-08..80",
+        dosvrb: "INTEGRATED",
+        dosl: "[DOSL:8]",
+        emoji: "🌾",
+        decoupled: false,
+        desc: "Central memory sprig logging business.db WAL writes and 20% 4KT youth server trust allocations."
+      },
+      {
+        id: "NODE_9",
+        dhidxa: "9",
+        dvdptha: "DP9",
+        d2wra: "[DHIDXA:9, DVDPTHA:DP9]",
+        dsnra: "00..90.00",
+        dssra: "DS.₀..≯",
+        dnodt: "TREE-TIP",
+        dnodfn: "BASELINE RELEASE LOCK",
+        dmseed: "DOTS-AMUL",
+        dwcrd: "Cluster-9 Release Lock",
+        dwrole: "#WF-ROLE0090-09..90.00",
+        dosvrb: "TORCHED (MADE)",
+        dosl: "[DOSL:9]",
+        emoji: "🎯",
+        decoupled: false,
+        desc: "Outermost leaf node sealing master baseline releases to permanent storage (/out/)."
+      },
+      {
+        id: "NODE_10",
+        dhidxa: "10",
+        dvdptha: "DP10",
+        d2wra: "[DHIDXA:10, DVDPTHA:DP10]",
+        dsnra: "00..90.01",
+        dssra: "DS₁₀",
+        dnodt: "FRUIT",
+        dnodfn: "DELTA ITERATION",
+        dmseed: "DOTS-DELTA-1",
+        dwcrd: "DOTS-WF-LOOP",
+        dwrole: "#WF-ROLE-LOOP-10..90.01",
+        dosvrb: "[RECYCLED / DELTA LOOP]",
+        dosl: "[DOSL:10]",
+        emoji: "🍎",
+        decoupled: true,
+        desc: "First sub-octet delta iteration gathering predecessor execution telemetry and feedback loops."
+      },
+      {
+        id: "NODE_11",
+        dhidxa: "11",
+        dvdptha: "DP11",
+        d2wra: "[DHIDXA:11, DVDPTHA:DP11]",
+        dsnra: "00..90.01.01",
+        dssra: "DS₁₁",
+        dnodt: "FOSSIL",
+        dnodfn: "COLD STORAGE VAULT",
+        dmseed: "DOTS-DELTA-1.1",
+        dwcrd: "DOTS-WF-VAULT",
+        dwrole: "#WF-ROLE-VAULT-11..90.01.01",
+        dosvrb: "[ARCHIVED / COLD VAULT]",
+        dosl: "[DOSL:11]",
+        emoji: "💎",
+        decoupled: true,
+        desc: "Sub-sub-octet iteration archiving immutable IP backups in cold storage vaults."
+      }
+    ];
 
-      treeData.forEach((node) => {
-        const item = document.createElement('div');
-        item.className = 'tree-node-item';
-        item.onclick = () => inspectNode(node);
+    // RENDER TREE NODES
+    function renderTree(filteredNodes) {
+      const grid = document.getElementById('treeGrid');
+      grid.innerHTML = '';
 
-        item.innerHTML = `
-          <div class="tree-node-header">
-            <span class="node-tag">[${node.tag}]</span>
-            <span class="node-title">${node.name}</span>
-            <span class="node-verb">${node.verb}</span>
+      const nodesToRender = filteredNodes || nodesData;
+      nodesToRender.forEach(node => {
+        const card = document.createElement('div');
+        card.className = `node-card ${node.decoupled ? 'decoupled-node' : ''}`;
+        card.onclick = () => openNodeModal(node.id);
+
+        card.innerHTML = `
+          <div class="node-header">
+            <div class="node-title-group">
+              <span class="node-emoji">${sanitize(node.emoji)}</span>
+              <span class="node-id">${sanitize(node.id)}</span>
+            </div>
+            <span class="node-verb-badge">${sanitize(node.dosvrb)}</span>
           </div>
-          <div class="tree-node-meta">
-            <span>[DHIDXA:${node.dh}]</span>
-            <span>[DVDPTHA:${node.dv}]</span>
-            <span>[DSSRA:${node.sra}]</span>
-            <span>[DSNRA:${node.subnet}]</span>
-            <span>[DNODT:${node.type}]</span>
+          <div class="node-attributes">
+            <div class="attr-row"><span>TYPE [DNODT]:</span> <span class="attr-val">${sanitize(node.dnodt)}</span></div>
+            <div class="attr-row"><span>FUNCTION [DNODFN]:</span> <span class="attr-val">${sanitize(node.dnodfn)}</span></div>
+            <div class="attr-row"><span>SUBNET [DSNRA]:</span> <span class="attr-val">${sanitize(node.dsnra)}</span></div>
+            <div class="attr-row"><span>BRAND [DMSEED]:</span> <span class="attr-val">${sanitize(node.dmseed)}</span></div>
           </div>
         `;
-        container.appendChild(item);
+        grid.appendChild(card);
       });
     }
 
-    // INSPECT NODE MODAL
-    function inspectNode(node) {
-      document.getElementById('modal-title').innerText = `NODE INSPECTION :: ${node.tag}`;
-      document.getElementById('modal-body').innerHTML = `
-        <div style="color: var(--neon-cyan); margin-bottom: 8px;"><strong>[SINGLE-D HEADER TAG REGISTER]</strong></div>
-        <div>🏷️ <strong>[DHIDXA]</strong> Horizontal Index: ${node.dh}</div>
-        <div>📐 <strong>[DVDPTHA]</strong> Vertical Depth: ${node.dv}</div>
-        <div>🔄 <strong>[D2WRA]</strong> Two-Way Address: [DHIDXA:${node.dh}, DVDPTHA:${node.dv}]</div>
-        <div>🌐 <strong>[DSNRA]</strong> Subnet Address: ${node.subnet}</div>
-        <div>🔤 <strong>[DSSRA]</strong> Subscript Lineage: ${node.sra}</div>
-        <div>🌿 <strong>[DNODT]</strong> Botanical Type: ${node.type}</div>
-        <div>🏷️ <strong>[DNODFN]</strong> Functional Title: ${node.name}</div>
-        <div>🧬 <strong>[DMSEED]</strong> Master Seed: ${node.tag}</div>
-        <div>👥 <strong>[DWCRD]</strong> Coordinator: ${node.coord}</div>
-        <div>👤 <strong>[DWROLE]</strong> Role Tag: ${node.role}</div>
-        <div>⚡ <strong>[DOSVRB]</strong> Active Verb: ${node.verb}</div>
-        <div style="margin-top: 8px; color: var(--text-muted);">📝 <strong>Description:</strong> ${node.desc}</div>
+    // SEARCH FILTER
+    function filterNodes() {
+      const query = document.getElementById('nodeSearch').value.toLowerCase();
+      const filtered = nodesData.filter(n =>
+        n.id.toLowerCase().includes(query) ||
+        n.dmseed.toLowerCase().includes(query) ||
+        n.dnodfn.toLowerCase().includes(query) ||
+        n.dnodt.toLowerCase().includes(query) ||
+        n.dsnra.toLowerCase().includes(query)
+      );
+      renderTree(filtered);
+    }
+
+    // NODE MODAL
+    function openNodeModal(nodeId) {
+      const node = nodesData.find(n => n.id === nodeId);
+      if (!node) return;
+
+      const modalBody = document.getElementById('modalBody');
+      modalBody.innerHTML = `
+        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px;">
+          <span style="font-size: 32px;">${sanitize(node.emoji)}</span>
+          <div>
+            <h2 style="font-family: var(--font-head); font-size: 18px; color: var(--neon-cyan);">${sanitize(node.id)} // ${sanitize(node.dnodfn)}</h2>
+            <div style="font-family: var(--font-code); font-size: 11px; color: var(--text-muted);">SUBNET: ${sanitize(node.dsnra)}</div>
+          </div>
+        </div>
+
+        <div style="font-family: var(--font-code); font-size: 12px; display: flex; flex-direction: column; gap: 8px; background: #060913; padding: 16px; border-radius: 6px; border: 1px solid var(--border-slate); margin-bottom: 16px;">
+          <div><strong style="color: var(--neon-cyan);">[DHIDXA]:</strong> ${sanitize(node.dhidxa)}</div>
+          <div><strong style="color: var(--neon-cyan);">[DVDPTHA]:</strong> ${sanitize(node.dvdptha)}</div>
+          <div><strong style="color: var(--neon-cyan);">[D2WRA]:</strong> ${sanitize(node.d2wra)}</div>
+          <div><strong style="color: var(--neon-cyan);">[DSSRA]:</strong> ${sanitize(node.dssra)}</div>
+          <div><strong style="color: var(--neon-cyan);">[DMSEED]:</strong> ${sanitize(node.dmseed)}</div>
+          <div><strong style="color: var(--neon-cyan);">[DWCRD]:</strong> ${sanitize(node.dwcrd)}</div>
+          <div><strong style="color: var(--neon-cyan);">[DWROLE]:</strong> ${sanitize(node.dwrole)}</div>
+          <div><strong style="color: var(--neon-cyan);">[DOSVRB]:</strong> ${sanitize(node.dosvrb)}</div>
+          <div><strong style="color: var(--neon-cyan);">[DOSL]:</strong> ${sanitize(node.dosl)}</div>
+        </div>
+
+        <p style="font-size: 13px; color: var(--text-main); line-height: 1.6;">${sanitize(node.desc)}</p>
       `;
-      document.getElementById('inspect-modal').style.display = 'flex';
+      document.getElementById('nodeModal').style.display = 'flex';
     }
 
-    function closeModal() {
-      document.getElementById('inspect-modal').style.display = 'none';
+    // CHECKOUT MODAL
+    function openCheckout(pkgName, baseCents) {
+      const taxCents = Math.round(baseCents * 0.0975);
+      const totalCents = baseCents + taxCents;
+      const pledgeCents = Math.round(baseCents * 0.20);
+
+      const checkoutBody = document.getElementById('checkoutBody');
+      checkoutBody.innerHTML = `
+        <h2 style="font-family: var(--font-head); font-size: 18px; color: var(--neon-cyan); margin-bottom: 8px;">ORDER CONFIRMATION</h2>
+        <div style="font-family: var(--font-code); font-size: 12px; color: var(--text-muted); margin-bottom: 16px;">PACKAGE: ${sanitize(pkgName)}</div>
+
+        <div style="font-family: var(--font-code); font-size: 12px; background: #060913; padding: 16px; border-radius: 6px; border: 1px solid var(--border-slate); margin-bottom: 16px;">
+          <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
+            <span>Subtotal:</span>
+            <span>$${(baseCents / 100).toFixed(2)}</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
+            <span>TN Sales Tax (9.75%):</span>
+            <span>$${(taxCents / 100).toFixed(2)}</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; border-top: 1px solid var(--border-slate); padding-top: 8px; font-weight: 700; color: var(--neon-green);">
+            <span>TOTAL:</span>
+            <span>$${(totalCents / 100).toFixed(2)}</span>
+          </div>
+        </div>
+
+        <div style="background: rgba(255, 183, 3, 0.1); border: 1px solid var(--cyber-gold); padding: 10px; border-radius: 4px; font-family: var(--font-code); font-size: 11px; color: var(--cyber-gold); margin-bottom: 16px;">
+          🔒 4KT TRUST FUND PLEDGE: $${(pledgeCents / 100).toFixed(2)} (20%) will be automatically contributed to Youth IT Servers.
+        </div>
+
+        <button class="pkg-btn" onclick="alert('B2B SOW Order Logged to business.db Ledger! Certificate ID: A32_815B063B'); closeModal('checkoutModal');">Confirm & Certified Lock</button>
+      `;
+      document.getElementById('checkoutModal').style.display = 'flex';
     }
 
-    // CHECKOUT CALCULATIONS
-    function updateQuickTotal() {
-      const base = parseFloat(document.getElementById('quick-package').value);
-      const tax = base * 0.0975;
-      const pledge = base * 0.20;
-      const total = base + tax;
-
-      document.getElementById('q-sub').innerText = `$${base.toFixed(2)}`;
-      document.getElementById('q-tax').innerText = `$${tax.toFixed(2)}`;
-      document.getElementById('q-pledge').innerText = `$${pledge.toFixed(2)}`;
-      document.getElementById('q-tot').innerText = `$${total.toFixed(2)}`;
+    function closeModal(modalId) {
+      document.getElementById(modalId).style.display = 'none';
     }
 
-    function updateFullTotal() {
-      const base = parseFloat(document.getElementById('full-package').value);
-      const tax = base * 0.0975;
-      const pledge = base * 0.20;
-      const total = base + tax;
-
-      document.getElementById('f-sub').innerText = `$${base.toFixed(2)}`;
-      document.getElementById('f-tax').innerText = `$${tax.toFixed(2)}`;
-      document.getElementById('f-pledge').innerText = `$${pledge.toFixed(2)}`;
-      document.getElementById('f-tot').innerText = `$${total.toFixed(2)}`;
-    }
-
-    function processQuickCheckout() {
-      const name = document.getElementById('quick-name').value;
-      const total = document.getElementById('q-tot').innerText;
-      alert(`RECEIPT GENERATED FOR ${name.toUpperCase()}
-Total Certified: ${total}
-State: 90.90 MADE
-Receipt Logged to business.db`);
-    }
-
-    function processFullCheckout() {
-      const name = document.getElementById('full-name').value;
-      const email = document.getElementById('full-email').value;
-      const total = document.getElementById('f-tot').innerText;
-      alert(`CONTRACT & RECEIPT ISSUED FOR ${name.toUpperCase()} (${email})
-Total Certified: ${total}
-20% Auto-Pledged to 4KT Trust
-Signed & Sealed in business.db`);
-    }
-
-    // INITIALIZE
-    window.onload = function() {
+    // INITIAL RENDER
+    window.onload = () => {
       renderTree();
-      updateQuickTotal();
-      updateFullTotal();
     };
   </script>
 </body>
